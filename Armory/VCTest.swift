@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCTest
 
 protocol VCTest {
     associatedtype T: UIViewController
@@ -22,12 +23,18 @@ protocol VCTest {
     func pump()
     
     func harness(_ vc: UIViewController)
+    
+    func expectation(description: String) -> XCTestExpectation
+    func waitForExpectations(timeout: TimeInterval, handler: XCWaitCompletionHandler?)
+    
+    func after(_ test: @autoclosure @escaping () -> Bool)
 }
 
 
 extension VCTest {
     func build() {
         harness(viewController)
+        pump()
     }
     
     func tap(_ control: UIControl) {
@@ -47,6 +54,23 @@ extension VCTest {
         }
     }
     
+    func after(_ test: @autoclosure @escaping () -> Bool) {
+        let exp = expectation(description: "Foobarxyz")
+        let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.afterWaiting.rawValue, true, 0) { (observer, _) in
+            let _ = self.viewController.view.layer.presentation()
+            if test() == true {
+                CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+                exp.fulfill()
+            }
+        }
+        
+        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+        
+        waitForExpectations(timeout: 4.0, handler: nil)
+    }
+    
+   
+    
     func pump() {
         RunLoop.current.limitDate(forMode: RunLoopMode.defaultRunLoopMode)
     }
@@ -55,6 +79,5 @@ extension VCTest {
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
         window.rootViewController = vc
         window.makeKeyAndVisible()
-        pump()
     }
 }

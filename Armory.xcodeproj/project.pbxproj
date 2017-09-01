@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE26628E1F5869C5009CDB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628D1F5869C5009CDB89 /* AppDelegate.swift */; };
+		BE2662901F5869C5009CDB89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628F1F5869C5009CDB89 /* ViewController.swift */; };
+		BE2662931F5869C5009CDB89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662911F5869C5009CDB89 /* Main.storyboard */; };
+		BE2662951F5869C5009CDB89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2662941F5869C5009CDB89 /* Assets.xcassets */; };
+		BE2662981F5869C5009CDB89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662961F5869C5009CDB89 /* LaunchScreen.storyboard */; };
 		BE4182941F560D9800DD6309 /* Armory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE41828A1F560D9800DD6309 /* Armory.framework */; };
 		BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182981F560D9800DD6309 /* ArmoryTests.swift */; };
 		BE41829B1F560D9800DD6309 /* Armory.h in Headers */ = {isa = PBXBuildFile; fileRef = BE41828D1F560D9800DD6309 /* Armory.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -14,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BE26629D1F5869DD009CDB89 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE4182811F560D9800DD6309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE26628A1F5869C5009CDB89;
+			remoteInfo = Host;
+		};
 		BE4182951F560D9800DD6309 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BE4182811F560D9800DD6309 /* Project object */;
@@ -24,6 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE26628B1F5869C5009CDB89 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE26628D1F5869C5009CDB89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BE26628F1F5869C5009CDB89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BE2662921F5869C5009CDB89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BE2662941F5869C5009CDB89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE2662971F5869C5009CDB89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE2662991F5869C5009CDB89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE41828A1F560D9800DD6309 /* Armory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Armory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE41828D1F560D9800DD6309 /* Armory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Armory.h; sourceTree = "<group>"; };
 		BE41828E1F560D9800DD6309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BE2662881F5869C5009CDB89 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE4182861F560D9800DD6309 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,11 +78,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE26628C1F5869C5009CDB89 /* Host */ = {
+			isa = PBXGroup;
+			children = (
+				BE26628D1F5869C5009CDB89 /* AppDelegate.swift */,
+				BE26628F1F5869C5009CDB89 /* ViewController.swift */,
+				BE2662911F5869C5009CDB89 /* Main.storyboard */,
+				BE2662941F5869C5009CDB89 /* Assets.xcassets */,
+				BE2662961F5869C5009CDB89 /* LaunchScreen.storyboard */,
+				BE2662991F5869C5009CDB89 /* Info.plist */,
+			);
+			path = Host;
+			sourceTree = "<group>";
+		};
 		BE4182801F560D9800DD6309 = {
 			isa = PBXGroup;
 			children = (
 				BE41828C1F560D9800DD6309 /* Armory */,
 				BE4182971F560D9800DD6309 /* ArmoryTests */,
+				BE26628C1F5869C5009CDB89 /* Host */,
 				BE41828B1F560D9800DD6309 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +106,7 @@
 			children = (
 				BE41828A1F560D9800DD6309 /* Armory.framework */,
 				BE4182931F560D9800DD6309 /* ArmoryTests.xctest */,
+				BE26628B1F5869C5009CDB89 /* Host.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +144,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BE26628A1F5869C5009CDB89 /* Host */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE26629A1F5869C5009CDB89 /* Build configuration list for PBXNativeTarget "Host" */;
+			buildPhases = (
+				BE2662871F5869C5009CDB89 /* Sources */,
+				BE2662881F5869C5009CDB89 /* Frameworks */,
+				BE2662891F5869C5009CDB89 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Host;
+			productName = Host;
+			productReference = BE26628B1F5869C5009CDB89 /* Host.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BE4182891F560D9800DD6309 /* Armory */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE41829E1F560D9800DD6309 /* Build configuration list for PBXNativeTarget "Armory" */;
@@ -133,6 +191,7 @@
 			);
 			dependencies = (
 				BE4182961F560D9800DD6309 /* PBXTargetDependency */,
+				BE26629E1F5869DD009CDB89 /* PBXTargetDependency */,
 			);
 			name = ArmoryTests;
 			productName = ArmoryTests;
@@ -149,6 +208,11 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = stablekernel;
 				TargetAttributes = {
+					BE26628A1F5869C5009CDB89 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = R9AR4U6NWF;
+						ProvisioningStyle = Automatic;
+					};
 					BE4182891F560D9800DD6309 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = R9AR4U6NWF;
@@ -159,6 +223,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = R9AR4U6NWF;
 						ProvisioningStyle = Automatic;
+						TestTargetID = BE26628A1F5869C5009CDB89;
 					};
 				};
 			};
@@ -168,6 +233,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = BE4182801F560D9800DD6309;
 			productRefGroup = BE41828B1F560D9800DD6309 /* Products */;
@@ -176,11 +242,22 @@
 			targets = (
 				BE4182891F560D9800DD6309 /* Armory */,
 				BE4182921F560D9800DD6309 /* ArmoryTests */,
+				BE26628A1F5869C5009CDB89 /* Host */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BE2662891F5869C5009CDB89 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2662981F5869C5009CDB89 /* LaunchScreen.storyboard in Resources */,
+				BE2662951F5869C5009CDB89 /* Assets.xcassets in Resources */,
+				BE2662931F5869C5009CDB89 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE4182881F560D9800DD6309 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +275,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BE2662871F5869C5009CDB89 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE2662901F5869C5009CDB89 /* ViewController.swift in Sources */,
+				BE26628E1F5869C5009CDB89 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE4182851F560D9800DD6309 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +303,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BE26629E1F5869DD009CDB89 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE26628A1F5869C5009CDB89 /* Host */;
+			targetProxy = BE26629D1F5869DD009CDB89 /* PBXContainerItemProxy */;
+		};
 		BE4182961F560D9800DD6309 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BE4182891F560D9800DD6309 /* Armory */;
@@ -224,7 +315,52 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		BE2662911F5869C5009CDB89 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE2662921F5869C5009CDB89 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BE2662961F5869C5009CDB89 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE2662971F5869C5009CDB89 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		BE26629B1F5869C5009CDB89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R9AR4U6NWF;
+				INFOPLIST_FILE = Host/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = stablekernel.Host;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BE26629C1F5869C5009CDB89 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R9AR4U6NWF;
+				INFOPLIST_FILE = Host/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = stablekernel.Host;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		BE41829C1F560D9800DD6309 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -336,6 +472,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				INFOPLIST_FILE = Armory/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -357,6 +494,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				INFOPLIST_FILE = Armory/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -377,6 +515,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = stablekernel.ArmoryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Host.app/Host";
 			};
 			name = Debug;
 		};
@@ -390,12 +529,22 @@
 				PRODUCT_BUNDLE_IDENTIFIER = stablekernel.ArmoryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Host.app/Host";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BE26629A1F5869C5009CDB89 /* Build configuration list for PBXNativeTarget "Host" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE26629B1F5869C5009CDB89 /* Debug */,
+				BE26629C1F5869C5009CDB89 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BE4182841F560D9800DD6309 /* Build configuration list for PBXProject "Armory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -412,6 +561,7 @@
 				BE4182A01F560D9800DD6309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE4182A11F560D9800DD6309 /* Build configuration list for PBXNativeTarget "ArmoryTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +570,7 @@
 				BE4182A31F560D9800DD6309 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
