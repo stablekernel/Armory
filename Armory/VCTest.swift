@@ -51,7 +51,7 @@ extension VCTest {
         control.becomeFirstResponder()
         pump()
         
-        for c in text.characters {
+        for c in text {
             control.insertText(String(c))
             pump()
         }
