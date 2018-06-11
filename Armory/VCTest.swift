@@ -39,6 +39,8 @@ protocol VCTest {
 
     func waitForPresentedViewController<A: UIViewController>() -> A
     func waitForDismissedViewController()
+
+    func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
 }
 
 // MARK: - VCTest Default Implementation
@@ -117,6 +119,16 @@ extension VCTest {
 
     func waitForDismissedViewController() {
         after(self.viewController.presentedViewController == nil)
+    }
+}
+
+// MARK: - Date Selection
+
+extension VCTest {
+
+    func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool) {
+        datePicker.setDate(date, animated: animated)
+        pump()
     }
 }
 
