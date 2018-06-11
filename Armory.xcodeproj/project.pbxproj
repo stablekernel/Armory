@@ -19,6 +19,7 @@
 		D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
 		D338A7F420CEDFF100EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
 		D338A7F520CEE10E00EE26B6 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
+		D338A7F720CEE2F600EE26B6 /* UIView+HitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BE41829A1F560D9800DD6309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4182A61F560E3700DD6309 /* VCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTest.swift; sourceTree = "<group>"; };
 		D338A7F220CEDF1900EE26B6 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
+		D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HitTest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				BE41828E1F560D9800DD6309 /* Info.plist */,
 				BE4182A61F560E3700DD6309 /* VCTest.swift */,
 				D338A7F220CEDF1900EE26B6 /* Robot.swift */,
+				D338A7F820CEE33500EE26B6 /* Extensions */,
 			);
 			path = Armory;
 			sourceTree = "<group>";
@@ -133,6 +136,14 @@
 				BE41829A1F560D9800DD6309 /* Info.plist */,
 			);
 			path = ArmoryTests;
+			sourceTree = "<group>";
+		};
+		D338A7F820CEE33500EE26B6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D338A7F720CEE2F600EE26B6 /* UIView+HitTest.swift in Sources */,
 				D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */,
 				BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */,
 			);

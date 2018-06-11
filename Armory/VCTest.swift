@@ -40,15 +40,18 @@ protocol VCTest {
 // MARK: - VCTest Default Implementation
 
 extension VCTest {
-    
+
     func build() {
         harness(viewController)
         pump()
     }
     
     func tap(_ control: UIControl) {
-        // Should make sure we *can* tap it
-        control.sendActions(for: UIControlEvents.touchUpInside)
+        guard isTappable(control) else {
+            return
+        }
+
+        control.sendActions(for: .touchUpInside)
         pump()
     }
     
@@ -88,5 +91,18 @@ extension VCTest {
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
         window.rootViewController = vc
         window.makeKeyAndVisible()
+    }
+}
+
+// MARK: - Private
+
+extension VCTest {
+
+    /**
+     Returns whether UIControl is able to be tapped.
+     - parameter control: checked for ability to be tapped
+     */
+    fileprivate func isTappable(_ control: UIControl) -> Bool {
+        return !control.isSkippedDuringHitTest && control.canBecomeFirstResponder
     }
 }
