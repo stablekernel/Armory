@@ -16,6 +16,9 @@
 		BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182981F560D9800DD6309 /* ArmoryTests.swift */; };
 		BE41829B1F560D9800DD6309 /* Armory.h in Headers */ = {isa = PBXBuildFile; fileRef = BE41828D1F560D9800DD6309 /* Armory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
+		D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
+		D338A7F420CEDFF100EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
+		D338A7F520CEE10E00EE26B6 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,7 @@
 		BE4182981F560D9800DD6309 /* ArmoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmoryTests.swift; sourceTree = "<group>"; };
 		BE41829A1F560D9800DD6309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4182A61F560E3700DD6309 /* VCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTest.swift; sourceTree = "<group>"; };
+		D338A7F220CEDF1900EE26B6 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 				BE41828D1F560D9800DD6309 /* Armory.h */,
 				BE41828E1F560D9800DD6309 /* Info.plist */,
 				BE4182A61F560E3700DD6309 /* VCTest.swift */,
+				D338A7F220CEDF1900EE26B6 /* Robot.swift */,
 			);
 			path = Armory;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */,
 				BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D338A7F420CEDFF100EE26B6 /* Robot.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
+				D338A7F520CEE10E00EE26B6 /* VCTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
