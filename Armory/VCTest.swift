@@ -35,6 +35,9 @@ protocol VCTest {
     func waitForExpectations(timeout: TimeInterval, handler: XCWaitCompletionHandler?)
     
     func after(_ test: @autoclosure @escaping () -> Bool)
+
+    func waitForPresentedViewController<A: UIViewController>() -> A
+    func waitForDismissedViewController()
 }
 
 // MARK: - VCTest Default Implementation
@@ -91,6 +94,18 @@ extension VCTest {
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
         window.rootViewController = vc
         window.makeKeyAndVisible()
+    }
+}
+
+extension VCTest {
+
+    func waitForPresentedViewController<A: UIViewController>() -> A {
+        after(self.viewController.presentedViewController != nil)
+        return viewController.presentedViewController as! A
+    }
+
+    func waitForDismissedViewController() {
+        after(self.viewController.presentedViewController == nil)
     }
 }
 
