@@ -41,6 +41,8 @@ protocol VCTest {
     func waitForDismissedViewController()
 
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
+
+    func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
 }
 
 // MARK: - VCTest Default Implementation
@@ -128,6 +130,16 @@ extension VCTest {
 
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool) {
         datePicker.setDate(date, animated: animated)
+        pump()
+    }
+}
+
+// MARK: UIPicker Selection
+
+extension VCTest {
+
+    func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool) {
+        picker.selectRow(row, inComponent: 0, animated: false)
         pump()
     }
 }
