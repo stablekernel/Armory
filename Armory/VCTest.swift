@@ -9,12 +9,16 @@
 import Foundation
 import XCTest
 
+// MARK: - VCTestSetup
+
 protocol VCTestSetup {
 
     func build()
 
     func harness(_ vc: UIViewController)
 }
+
+// MARK: - VCTest
 
 protocol VCTest {
     associatedtype ViewControllerType: UIViewController
@@ -33,8 +37,10 @@ protocol VCTest {
     func after(_ test: @autoclosure @escaping () -> Bool)
 }
 
+// MARK: - VCTest Default Implementation
 
 extension VCTest {
+    
     func build() {
         harness(viewController)
         pump()
