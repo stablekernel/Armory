@@ -26,6 +26,7 @@ protocol VCTest {
     var viewController: ViewControllerType! { get }
 
     func tap(_ control: UIControl)
+    func tap(_ barButtonItem: UIBarButtonItem)
     
     func type(_ control: UITextField, text: String)
     
@@ -55,6 +56,16 @@ extension VCTest {
         }
 
         control.sendActions(for: .touchUpInside)
+        pump()
+    }
+
+    func tap(_ barButtonItem: UIBarButtonItem) {
+        guard let target = barButtonItem.target,
+            let action = barButtonItem.action else {
+                return
+        }
+
+        let _ = target.perform(action, with: barButtonItem)
         pump()
     }
     
