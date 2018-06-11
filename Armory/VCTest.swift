@@ -9,20 +9,23 @@
 import Foundation
 import XCTest
 
-protocol VCTest {
-    associatedtype T: UIViewController
-    
-    var viewController: T! { get }
-    
+protocol VCTestSetup {
+
     func build()
-    
+
+    func harness(_ vc: UIViewController)
+}
+
+protocol VCTest {
+    associatedtype ViewControllerType: UIViewController
+
+    var viewController: ViewControllerType! { get }
+
     func tap(_ control: UIControl)
     
     func type(_ control: UITextField, text: String)
     
     func pump()
-    
-    func harness(_ vc: UIViewController)
     
     func expectation(description: String) -> XCTestExpectation
     func waitForExpectations(timeout: TimeInterval, handler: XCWaitCompletionHandler?)
