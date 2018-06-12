@@ -13,6 +13,7 @@ import UIKit
 @testable import Armory
 
 class AlertControllerTests: XCTestCase, VCTest {
+    
     var viewController: AlertViewController!
     
     override func setUp() {
