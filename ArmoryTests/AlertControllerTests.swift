@@ -19,7 +19,7 @@ class AlertControllerTests: XCTestCase, VCTest {
     override func setUp() {
         super.setUp()
         
-        viewController = AlertViewController(nibName: String(describing: AlertViewController.self), bundle: Bundle(for: AlertViewController.self))
+        viewController = AlertViewController(nibName: nil, bundle: Bundle(for: AlertViewController.self))
         build()
     }
     
@@ -29,51 +29,33 @@ class AlertControllerTests: XCTestCase, VCTest {
     
     // MARK: - UIAlertController Tests
     
-    func testAlertControllerAppears() {
-        let title = "Alert Title"
-        viewController.setupAlertController(style: .alert, title: title)
+    func testAlertControllerIsPresented() {
+        viewController.setupAlertController(style: .alert, title: "Alert Title")
         
         tap(viewController.showAlertButton)
         
         let _: UIAlertController = waitForPresentedViewController()
     }
     
-    func testAlertTextFieldIsValid() {
-        let title = "Alert Title"
-        viewController.setupAlertController(style: .alert, title: title)
+    func testTypingInAlertControllerTextField() {
+        viewController.setupAlertController(style: .alert, title: "Alert Title")
         
         let alertController = viewController.alertController
-        XCTAssertEqual(alertController?.textFields?.count, 0)
         
         alertController?.addTextField(configurationHandler: nil)
-        XCTAssertEqual(alertController?.textFields?.count, 1)
         
-        let textField = alertController?.textFields?.first
         let text = "Lorem ipsum"
-        type(textField!, text: text)
-        
-        XCTAssertEqual(alertController?.textFields?.first?.text, text)
-    }
-    
-    func testAlertDismissButtonDismisses() {
-        let title = "Alert Title"
-        let dismissButtonTitle = "Dismiss"
-        let dismissButtonAction = UIAlertAction(title: title, style: .cancel, handler: nil)
-        
-        viewController.setupAlertController(style: .alert, title: title, actions: [dismissButtonAction])
+        type(alertController!.textFields!.first!, text: text)
         
         tap(viewController.showAlertButton)
-        let alertController: UIAlertController = waitForPresentedViewController()
         
-        XCTAssertEqual(alertController.title, title)
-        
-        // TO-DO: Figure out how to programmatically call UIAlertAction button handler..
+        XCTAssertEqual(alertController!.textFields!.first!.text!, text)
     }
     
     // MARK: - ActionSheet Tests
+    
     func testActionSheetAppears() {
-        let title = "Alert Title"
-        viewController.setupAlertController(style: .actionSheet, title: title)
+        viewController.setupAlertController(style: .actionSheet, title: "Alert Title")
         
         tap(viewController.showAlertButton)
         
