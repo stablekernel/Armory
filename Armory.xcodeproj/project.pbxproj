@@ -13,6 +13,9 @@
 		7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181120D4207B006636E6 /* DatePickerViewController.swift */; };
 		7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0181220D4207B006636E6 /* DatePickerViewController.xib */; };
 		7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181520D420E9006636E6 /* DatePickerTests.swift */; };
+		7EE017EB20D01D57006636E6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE017E920D01D57006636E6 /* AlertViewController.swift */; };
+		7EE017EC20D01D57006636E6 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE017EA20D01D57006636E6 /* AlertViewController.xib */; };
+		7EE017EE20D0200A006636E6 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */; };
 		BE26628E1F5869C5009CDB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628D1F5869C5009CDB89 /* AppDelegate.swift */; };
 		BE2662901F5869C5009CDB89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628F1F5869C5009CDB89 /* ViewController.swift */; };
 		BE2662931F5869C5009CDB89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662911F5869C5009CDB89 /* Main.storyboard */; };
@@ -55,6 +58,9 @@
 		7EE0181120D4207B006636E6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		7EE0181220D4207B006636E6 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
 		7EE0181520D420E9006636E6 /* DatePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTests.swift; sourceTree = "<group>"; };
+		7EE017E920D01D57006636E6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		7EE017EA20D01D57006636E6 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
 		BE26628B1F5869C5009CDB89 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE26628D1F5869C5009CDB89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE26628F1F5869C5009CDB89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7EE017E820D01D23006636E6 /* TestViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7EE017E920D01D57006636E6 /* AlertViewController.swift */,
+				7EE017EA20D01D57006636E6 /* AlertViewController.xib */,
+			);
+			path = TestViewControllers;
+			sourceTree = "<group>";
+		};
 		BE26628C1F5869C5009CDB89 /* Host */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,12 +166,14 @@
 		BE4182971F560D9800DD6309 /* ArmoryTests */ = {
 			isa = PBXGroup;
 			children = (
+				7EE017E820D01D23006636E6 /* TestViewControllers */,
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
+				7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */,
 			);
 			path = ArmoryTests;
 			sourceTree = "<group>";
@@ -322,6 +339,7 @@
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
 				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
+				7EE017EC20D01D57006636E6 /* AlertViewController.xib in Resources */
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +377,10 @@
 				7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */,
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
+				7EE017EE20D0200A006636E6 /* AlertControllerTests.swift in Sources */,
+				D338A7F420CEDFF100EE26B6 /* Robot.swift in Sources */,
+				7EE017EB20D01D57006636E6 /* AlertViewController.swift in Sources */,
+				D338A7F520CEE10E00EE26B6 /* VCTest.swift in Sources */
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
