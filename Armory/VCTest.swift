@@ -141,6 +141,6 @@ extension VCTest {
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return !control.isSkippedDuringHitTest && control.canBecomeFirstResponder
+        return !control.isSkippedDuringHitTest
     }
 }
