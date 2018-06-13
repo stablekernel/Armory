@@ -11,7 +11,7 @@ import XCTest
 
 // MARK: - VCTestSetup
 
-protocol VCTestSetup {
+protocol VCTestSetup: VCTest {
 
     func build()
 
