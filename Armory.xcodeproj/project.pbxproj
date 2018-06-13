@@ -24,7 +24,7 @@
 		D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9BCE20D196BE00BC8892 /* TestViewController.swift */; };
 		D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800B20D16B9E00B19F8E /* WaitViewController.swift */; };
 		D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D349800C20D16B9E00B19F8E /* WaitViewController.xib */; };
-		D349801020D16C2C00B19F8E /* WaitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800F20D16C2C00B19F8E /* WaitTest.swift */; };
+		D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800F20D16C2C00B19F8E /* WaitTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,7 +66,7 @@
 		D33F9BCE20D196BE00BC8892 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D349800B20D16B9E00B19F8E /* WaitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
 		D349800C20D16B9E00B19F8E /* WaitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitViewController.xib; sourceTree = "<group>"; };
-		D349800F20D16C2C00B19F8E /* WaitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTest.swift; sourceTree = "<group>"; };
+		D349800F20D16C2C00B19F8E /* WaitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
-				D349800F20D16C2C00B19F8E /* WaitTest.swift */,
+				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* View Controllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
 			);
@@ -348,7 +348,7 @@
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
-				D349801020D16C2C00B19F8E /* WaitTest.swift in Sources */,
+				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

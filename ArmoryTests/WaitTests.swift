@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class WaitTest: XCTestCase, VCTestSetup {
+class WaitTests: XCTestCase, VCTestSetup {
 
     var viewController: WaitViewController!
 
