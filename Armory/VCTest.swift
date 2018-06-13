@@ -86,11 +86,6 @@ extension VCTest {
      Convenience that asserts a view controller is presented while subsequently returning it.
 
      - returns: The presented view controller
-
-     ````
-     tap(button)
-     let vc: UIViewController = waitForPresentedViewController
-     ````
      */
     func waitForPresentedViewController<A: UIViewController>() -> A {
         after(self.viewController.presentedViewController != nil)
@@ -99,11 +94,6 @@ extension VCTest {
 
     /**
      Convenience that asserts the presented view controller is dismissed
-
-     ````
-     tap(button)
-     waitForDismissedViewController()
-     ````
      */
     func waitForDismissedViewController() {
         after(self.viewController.presentedViewController == nil)
