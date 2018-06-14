@@ -146,9 +146,10 @@ extension VCTest {
 
     /**
      Returns whether UIControl is able to be tapped.
+
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return !control.isSkippedDuringHitTest
+        return control.superview?.hitTest(control.center, with: nil) == control
     }
 }

@@ -17,8 +17,6 @@
 		BE41829B1F560D9800DD6309 /* Armory.h in Headers */ = {isa = PBXBuildFile; fileRef = BE41828D1F560D9800DD6309 /* Armory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
 		D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
-		D338A7F720CEE2F600EE26B6 /* UIView+HitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */; };
-		D338A7F920CEE45600EE26B6 /* UIView+HitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */; };
 		D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */; };
 		D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */; };
 		D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9BCE20D196BE00BC8892 /* TestViewController.swift */; };
@@ -60,7 +58,6 @@
 		BE41829A1F560D9800DD6309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE4182A61F560E3700DD6309 /* VCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTest.swift; sourceTree = "<group>"; };
 		D338A7F220CEDF1900EE26B6 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
-		D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HitTest.swift"; sourceTree = "<group>"; };
 		D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		D33F9BCE20D196BE00BC8892 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -135,7 +132,6 @@
 				BE41828E1F560D9800DD6309 /* Info.plist */,
 				BE4182A61F560E3700DD6309 /* VCTest.swift */,
 				D338A7F220CEDF1900EE26B6 /* Robot.swift */,
-				D338A7F820CEE33500EE26B6 /* Extensions */,
 			);
 			path = Armory;
 			sourceTree = "<group>";
@@ -149,14 +145,6 @@
 				BE41829A1F560D9800DD6309 /* Info.plist */,
 			);
 			path = ArmoryTests;
-			sourceTree = "<group>";
-		};
-		D338A7F820CEE33500EE26B6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				D338A7F620CEE2F600EE26B6 /* UIView+HitTest.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D33F9BCD20D195ED00BC8892 /* View Controllers */ = {
@@ -333,7 +321,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D338A7F720CEE2F600EE26B6 /* UIView+HitTest.swift in Sources */,
 				D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */,
 				BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */,
 			);
@@ -343,7 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D338A7F920CEE45600EE26B6 /* UIView+HitTest.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
