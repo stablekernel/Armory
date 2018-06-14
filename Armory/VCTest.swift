@@ -31,8 +31,16 @@ protocol VCTest {
     
     func type(_ control: UITextField, text: String)
 
+    /**
+     Convenience that asserts a view controller is presented while subsequently returning it.
+
+     - returns: The presented view controller
+     */
     func waitForPresentedViewController<A: UIViewController>() -> A
 
+    /**
+     Convenience that asserts the presented view controller is dismissed
+     */
     func waitForDismissedViewController()
 
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
@@ -82,19 +90,11 @@ extension VCTest {
         }
     }
 
-    /**
-     Convenience that asserts a view controller is presented while subsequently returning it.
-
-     - returns: The presented view controller
-     */
     func waitForPresentedViewController<A: UIViewController>() -> A {
         after(self.viewController.presentedViewController != nil)
         return viewController.presentedViewController as! A
     }
 
-    /**
-     Convenience that asserts the presented view controller is dismissed
-     */
     func waitForDismissedViewController() {
         after(self.viewController.presentedViewController == nil)
     }
