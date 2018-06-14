@@ -110,15 +110,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7EE017E820D01D23006636E6 /* TestViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7EE017E920D01D57006636E6 /* AlertViewController.swift */,
-				7EE017EA20D01D57006636E6 /* AlertViewController.xib */,
-			);
-			path = TestViewControllers;
-			sourceTree = "<group>";
-		};
 		BE26628C1F5869C5009CDB89 /* Host */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,14 +157,13 @@
 		BE4182971F560D9800DD6309 /* ArmoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				7EE017E820D01D23006636E6 /* TestViewControllers */,
+				7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */,
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
-				7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */,
 			);
 			path = ArmoryTests;
 			sourceTree = "<group>";
@@ -183,6 +173,8 @@
 			children = (
 				7EE0181120D4207B006636E6 /* DatePickerViewController.swift */,
 				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
+				7EE017E920D01D57006636E6 /* AlertViewController.swift */,
+				7EE017EA20D01D57006636E6 /* AlertViewController.xib */,
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
 				D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */,
 				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
@@ -339,7 +331,7 @@
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
 				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
-				7EE017EC20D01D57006636E6 /* AlertViewController.xib in Resources */
+				7EE017EC20D01D57006636E6 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,9 +370,7 @@
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
 				7EE017EE20D0200A006636E6 /* AlertControllerTests.swift in Sources */,
-				D338A7F420CEDFF100EE26B6 /* Robot.swift in Sources */,
 				7EE017EB20D01D57006636E6 /* AlertViewController.swift in Sources */,
-				D338A7F520CEE10E00EE26B6 /* VCTest.swift in Sources */
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
