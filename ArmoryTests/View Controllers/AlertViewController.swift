@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlertViewController: UIViewController {
+class AlertViewController: TestViewController {
     
     // MARK: - Properties
     

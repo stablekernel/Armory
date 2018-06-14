@@ -19,7 +19,7 @@ class AlertControllerTests: XCTestCase, VCTest {
     override func setUp() {
         super.setUp()
         
-        viewController = AlertViewController(nibName: nil, bundle: Bundle(for: AlertViewController.self))
+        viewController = AlertViewController()
         build()
     }
     
