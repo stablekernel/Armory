@@ -42,7 +42,14 @@ protocol VCTest {
      Convenience that asserts the presented view controller is dismissed
      */
     func waitForDismissedViewController()
-
+    
+    /**
+     Calls the `setDate` method for the given `UIDatePicker` instance
+     
+     - parameter date: `Date` to be set in `UIDatePicker`
+     - parameter datePicker: `UIDatePicker` instance to set date on
+     - paramater animated: Default `true`. Set to `false` to disable animation of date selection.
+    */
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
     
     /**
@@ -106,7 +113,7 @@ extension VCTest {
         after(self.viewController.presentedViewController == nil)
     }
 
-    func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool) {
+    func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool = true) {
         datePicker.setDate(date, animated: animated)
         pump()
     }
