@@ -52,6 +52,23 @@ class AlertControllerTests: XCTestCase, VCTest {
         XCTAssertEqual(alertController!.textFields!.first!.text!, text)
     }
     
+    func testCorrectAlertActionHandlerIsCalled() {
+        let blueButton = UIAlertAction(title: "Blue", style: .default) { action in
+            self.viewController.view.backgroundColor = .blue
+        }
+        
+        let redButton = UIAlertAction(title: "Red", style: .default) { action in
+            self.viewController.view.backgroundColor = .red
+        }
+        
+        viewController.setupAlertController(style: .alert, title: "Change Background", message: nil, actions: [blueButton, redButton])
+        
+        tapButton(withTitle: "Red", fromAlertController: viewController.alertController)
+        pump()
+        
+        XCTAssertEqual(viewController.view.backgroundColor, UIColor.red)
+    }
+    
     // MARK: - ActionSheet Tests
     
     func testActionSheetAppears() {
