@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
+		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
+		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
 		BE26628E1F5869C5009CDB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628D1F5869C5009CDB89 /* AppDelegate.swift */; };
 		BE2662901F5869C5009CDB89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628F1F5869C5009CDB89 /* ViewController.swift */; };
 		BE2662931F5869C5009CDB89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662911F5869C5009CDB89 /* Main.storyboard */; };
@@ -43,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
 		BE26628B1F5869C5009CDB89 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE26628D1F5869C5009CDB89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE26628F1F5869C5009CDB89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
+				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
@@ -155,6 +162,8 @@
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
 				D349800B20D16B9E00B19F8E /* WaitViewController.swift */,
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
+				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
+				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
+				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,9 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
+				7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */,
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
 			);

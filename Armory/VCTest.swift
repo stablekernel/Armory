@@ -44,7 +44,14 @@ protocol VCTest {
     func waitForDismissedViewController()
 
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
-
+    
+    /**
+     Calls the `selectRow` method for given `UIPickerView` instance
+     
+     - parameter row: Item's row within `picker`
+     - parameter picker: The `UIPickerView` where item is located
+     - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
+     */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
