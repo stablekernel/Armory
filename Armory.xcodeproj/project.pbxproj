@@ -141,13 +141,13 @@
 			children = (
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
-				D33F9BCD20D195ED00BC8892 /* View Controllers */,
+				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
 			);
 			path = ArmoryTests;
 			sourceTree = "<group>";
 		};
-		D33F9BCD20D195ED00BC8892 /* View Controllers */ = {
+		D33F9BCD20D195ED00BC8892 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
@@ -156,7 +156,7 @@
 				D349800B20D16B9E00B19F8E /* WaitViewController.swift */,
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
 			);
-			path = "View Controllers";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
