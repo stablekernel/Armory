@@ -16,7 +16,7 @@ class PickerViewTests: XCTestCase, VCTest {
     
     var viewController: PickerViewController!
     
-    var testNames = ["John","Jaime","Jeremy"]
+    var testNames = ["John", "Jaime", "Jeremy"]
     
     override func setUp() {
         super.setUp()

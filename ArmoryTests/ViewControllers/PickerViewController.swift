@@ -18,14 +18,6 @@ class PickerViewController: TestViewController {
     
     @IBOutlet weak var pickerView: UIPickerView!
     
-    // MARK: - Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        pickerView.dataSource = self
-    }
-    
     // MARK: - Public
     
     func setupDataSource(names: [String]) {

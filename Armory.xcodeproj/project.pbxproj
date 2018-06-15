@@ -168,11 +168,11 @@
 				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
 				D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */,
+				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
+				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
 				D349800B20D16B9E00B19F8E /* WaitViewController.swift */,
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
-				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
-				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

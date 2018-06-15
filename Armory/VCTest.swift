@@ -118,8 +118,8 @@ extension VCTest {
         pump()
     }
 
-    func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool) {
-        picker.selectRow(row, inComponent: 0, animated: false)
+    func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
+        picker.selectRow(row, inComponent: 0, animated: animated)
         pump()
     }
 
