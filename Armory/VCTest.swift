@@ -20,7 +20,10 @@ protocol VCTestSetup: VCTest {
 
 // MARK: - VCTest
 
+typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
 protocol VCTest {
+    
     associatedtype ViewControllerType: UIViewController
 
     var viewController: ViewControllerType! { get }
@@ -28,6 +31,14 @@ protocol VCTest {
     func tap(_ control: UIControl)
 
     func tap(_ barButtonItem: UIBarButtonItem)
+    
+    /**
+     Calls handler associated with specified `UIAlertAction` in a given `UIAlertController` instance
+     
+     - parameter title: Title for `UIAlertAction`
+     - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+    */
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController)
     
     func type(_ control: UITextField, text: String)
 
@@ -90,6 +101,19 @@ extension VCTest {
         }
 
         let _ = target.perform(action, with: barButtonItem)
+        pump()
+    }
+    
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) {
+        guard let action = alertController.actions.first(where: { $0.title == title }) else {
+            return
+        }
+        
+        let actionhandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionhandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
+        
+        handler(action)
         pump()
     }
 

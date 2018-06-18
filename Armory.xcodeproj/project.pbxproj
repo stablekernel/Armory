@@ -16,6 +16,12 @@
 		7EE017EB20D01D57006636E6 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE017E920D01D57006636E6 /* AlertViewController.swift */; };
 		7EE017EC20D01D57006636E6 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE017EA20D01D57006636E6 /* AlertViewController.xib */; };
 		7EE017EE20D0200A006636E6 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */; };
+		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
+		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
+		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
+		7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181120D4207B006636E6 /* DatePickerViewController.swift */; };
+		7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0181220D4207B006636E6 /* DatePickerViewController.xib */; };
+		7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181520D420E9006636E6 /* DatePickerTests.swift */; };
 		BE26628E1F5869C5009CDB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628D1F5869C5009CDB89 /* AppDelegate.swift */; };
 		BE2662901F5869C5009CDB89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628F1F5869C5009CDB89 /* ViewController.swift */; };
 		BE2662931F5869C5009CDB89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662911F5869C5009CDB89 /* Main.storyboard */; };
@@ -61,6 +67,12 @@
 		7EE017E920D01D57006636E6 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		7EE017EA20D01D57006636E6 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		7EE017ED20D0200A006636E6 /* AlertControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
+		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
+		7EE0181120D4207B006636E6 /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		7EE0181220D4207B006636E6 /* DatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerViewController.xib; sourceTree = "<group>"; };
+		7EE0181520D420E9006636E6 /* DatePickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTests.swift; sourceTree = "<group>"; };
 		BE26628B1F5869C5009CDB89 /* Host.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Host.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE26628D1F5869C5009CDB89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE26628F1F5869C5009CDB89 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +187,8 @@
 				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
 				7EE017E920D01D57006636E6 /* AlertViewController.swift */,
 				7EE017EA20D01D57006636E6 /* AlertViewController.xib */,
+				7EE0181120D4207B006636E6 /* DatePickerViewController.swift */,
+				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
 				D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */,
 				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
