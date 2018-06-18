@@ -31,29 +31,6 @@ class PickerViewTests: XCTestCase, VCTest {
     
     // MARK: - UIPickerView Tests
     
-    func testValidDataSourceHasValidRows() {
-        viewController.setupDataSource(names: testNames)
-        
-        XCTAssertEqual(viewController.pickerView.numberOfRows(inComponent: 0), testNames.count)
-    }
-    
-    func testAddingToDataSourceInsertsNewItems() {
-        viewController.setupDataSource(names: testNames)
-        
-        let newName = "James"
-        viewController.addName(name: newName)
-        
-        XCTAssertEqual(viewController.pickerView.numberOfRows(inComponent: 0), testNames.count + 1)
-    }
-    
-    func testPickerViewItemIsDeletable() {
-        viewController.setupDataSource(names: testNames)
-        
-        viewController.removeName(atIndex: 1)
-        
-        XCTAssertEqual(viewController.pickerView.numberOfRows(inComponent: 0), testNames.count - 1)
-    }
-    
     func testPickerViewItemIsSelectable() {
         viewController.setupDataSource(names: testNames)
         
