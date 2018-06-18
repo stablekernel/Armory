@@ -26,6 +26,8 @@ class PickerViewTests: XCTestCase, VCTest {
     }
     
     override func tearDown() {
+        viewController = nil
+        
         super.tearDown()
     }
     

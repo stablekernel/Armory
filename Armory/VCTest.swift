@@ -48,7 +48,7 @@ protocol VCTest {
      
      - parameter date: `Date` to be set in `UIDatePicker`
      - parameter datePicker: `UIDatePicker` instance to set date on
-     - paramater animated: Default `true`. Set to `false` to disable animation of date selection.
+     - parameter animated: Default `true`. Set to `false` to disable animation of date selection.
     */
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
     
