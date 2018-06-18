@@ -20,7 +20,10 @@ protocol VCTestSetup: VCTest {
 
 // MARK: - VCTest
 
+typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
 protocol VCTest {
+    
     associatedtype ViewControllerType: UIViewController
 
     var viewController: ViewControllerType! { get }
@@ -28,6 +31,14 @@ protocol VCTest {
     func tap(_ control: UIControl)
 
     func tap(_ barButtonItem: UIBarButtonItem)
+    
+    /**
+     Calls handler associated with specified `UIAlertAction` in a given `UIAlertController` instance
+     
+     - parameter title: Title for `UIAlertAction`
+     - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+    */
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController)
     
     func type(_ control: UITextField, text: String)
 
@@ -42,9 +53,23 @@ protocol VCTest {
      Convenience that asserts the presented view controller is dismissed
      */
     func waitForDismissedViewController()
-
+    
+    /**
+     Calls the `setDate` method for the given `UIDatePicker` instance
+     
+     - parameter date: `Date` to be set in `UIDatePicker`
+     - parameter datePicker: `UIDatePicker` instance to set date on
+     - paramater animated: Default `true`. Set to `false` to disable animation of date selection.
+    */
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
-
+    
+    /**
+     Calls the `selectRow` method for given `UIPickerView` instance
+     
+     - parameter row: Item's row within `picker`
+     - parameter picker: The `UIPickerView` where item is located
+     - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
+     */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
@@ -78,6 +103,19 @@ extension VCTest {
         let _ = target.perform(action, with: barButtonItem)
         pump()
     }
+    
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) {
+        guard let action = alertController.actions.first(where: { $0.title == title }) else {
+            return
+        }
+        
+        let actionhandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionhandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
+        
+        handler(action)
+        pump()
+    }
 
     func type(_ control: UITextField, text: String) {
         // Should make sure it can be become first responder via tap
@@ -99,13 +137,13 @@ extension VCTest {
         after(self.viewController.presentedViewController == nil)
     }
 
-    func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool) {
+    func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool = true) {
         datePicker.setDate(date, animated: animated)
         pump()
     }
 
-    func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool) {
-        picker.selectRow(row, inComponent: 0, animated: false)
+    func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
+        picker.selectRow(row, inComponent: 0, animated: animated)
         pump()
     }
 
