@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E37909320D98FD900BFCD60 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37909120D98FD800BFCD60 /* CollectionViewController.xib */; };
+		7E37909420D98FD900BFCD60 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909220D98FD800BFCD60 /* CollectionViewController.swift */; };
+		7E37909620D9900700BFCD60 /* CollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909520D9900600BFCD60 /* CollectionViewTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
 		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E37909120D98FD800BFCD60 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		7E37909220D98FD800BFCD60 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		7E37909520D9900600BFCD60 /* CollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTests.swift; sourceTree = "<group>"; };
 		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
+				7E37909520D9900600BFCD60 /* CollectionViewTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
@@ -164,6 +171,8 @@
 		D33F9BCD20D195ED00BC8892 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7E37909220D98FD800BFCD60 /* CollectionViewController.swift */,
+				7E37909120D98FD800BFCD60 /* CollectionViewController.xib */,
 				7EE0181120D4207B006636E6 /* DatePickerViewController.swift */,
 				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
@@ -319,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
+				7E37909320D98FD900BFCD60 /* CollectionViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
 				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
@@ -354,6 +364,8 @@
 				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
+				7E37909420D98FD900BFCD60 /* CollectionViewController.swift in Sources */,
+				7E37909620D9900700BFCD60 /* CollectionViewTests.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
 				7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */,
 				7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */,
