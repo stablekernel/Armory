@@ -10,6 +10,9 @@
 		7E37908D20D98BF400BFCD60 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908B20D98BF400BFCD60 /* TableViewController.xib */; };
 		7E37908E20D98BF400BFCD60 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908C20D98BF400BFCD60 /* TableViewController.swift */; };
 		7E37909020D98C1500BFCD60 /* TableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908F20D98C1500BFCD60 /* TableViewTests.swift */; };
+		7E37908720D9697A00BFCD60 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908520D9697A00BFCD60 /* SliderViewController.swift */; };
+		7E37908820D9697A00BFCD60 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908620D9697A00BFCD60 /* SliderViewController.xib */; };
+		7E37908A20D96C6A00BFCD60 /* SliderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908920D96C6A00BFCD60 /* SliderViewTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
 		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
@@ -55,6 +58,9 @@
 		7E37908B20D98BF400BFCD60 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		7E37908C20D98BF400BFCD60 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		7E37908F20D98C1500BFCD60 /* TableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTests.swift; sourceTree = "<group>"; };
+		7E37908520D9697A00BFCD60 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		7E37908620D9697A00BFCD60 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
+		7E37908920D96C6A00BFCD60 /* SliderViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewTests.swift; sourceTree = "<group>"; };
 		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
+				7E37908920D96C6A00BFCD60 /* SliderViewTests.swift */,
 				7E37908F20D98C1500BFCD60 /* TableViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
@@ -177,6 +184,8 @@
 				D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */,
 				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
 				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
+				7E37908520D9697A00BFCD60 /* SliderViewController.swift */,
+				7E37908620D9697A00BFCD60 /* SliderViewController.xib */,
 				7E37908C20D98BF400BFCD60 /* TableViewController.swift */,
 				7E37908B20D98BF400BFCD60 /* TableViewController.xib */,
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
@@ -329,6 +338,7 @@
 			files = (
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
+				7E37908820D9697A00BFCD60 /* SliderViewController.xib in Resources */,
 				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				7E37908D20D98BF400BFCD60 /* TableViewController.xib in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
@@ -360,7 +370,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E37908A20D96C6A00BFCD60 /* SliderViewTests.swift in Sources */,
 				7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */,
+				7E37908720D9697A00BFCD60 /* SliderViewController.swift in Sources */,
 				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				7E37908E20D98BF400BFCD60 /* TableViewController.swift in Sources */,

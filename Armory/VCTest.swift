@@ -82,6 +82,14 @@ protocol VCTest {
      */
     func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
     
+     Calls the `setValue` method for given `UISlider` instance
+     
+     - parameter slider: The `UISlider` instance to interact with
+     - parameter value: The value to slide to (`Float`)
+     - paramater animated: Default `true`. Set to `false` to disable animation of sliding action.
+    */
+    func slide(_ slider: UISlider, toValue value: Float, animated: Bool)
+
     func after(_ test: @autoclosure @escaping () -> Bool)
 
     func pump()
@@ -152,6 +160,16 @@ extension VCTest {
         }
         
         return validCell
+
+    func slide(_ slider: UISlider, toValue value: Float, animated: Bool = true) {
+        // Ensure value is able to be set on slider
+        guard value >= slider.minimumValue && value <= slider.maximumValue else {
+            return
+        }
+        
+        slider.setValue(value, animated: animated)
+        slider.sendActions(for: .valueChanged)
+        pump()
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
