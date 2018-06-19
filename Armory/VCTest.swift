@@ -60,7 +60,17 @@ protocol VCTest {
      - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
-
+    
+    /**
+     Calls the `cellForRow` method for a `UITableView` instance and returns selected cell
+     
+     - parameter row: Cell's row within `tableView`
+     - parameter section: Section where cell is located (default = 0)
+     - parameter tableView: The `UITableView` that contains the cell
+     - returns: The cell at given row and section
+     */
+    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int, fromTableView tableView: UITableView?) -> A
+    
     func after(_ test: @autoclosure @escaping () -> Bool)
 
     func pump()
@@ -121,6 +131,13 @@ extension VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
         picker.selectRow(row, inComponent: 0, animated: animated)
         pump()
+    }
+    
+    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int = 0, fromTableView tableView: UITableView?) -> A {
+        let indexPath = IndexPath(row: row, section: section)
+        let cell = tableView?.cellForRow(at: indexPath)
+        
+        return cell as! A
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
