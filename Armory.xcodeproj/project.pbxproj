@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E37908120D9445E00BFCD60 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */; };
+		7E37908220D9445E00BFCD60 /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908020D9445E00BFCD60 /* SwitchViewController.xib */; };
+		7E37908420D9463000BFCD60 /* SwitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908320D9463000BFCD60 /* SwitchTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
 		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
@@ -49,6 +52,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
+		7E37908020D9445E00BFCD60 /* SwitchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
+		7E37908320D9463000BFCD60 /* SwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTests.swift; sourceTree = "<group>"; };
 		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
+				7E37908320D9463000BFCD60 /* SwitchTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
@@ -170,6 +177,8 @@
 				D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */,
 				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
 				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
+				7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */,
+				7E37908020D9445E00BFCD60 /* SwitchViewController.xib */,
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
 				D349800B20D16B9E00B19F8E /* WaitViewController.swift */,
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
@@ -318,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E37908220D9445E00BFCD60 /* SwitchViewController.xib in Resources */,
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
 				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
@@ -352,11 +362,13 @@
 			files = (
 				7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */,
 				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
+				7E37908120D9445E00BFCD60 /* SwitchViewController.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
 				7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */,
 				7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */,
+				7E37908420D9463000BFCD60 /* SwitchTests.swift in Sources */,
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
 			);

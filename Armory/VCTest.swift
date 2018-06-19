@@ -60,6 +60,14 @@ protocol VCTest {
      - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
+    
+    /**
+     Calls the `setOn` method of the given `UISwitch` instance
+     
+     - parameter aSwitch: `UISwitch` instance to toggle
+     - parameter animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
+    */
+    func toggleSwitch(_ aSwitch: UISwitch, animated: Bool)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -120,6 +128,12 @@ extension VCTest {
 
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
         picker.selectRow(row, inComponent: 0, animated: animated)
+        pump()
+    }
+    
+    func toggleSwitch(_ aSwitch: UISwitch, animated: Bool = true) {
+        aSwitch.setOn(!aSwitch.isOn, animated: true)
+        aSwitch.sendActions(for: .valueChanged)
         pump()
     }
 
