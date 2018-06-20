@@ -36,7 +36,7 @@ class DatePickerTests: XCTestCase, VCTest {
         selectDate(date, fromDatePicker: viewController.datePicker, animated: true)
         
         let toolbar = viewController.dateTextField.inputAccessoryView as! UIToolbar
-        let doneButton = toolbar.items!.first as! UIBarButtonItem
+        let doneButton = toolbar.items!.first!
         tap(doneButton)
         
         XCTAssertEqual(viewController.datePicker.date, date)
