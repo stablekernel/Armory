@@ -60,6 +60,20 @@ protocol VCTest {
      - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
+    
+    /**
+     Increments `stepper` by default `stepValue`
+     
+     - parameter stepper: The `UIStepper` instance to be incremented
+    */
+    func increment(_ stepper: UIStepper)
+    
+    /**
+     Decrements `stepper` by default `stepValue`
+     
+     - parameter stepper: The `UIStepper` instance to be decremented
+     */
+    func decrement(_ stepper: UIStepper)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -120,6 +134,26 @@ extension VCTest {
 
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
         picker.selectRow(row, inComponent: 0, animated: animated)
+        pump()
+    }
+    
+    func increment(_ stepper: UIStepper) {
+        guard stepper.value + stepper.stepValue <= stepper.maximumValue else {
+            return
+        }
+        
+        stepper.value += stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+        pump()
+    }
+    
+    func decrement(_ stepper: UIStepper) {
+        guard stepper.value - stepper.stepValue >= stepper.minimumValue else {
+            return
+        }
+        
+        stepper.value -= stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
         pump()
     }
 
