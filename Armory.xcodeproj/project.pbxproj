@@ -29,6 +29,10 @@
 		D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800B20D16B9E00B19F8E /* WaitViewController.swift */; };
 		D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D349800C20D16B9E00B19F8E /* WaitViewController.xib */; };
 		D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800F20D16C2C00B19F8E /* WaitTests.swift */; };
+		D34BC62620DAA21300921DEA /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34BC62520DAA21300921DEA /* TabBarTests.swift */; };
+		D34BC62820DAA2CA00921DEA /* UIImage+TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34BC62720DAA2CA00921DEA /* UIImage+TestImages.swift */; };
+		D34BC62D20DAA72600921DEA /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = D34BC62C20DAA72600921DEA /* lock.png */; };
+		D34BC62F20DAA73700921DEA /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = D34BC62E20DAA73600921DEA /* close.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		D349800B20D16B9E00B19F8E /* WaitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitViewController.swift; sourceTree = "<group>"; };
 		D349800C20D16B9E00B19F8E /* WaitViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitViewController.xib; sourceTree = "<group>"; };
 		D349800F20D16C2C00B19F8E /* WaitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTests.swift; sourceTree = "<group>"; };
+		D34BC62520DAA21300921DEA /* TabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTests.swift; sourceTree = "<group>"; };
+		D34BC62720DAA2CA00921DEA /* UIImage+TestImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestImages.swift"; sourceTree = "<group>"; };
+		D34BC62C20DAA72600921DEA /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		D34BC62E20DAA73600921DEA /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +161,10 @@
 			children = (
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
+				D34BC63020DAA74500921DEA /* Extensions */,
+				D34BC62B20DAA70400921DEA /* Images */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
+				D34BC62520DAA21300921DEA /* TabBarTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
@@ -175,6 +186,23 @@
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D34BC62B20DAA70400921DEA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D34BC62C20DAA72600921DEA /* lock.png */,
+				D34BC62E20DAA73600921DEA /* close.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		D34BC63020DAA74500921DEA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D34BC62720DAA2CA00921DEA /* UIImage+TestImages.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,8 +346,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34BC62F20DAA73700921DEA /* close.png in Resources */,
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
+				D34BC62D20DAA72600921DEA /* lock.png in Resources */,
 				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
 			);
@@ -353,12 +383,14 @@
 				7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */,
 				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
+				D34BC62620DAA21300921DEA /* TabBarTests.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
 				7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */,
 				7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */,
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
+				D34BC62820DAA2CA00921DEA /* UIImage+TestImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

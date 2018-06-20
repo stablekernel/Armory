@@ -61,6 +61,48 @@ protocol VCTest {
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
 
+    /**
+     Selects the tab at the specified index from the given `UITabBar` instance
+
+     - Note: The provided `UITabBar` instance must be managed by a `UITabBarController` otherwise we are not able to return the selected view controller.
+
+     This method will crash with a fatalError if provided a `UITabBar` that is not managed by `UITabBarController`
+
+     - parameter index: Index of the tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - returns: The view controller that is selected
+     */
+    func selectTab<A: UIViewController>(atIndex index: Int, fromTabBar tabBar: UITabBar) -> A
+
+    /**
+     Selects the tab with the specified title from the given `UITabBar` instance
+
+     - Note: The provided `UITabBar` instance must be managed by a `UITabBarController` otherwise we are not able to return the selected view controller.
+
+     This method will crash with a fatalError if provided a `UITabBar` that is not managed by `UITabBarController`
+
+     - parameter title: Title of tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - returns: The view controller that is selected
+     */
+    func selectTab<A: UIViewController>(withTitle title: String, fromTabBar tabBar: UITabBar) -> A
+
+    /**
+     Selects the tab with the specified image from the given `UITabBar` instance
+
+     - Note: The provided `UITabBar` instance must be managed by a `UITabBarController` otherwise we are not able to return the selected view controller.
+
+     This method will crash with a fatalError if provided a `UITabBar` that is not managed by `UITabBarController`
+
+     - parameter image: Image of tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - returns: The view controller that is selected
+     */
+    func selectTab<A: UIViewController>(withImage image: UIImage, fromTabBar tabBar: UITabBar) -> A
+
     func after(_ test: @autoclosure @escaping () -> Bool)
 
     func pump()
@@ -121,6 +163,34 @@ extension VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
         picker.selectRow(row, inComponent: 0, animated: animated)
         pump()
+    }
+
+    func selectTab<A: UIViewController>(atIndex index: Int, fromTabBar tabBar: UITabBar) -> A {
+        guard let controller = tabBar.delegate as? UITabBarController else {
+            fatalError("Provided UITabBar must be managed by a UITabBarController" )
+        }
+
+        controller.selectedIndex = index
+        pump()
+
+        return controller.selectedViewController as! A
+
+    }
+
+    func selectTab<A: UIViewController>(withTitle title: String, fromTabBar tabBar: UITabBar) -> A {
+        guard let index = tabBar.items?.enumerated().first(where: { $0.element.title == title })?.offset else {
+            fatalError("Provided UITabBar does not have a UITabBarItem with the title: \(title)")
+        }
+
+        return selectTab(atIndex: index, fromTabBar: tabBar)
+    }
+
+    func selectTab<A: UIViewController>(withImage image: UIImage, fromTabBar tabBar: UITabBar) -> A {
+        guard let index = tabBar.items?.enumerated().first(where: { $0.element.image == image })?.offset else {
+            fatalError("Provided UITabBar does not have a UITabBarItem with the image: \(image)")
+        }
+
+        return selectTab(atIndex: index, fromTabBar: tabBar)
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
