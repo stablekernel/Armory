@@ -132,6 +132,30 @@ protocol VCTest {
      - throws: ArmoryError.imageLookupFailed
      */
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
+    
+    /**
+     Selects the segment at index of given `UISegmentedControl`
+     
+     - parameter segmentedControl: `UISegmentedControl` instance to update
+     - parameter index: Index of segment to be selected
+     */
+    func selectSegment(_ segmentedControl: UISegmentedControl, atIndex index: Int)
+    
+    /**
+     Selects the segment with specified title of given `UISegmentedControl`
+     
+     - parameter segmentedControl: `UISegmentedControl` instance to update
+     - parameter title: Title of segment to tap
+     */
+    func selectSegment(_ segmentedControl: UISegmentedControl, withTitle title: String)
+    
+    /**
+     Selects the segment with specified image of given `UISegmentedControl`
+     
+     - parameter segmentedControl: `UISegmentedControl` instance to update
+     - parameter image: Image of segment to tap
+     */
+    func selectSegment(_ segmentedControl: UISegmentedControl, withImage image: UIImage)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -247,6 +271,32 @@ extension VCTest {
         }
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
+    }
+    
+    func selectSegment(_ segmentedControl: UISegmentedControl, atIndex index: Int) {
+        guard index < segmentedControl.numberOfSegments else {
+            return
+        }
+        
+        segmentedControl.selectedSegmentIndex = index
+        segmentedControl.sendActions(for: .valueChanged)
+        pump()
+    }
+    
+    func selectSegment(_ segmentedControl: UISegmentedControl, withTitle title: String) {
+        for index in 0..<segmentedControl.numberOfSegments {
+            if segmentedControl.titleForSegment(at: index) == title {
+                selectSegment(segmentedControl, atIndex: index)
+            }
+        }
+    }
+    
+    func selectSegment(_ segmentedControl: UISegmentedControl, withImage image: UIImage) {
+        for index in 0..<segmentedControl.numberOfSegments {
+            if segmentedControl.imageForSegment(at: index) == image {
+                selectSegment(segmentedControl, atIndex: index)
+            }
+        }
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {

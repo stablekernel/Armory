@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E4A070D20DC147700CA1EB6 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */; };
+		7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */; };
+		7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
 		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
@@ -55,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
+		7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlViewController.xib; sourceTree = "<group>"; };
+		7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlTests.swift; sourceTree = "<group>"; };
 		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
@@ -170,6 +176,7 @@
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */,
 				D34BC62520DAA21300921DEA /* TabBarTests.swift */,
+				7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
 				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
 				BE41829A1F560D9800DD6309 /* Info.plist */,
@@ -186,6 +193,8 @@
 				D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */,
 				7EE0180920D418DF006636E6 /* PickerViewController.swift */,
 				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
+				7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */,
+				7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */,
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
 				D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */,
 				D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */,
@@ -344,6 +353,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34BC62F20DAA73700921DEA /* close.png in Resources */,
+				7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */,
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
 				D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */,
@@ -380,6 +391,7 @@
 			files = (
 				7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */,
 				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
+				7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */,
 				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				D34BC62620DAA21300921DEA /* TabBarTests.swift in Sources */,
 				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
@@ -391,6 +403,7 @@
 				D37C6CEE20DD8568005AB9A3 /* TabBarViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
 				D34BC62820DAA2CA00921DEA /* UIImage+TestImages.swift in Sources */,
+				7E4A070D20DC147700CA1EB6 /* SegmentedControlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
