@@ -29,29 +29,6 @@ class AlertControllerTests: XCTestCase, VCTest {
     
     // MARK: - UIAlertController Tests
     
-    func testAlertControllerIsPresented() {
-        viewController.setupAlertController(style: .alert, title: "Alert Title")
-        
-        tap(viewController.showAlertButton)
-        
-        let _: UIAlertController = waitForPresentedViewController()
-    }
-    
-    func testTypingInAlertControllerTextField() {
-        viewController.setupAlertController(style: .alert, title: "Alert Title")
-        
-        let alertController = viewController.alertController
-        
-        alertController?.addTextField(configurationHandler: nil)
-        
-        let text = "Lorem ipsum"
-        type(alertController!.textFields!.first!, text: text)
-        
-        tap(viewController.showAlertButton)
-        
-        XCTAssertEqual(alertController!.textFields!.first!.text!, text)
-    }
-    
     func testCorrectAlertActionHandlerIsCalled() {
         let blueButton = UIAlertAction(title: "Blue", style: .default) { action in
             self.viewController.view.backgroundColor = .blue
@@ -62,6 +39,8 @@ class AlertControllerTests: XCTestCase, VCTest {
         }
         
         viewController.setupAlertController(style: .alert, title: "Change Background", message: nil, actions: [blueButton, redButton])
+        
+        tap(viewController.showAlertButton)
         
         tapButton(withTitle: "Red", fromAlertController: viewController.alertController)
         
