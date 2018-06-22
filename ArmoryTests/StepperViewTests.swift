@@ -25,6 +25,8 @@ class StepperViewTests: XCTestCase, VCTest {
     
     override func tearDown() {
         super.tearDown()
+        
+        viewController = nil
     }
     
     // MARK: - UIStepper tests
@@ -43,6 +45,30 @@ class StepperViewTests: XCTestCase, VCTest {
         decrement(viewController.stepper)
         
         XCTAssertEqual(viewController.stepper.value, originalValue - viewController.stepper.stepValue)
+    }
+    
+    func testCantExceedMaximumValue() {
+        let startingValue: Double = 95
+        viewController.stepper.value = startingValue
+        
+        let expectedValue = startingValue + viewController.stepper.stepValue
+        
+        increment(viewController.stepper)
+        
+        XCTAssertNotEqual(viewController.stepper.value, expectedValue)
+        XCTAssertEqual(viewController.stepper.value, viewController.stepper.maximumValue)
+    }
+    
+    func testCantExceedMinimumValue() {
+        let startingValue: Double = 5
+        viewController.stepper.value = startingValue
+        
+        let expectedValue = startingValue - viewController.stepper.stepValue
+        
+        decrement(viewController.stepper)
+        
+        XCTAssertNotEqual(viewController.stepper.value, expectedValue)
+        XCTAssertEqual(viewController.stepper.value, viewController.stepper.minimumValue)
     }
     
 }

@@ -138,20 +138,12 @@ extension VCTest {
     }
     
     func increment(_ stepper: UIStepper) {
-        guard stepper.value + stepper.stepValue <= stepper.maximumValue else {
-            return
-        }
-        
         stepper.value += stepper.stepValue
         stepper.sendActions(for: .valueChanged)
         pump()
     }
     
     func decrement(_ stepper: UIStepper) {
-        guard stepper.value - stepper.stepValue >= stepper.minimumValue else {
-            return
-        }
-        
         stepper.value -= stepper.stepValue
         stepper.sendActions(for: .valueChanged)
         pump()
