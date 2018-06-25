@@ -135,6 +135,7 @@ extension VCTest {
         let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
         
         handler(action)
+        alertController.dismiss(animated: true, completion: nil)
         pump()
     }
 

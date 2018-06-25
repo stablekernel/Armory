@@ -44,7 +44,10 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         tapButton(withTitle: "Red", fromAlertController: viewController.alertController)
         
+        waitForDismissedViewController()
+        
         XCTAssertEqual(viewController.view.backgroundColor, UIColor.red)
+        XCTAssertNil(viewController.presentedViewController)
     }
     
     // MARK: - ActionSheet Tests
@@ -55,5 +58,26 @@ class AlertControllerTests: XCTestCase, VCTest {
         tap(viewController.showAlertButton)
         
         let _: UIAlertController = waitForPresentedViewController()
+    }
+    
+    func testCorrectActionSheetIsCalled() {
+        let blueButton = UIAlertAction(title: "Blue", style: .default) { action in
+            self.viewController.view.backgroundColor = .blue
+        }
+        
+        let redButton = UIAlertAction(title: "Red", style: .default) { action in
+            self.viewController.view.backgroundColor = .red
+        }
+        
+        viewController.setupAlertController(style: .actionSheet, title: "Change background", message: nil, actions: [blueButton, redButton])
+        
+        tap(viewController.showAlertButton)
+        
+        tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
+        
+        waitForDismissedViewController()
+        
+        XCTAssertEqual(viewController.view.backgroundColor, .blue)
+        XCTAssertNil(viewController.presentedViewController)
     }
 }
