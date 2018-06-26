@@ -27,6 +27,8 @@ class TableViewTests: XCTestCase, VCTest {
     
     override func tearDown() {
         super.tearDown()
+        
+        viewController = nil
     }
     
     // MARK: - UITableView Tests

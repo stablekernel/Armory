@@ -69,7 +69,7 @@ protocol VCTest {
      - parameter tableView: The `UITableView` that contains the cell
      - returns: The cell at given row and section
      */
-    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int, fromTableView tableView: UITableView?) -> A
+    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int, fromTableView tableView: UITableView) -> A
     
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -133,11 +133,16 @@ extension VCTest {
         pump()
     }
     
-    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int = 0, fromTableView tableView: UITableView?) -> A {
+    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int = 0, fromTableView tableView: UITableView) -> A {
         let indexPath = IndexPath(row: row, section: section)
-        let cell = tableView?.cellForRow(at: indexPath)
+        let cell = tableView.cellForRow(at: indexPath)
         
-        return cell as! A
+        guard let validCell = cell as? A else {
+            XCTFail("Invalid cell type (\(Swift.type(of: cell))) found for expected cell type (\(A.self))")
+            return cell as! A
+        }
+        
+        return validCell
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
