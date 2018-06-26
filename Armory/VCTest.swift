@@ -62,14 +62,15 @@ protocol VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
     /**
-     Calls the `cellForItem` method for a `UICollectionView` instance and returns selected cell
+     Returns cell from given `row` in a `UICollectionView` instance
      
      - parameter row: Cell's row within `collectionView`
      - parameter section: Section where cell is located (default = 0)
      - parameter collectionView: The `UICollectionView` that contains the cell
+     
      - returns: The cell at given row and section
      */
-    func selectCell<A: UICollectionViewCell>(atRow row: Int, inSection section: Int, fromCollectionView collectionView: UICollectionView?) -> A
+    func selectCell<A: UICollectionViewCell>(atRow row: Int, inSection section: Int, fromCollectionView collectionView: UICollectionView) -> A
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -133,11 +134,16 @@ extension VCTest {
         pump()
     }
     
-    func selectCell<A: UICollectionViewCell>(atRow row: Int, inSection section: Int = 0, fromCollectionView collectionView: UICollectionView?) -> A {
+    func selectCell<A: UICollectionViewCell>(atRow row: Int, inSection section: Int = 0, fromCollectionView collectionView: UICollectionView) -> A {
         let indexPath = IndexPath(row: row, section: section)
-        let cell = collectionView?.cellForItem(at: indexPath)
+        let cell = collectionView.cellForItem(at: indexPath)
         
-        return cell as! A
+        guard let validCell = cell as? A else {
+            XCTFail("Invalid cell type (\(Swift.type(of: cell)) found for expected cell type (\(A.self)")
+            return cell as! A
+        }
+        
+        return validCell
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {

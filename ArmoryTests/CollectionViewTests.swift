@@ -27,6 +27,8 @@ class CollectionViewTests: XCTestCase, VCTest {
     
     override func tearDown() {
         super.tearDown()
+        
+        viewController = nil
     }
     
     // MARK: - UICollectionView Tests
