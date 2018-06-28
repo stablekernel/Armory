@@ -1,33 +1,34 @@
 # Quickstart
 
-Armory is built to run along side existing XCTests in your project. 
-
-To get started, first make sure your test class conforms to the `VCTest` protocol:
+In Forge, an HTTP server is represented by a `Gateway`.
 
 ```swift
-class MyViewControllerTests: XCTestCase, VCTest
+let gateway = Gateway(baseURL: myURL)
 ```
 
-Then use provided Armory methods in any place where you would like to simulate user interaction. For example, a `UITextField` that you want to enter text into would look like: 
+`Gateway`s are used to make and execute `HTTPRequest`s, that return a `Promise` for your model objects.
 
 ```swift
-type(viewController.myTextField, text: "Some text here")
+let request = gateway.request("users", userID)
+request
+  .execute()
+  .decode(as: User.self)
 ```
 
-The process is similar for other elements, so if you wanted to tap a button you would write:
+`Gateway`s [can be customized](gateway.md) to modify all requests made through them.
+
+`HTTPRequest`s include conveniences for working with `HTTPMethod`s, `HTTPHeaders` and `HTTPBody`s, and return `HTTPResponse`s, that can be modified or decoded.
+More on `HTTPRequest`s [here](request.md).
 
 ```swift
-tap(myButton)
+let request = gateway.request("users")
+request.headers.add(.contentType, "application/json")
+request.method = .post
+try request.body.encode(myNewUser)
+request
+  .execute()
+  .then(MyResponseMiddleware())
+  .decode(as: User.self)
 ```
 
-In addition to interacting with `UIKit` elements, Armory also provides conveniences for testing `UIViewController` presentations and dismissals. Below shows an example of how to test presenting and dismissing a `UIAlertController` instance:
-
-```swift
-tap(viewController.showAlert)
-
-let alertController: UIAlertController = waitForPresentedViewController()
-tapButton(withTitle: "Close", fromAlertController: alertController)
-
-waitForDismissedViewController()
-XCTAssertNil(viewController.presentedViewController)
-```
+Any model objects conforming to the `Codable` protocols can be used with `HTTPRequest` and `HTTPResponse`, although there are also [other Codable conveniences built in](model.md).
