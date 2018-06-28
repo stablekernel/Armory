@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>URLTransportable Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/URLTransportable" class="dashAnchor"></a>
+    <a title="URLTransportable Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Forge Docs</a> (72% documented)</p>
+        <p class="header-right"><a href="https://github.com/stablekernel/Forge"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Forge Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        URLTransportable Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicAuthenticationToken.html">BasicAuthenticationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataRequest.html">DataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EntityListRequest.html">EntityListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EntityRequest.html">EntityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:5Forge18EpochDateFormatterC">EpochDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPRequest.html">HTTPRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JSONRequest.html">JSONRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Keychain.html">Keychain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListModelGraphTransformer.html">ListModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ManagedListModelGraphTransformer.html">ManagedListModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ManagedModelGraphTransformer.html">ManagedModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MockResponse.html">MockResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MockSession.html">MockSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ModelGraphTransformer.html">ModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OAuthToken.html">OAuthToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceListRequest.html">ResourceListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceRequest.html">ResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceUpdateRequest.html">ResourceUpdateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TransportGateway.html">TransportGateway</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UpdateModelGraphTransformer.html">UpdateModelGraphTransformer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:5Forge24defaultJSONDateFormatterSo04DateD0Cvp">defaultJSONDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:5Forge20iso8601DateFormatterSo0cD0Cvp">iso8601DateFormatter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CollectionOperation.html">CollectionOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/JSONDecoderError.html">JSONDecoderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/KeychainError.html">KeychainError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ManagedCollectionOperation.html">ManagedCollectionOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MockSessionError.html">MockSessionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ModelGraphTransformerError.html">ModelGraphTransformerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TransportError.html">TransportError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/URLResult.html">URLResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/CharacterSet.html">CharacterSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSManagedObject.html">NSManagedObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSNumber.html">NSNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AuthenticationToken.html">AuthenticationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge24CompletableTransportableP">CompletableTransportable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONDecodable.html">JSONDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONDecodableObject.html">JSONDecodableObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge13JSONEncodableP">JSONEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONEncoding.html">JSONEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge13JSONFormatterP">JSONFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge16JSONInstantiableP">JSONInstantiable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONMappingRequest.html">JSONMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge17JSONRepresentableP">JSONRepresentable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONUpdatable.html">JSONUpdatable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ManagedJSONInstantiable.html">ManagedJSONInstantiable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Matchable.html">Matchable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ModelGraphTransformerProtocol.html">ModelGraphTransformerProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLTransportable.html">URLTransportable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLTransporter.html">URLTransporter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLValue.html">URLValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Forge10JSONObjecta">JSONObject</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>URLTransportable</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">URLTransportable</span><span class="p">:</span> <span class="kd">class</span></code></pre>
+
+                </div>
+              </div>
+            <p>Protocol for sending information to a URL.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16URLTransportablePAAE8addQueryySS3key_AA8URLValue_pSg5valuetF"></a>
+                    <a name="//apple_ref/swift/Method/addQuery(key:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16URLTransportablePAAE8addQueryySS3key_AA8URLValue_pSg5valuetF">addQuery(key:value:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a query value pair to the query string of the request URL. This value will be appended to the <code>baseURL</code>, path
+formed by the identifiers followed by a ? in the form <code>key=value</code>. You may add multiple query values before
+executing a request and they will be separated by the &amp; operator.</p>
+
+<p>Values are automatically escaped for you.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addQuery</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLValue.html">URLValue</a></span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The left hand side of the query pair.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The right hand side of the query pair, must be a <code>String</code>, <code>Int</code> or <code>nil</code>. Will be escaped
+by <code><a href="../Classes/HTTPRequest.html">HTTPRequest</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16URLTransportablePAAE10addQueriesys10DictionaryVySSAA8URLValue_pSgGF"></a>
+                    <a name="//apple_ref/swift/Method/addQueries(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16URLTransportablePAAE10addQueriesys10DictionaryVySSAA8URLValue_pSgGF">addQueries(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a set of query value pairs to the query string of the request URL. These values will be appended to the
+<code>baseURL</code>, path formed by the identifiers followed by a ? in the form key=value. You may add multiple query values
+before executing a request and they will be separated by the &amp; operator.</p>
+
+<p>Values are automatically escaped for you.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addQueries</span><span class="p">(</span><span class="n">_</span> <span class="nv">queries</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt"><a href="../Protocols/URLValue.html">URLValue</a></span><span class="p">?</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>queries</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary containing key-value pairs where the key must be an <code>String</code> and the value a
+<code><a href="../Protocols/URLValue.html">URLValue</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16URLTransportablePAAE9addHeaderySS3key_SS5valuetF"></a>
+                    <a name="//apple_ref/swift/Method/addHeader(key:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16URLTransportablePAAE9addHeaderySS3key_SS5valuetF">addHeader(key:value:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a header field to the request. The form in the request will be <q>key: value</q>. No further processing will be
+performed on the key or value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addHeader</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The left hand side name of the header field.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The right hand side value of the header field.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16URLTransportablePAAE10addHeadersys10DictionaryVyS2SGF"></a>
+                    <a name="//apple_ref/swift/Method/addHeaders(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16URLTransportablePAAE10addHeadersys10DictionaryVyS2SGF">addHeaders(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a set of header fields to the request. The form in the request will be <q>key: value</q>. No further processing will
+be performed on the keys or values.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addHeaders</span><span class="p">(</span><span class="n">_</span> <span class="nv">headers</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">String</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>headers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary where each key is the name of a header field and the value is the value in the
+request for that field.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16URLTransportablePAAE11addBodyPairySS3key_yp5valuetF"></a>
+                    <a name="//apple_ref/swift/Method/addBodyPair(key:value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16URLTransportablePAAE11addBodyPairySS3key_yp5valuetF">addBodyPair(key:value:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a key-value pair to the JSON request body of the request URL. Values can be any valid JSON type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addBodyPair</span><span class="p">(</span><span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>String</code> key for the value in the JSON body.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A JSON-serializable value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16URLTransportablePAAE12addBodyPairsys10DictionaryVySSypGF"></a>
+                    <a name="//apple_ref/swift/Method/addBodyPairs(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16URLTransportablePAAE12addBodyPairsys10DictionaryVySSypGF">addBodyPairs(_:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a set of key-value pairs to the JSON request body of the request URL. Values can be any valid JSON type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addBodyPairs</span><span class="p">(</span><span class="n">_</span> <span class="nv">pairs</span><span class="p">:</span> <span class="kt">Dictionary</span><span class="o">&lt;</span><span class="kt">String</span><span class="p">,</span> <span class="kt">Any</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pairs</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary of key-value pairs that can be encoded to JSON.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="http://stablekernel.com" target="_blank" rel="external">Stable|Kernel</a>. All rights reserved. (Last updated: 2018-06-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

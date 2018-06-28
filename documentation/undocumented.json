@@ -1,0 +1,838 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/AuthenticationToken.swift",
+      "line": 78,
+      "symbol": "BasicAuthenticationToken.encode(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/AuthenticationToken.swift",
+      "line": 83,
+      "symbol": "BasicAuthenticationToken.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/AuthenticationToken.swift",
+      "line": 135,
+      "symbol": "OAuthToken.init(accessToken:refreshToken:expiration:tokenType:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 116,
+      "symbol": "HTTPRequest.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 147,
+      "symbol": "HTTPRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 152,
+      "symbol": "HTTPRequest.cancel(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 250,
+      "symbol": "CompletableTransportable.ResultType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 252,
+      "symbol": "CompletableTransportable.completion",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 259,
+      "symbol": "DataRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 266,
+      "symbol": "DataRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 293,
+      "symbol": "JSONRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 300,
+      "symbol": "JSONRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 332,
+      "symbol": "JSONMappingRequest.ModelType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 333,
+      "symbol": "JSONMappingRequest.Transformer",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 378,
+      "symbol": "DecodableRequest",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 417,
+      "symbol": "ResourceRequest.ModelType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 418,
+      "symbol": "ResourceRequest.Transformer",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 419,
+      "symbol": "ResourceRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 429,
+      "symbol": "ResourceRequest.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 433,
+      "symbol": "ResourceRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 469,
+      "symbol": "ResourceListRequest.ModelType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 470,
+      "symbol": "ResourceListRequest.Transformer",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 471,
+      "symbol": "ResourceListRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 481,
+      "symbol": "ResourceListRequest.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 485,
+      "symbol": "ResourceListRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 522,
+      "symbol": "ResourceUpdateRequest.ModelType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 523,
+      "symbol": "ResourceUpdateRequest.Transformer",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 524,
+      "symbol": "ResourceUpdateRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 534,
+      "symbol": "ResourceUpdateRequest.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 538,
+      "symbol": "ResourceUpdateRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 574,
+      "symbol": "EntityRequest.ModelType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 575,
+      "symbol": "EntityRequest.Transformer",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 576,
+      "symbol": "EntityRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 586,
+      "symbol": "EntityRequest.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 590,
+      "symbol": "EntityRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 626,
+      "symbol": "EntityListRequest.ModelType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 627,
+      "symbol": "EntityListRequest.Transformer",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 628,
+      "symbol": "EntityListRequest.ResultType",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 638,
+      "symbol": "EntityListRequest.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/HTTPRequest.swift",
+      "line": 642,
+      "symbol": "EntityListRequest.cleanup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 26,
+      "symbol": "JSONDecodable.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 96,
+      "symbol": "String.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 108,
+      "symbol": "Int.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 114,
+      "symbol": "UInt.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 120,
+      "symbol": "Int8.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 126,
+      "symbol": "UInt8.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 132,
+      "symbol": "Int16.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 138,
+      "symbol": "UInt16.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 144,
+      "symbol": "Int32.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 150,
+      "symbol": "UInt32.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 156,
+      "symbol": "Int64.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 162,
+      "symbol": "UInt64.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 168,
+      "symbol": "Float.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 174,
+      "symbol": "Double.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 180,
+      "symbol": "Bool.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 186,
+      "symbol": "URL.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONDecodable.swift",
+      "line": 196,
+      "symbol": "RawRepresentable.from(json:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 13,
+      "symbol": "JSONEncodable.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 28,
+      "symbol": "JSONEncoding.jsonObject",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 34,
+      "symbol": "JSONEncoding.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 80,
+      "symbol": "String.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 85,
+      "symbol": "NSNumber.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 91,
+      "symbol": "Int.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 97,
+      "symbol": "UInt.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 103,
+      "symbol": "Int8.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 109,
+      "symbol": "UInt8.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 115,
+      "symbol": "Int16.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 121,
+      "symbol": "UInt16.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 127,
+      "symbol": "Int32.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 133,
+      "symbol": "UInt32.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 139,
+      "symbol": "Int64.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 145,
+      "symbol": "UInt64.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 151,
+      "symbol": "Float.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 157,
+      "symbol": "Double.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 163,
+      "symbol": "Bool.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 169,
+      "symbol": "URL.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONEncodable.swift",
+      "line": 175,
+      "symbol": "RawRepresentable.toJSON()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 13,
+      "symbol": "JSONFormatter.JSONPrimitive",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 14,
+      "symbol": "JSONFormatter.ValueType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 16,
+      "symbol": "JSONFormatter.value(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 17,
+      "symbol": "JSONFormatter.convertToJSON(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 213,
+      "symbol": "DateFormatter.value(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 217,
+      "symbol": "DateFormatter.convertToJSON(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 224,
+      "symbol": "ISO8601DateFormatter.value(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 228,
+      "symbol": "ISO8601DateFormatter.convertToJSON(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 235,
+      "symbol": "EpochDateFormatter.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 237,
+      "symbol": "EpochDateFormatter.value(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONFormatter.swift",
+      "line": 241,
+      "symbol": "EpochDateFormatter.convertToJSON(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/JSONInstantiable.swift",
+      "line": 13,
+      "symbol": "JSONInstantiable.init(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Keychain.swift",
+      "line": 15,
+      "symbol": "Keychain.defaultService",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Keychain.swift",
+      "line": 16,
+      "symbol": "Keychain.sharedInstance",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Keychain.swift",
+      "line": 20,
+      "symbol": "Keychain.init(serviceIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/MockSession.swift",
+      "line": 135,
+      "symbol": "MockSession.invalidateAndCancel()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/MockSession.swift",
+      "line": 139,
+      "symbol": "MockSession.dataTask(with:completionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/ModelGraphTransformer.swift",
+      "line": 39,
+      "symbol": "ModelGraphTransformerError.localizedDescription",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/ModelGraphTransformer.swift",
+      "line": 238,
+      "symbol": "ManagedListModelGraphTransformer.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/ModelGraphTransformer.swift",
+      "line": 323,
+      "symbol": "ListModelGraphTransformer.map(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/ModelGraphTransformer.swift",
+      "line": 329,
+      "symbol": "UpdateModelGraphError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/ModelGraphTransformer.swift",
+      "line": 349,
+      "symbol": "UpdateModelGraphTransformer.existingModel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/TransportGateway.swift",
+      "line": null,
+      "symbol": "TransportGatewayDelegate",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/TransportGateway.swift",
+      "line": 16,
+      "symbol": "TransportGatewayDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/TransportGateway.swift",
+      "line": 65,
+      "symbol": "TransportGateway.Error",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/TransportGateway.swift",
+      "line": 141,
+      "symbol": "TransportGateway.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 141,
+      "symbol": "URLTransportable.init(baseURL:identifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 143,
+      "symbol": "URLTransportable.transporter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 144,
+      "symbol": "URLTransportable.session",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 146,
+      "symbol": "URLTransportable.identifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 147,
+      "symbol": "URLTransportable.baseURL",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 149,
+      "symbol": "URLTransportable.method",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 150,
+      "symbol": "URLTransportable.queryValues",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 151,
+      "symbol": "URLTransportable.headerValues",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 152,
+      "symbol": "URLTransportable.bodyValues",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 153,
+      "symbol": "URLTransportable.basicAuthorizationUsername",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 154,
+      "symbol": "URLTransportable.basicAuthorizationPassword",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 155,
+      "symbol": "URLTransportable.authorizationString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 156,
+      "symbol": "URLTransportable.httpBody",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 158,
+      "symbol": "URLTransportable.execute()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 159,
+      "symbol": "URLTransportable.cancel(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/marcus/Developer/Forge/code/Forge/Transportable.swift",
+      "line": 163,
+      "symbol": "URLTransportable.request",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/marcus/Developer/Forge/code"
+}

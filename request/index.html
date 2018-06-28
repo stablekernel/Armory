@@ -38,7 +38,7 @@
     
     
       
-        <title>Quickstart - Forge</title>
+        <title>Making Requests - Forge</title>
       
     
     
@@ -93,7 +93,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#quickstart" tabindex="1" class="md-skip">
+      <a href="#making-requests" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -119,7 +119,7 @@
                 Forge
               </span>
               <span class="md-header-nav__topic">
-                Quickstart
+                Making Requests
               </span>
             
           
@@ -246,20 +246,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Quickstart" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="Quickstart" class="md-nav__link">
       Quickstart
     </a>
-    
   </li>
 
     
@@ -279,11 +270,90 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../request/" title="Making Requests" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Making Requests
+      </label>
+    
+    <a href="./" title="Making Requests" class="md-nav__link md-nav__link--active">
       Making Requests
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-requests" title="Creating Requests" class="md-nav__link">
+    Creating Requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-requests" title="Modifying Requests" class="md-nav__link">
+    Modifying Requests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpmethod" title="HTTPMethod" class="md-nav__link">
+    HTTPMethod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpheaders" title="HTTPHeaders" class="md-nav__link">
+    HTTPHeaders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpbody" title="HTTPBody" class="md-nav__link">
+    HTTPBody
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-requests" title="Executing Requests" class="md-nav__link">
+    Executing Requests
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -340,6 +410,63 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creating-requests" title="Creating Requests" class="md-nav__link">
+    Creating Requests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifying-requests" title="Modifying Requests" class="md-nav__link">
+    Modifying Requests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#httpmethod" title="HTTPMethod" class="md-nav__link">
+    HTTPMethod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpheaders" title="HTTPHeaders" class="md-nav__link">
+    HTTPHeaders
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#httpbody" title="HTTPBody" class="md-nav__link">
+    HTTPBody
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executing-requests" title="Executing Requests" class="md-nav__link">
+    Executing Requests
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -351,35 +478,69 @@
               
                 
                 
-                <h1 id="quickstart">Quickstart</h1>
-<p>In Forge, an HTTP server is represented by a <code>Gateway</code>.</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">gateway</span> <span class="p">=</span> <span class="n">Gateway</span><span class="p">(</span><span class="n">baseURL</span><span class="p">:</span> <span class="n">myURL</span><span class="p">)</span>
+                <h1 id="making-requests">Making Requests</h1>
+<p><code>Request</code> is a protocol that includes <code>URLComponents</code>, an <code>HTTPMethod</code>, <code>HTTPHeaders</code>, and an <code>HTTPBody</code>.</p>
+<h2 id="creating-requests">Creating Requests</h2>
+<p>The simplest is an <code>HTTPRequest</code> which is a struct with only these properties.</p>
+<p>An <code>HTTPRequest</code> can be created with as little as a <code>URL</code> which will default to a <code>get</code> <code>HTTPMethod</code>, empty <code>HTTPHeaders</code> and an empty <code>HTTPBody</code></p>
+<div class="codehilite"><pre><span></span><span class="kd">var</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">HTTPRequest</span><span class="p">(</span><span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;www.stablekernel.io&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
 </pre></div>
 
 
-<p><code>Gateway</code>s are used to make and execute <code>Request</code>s, that return a <code>Promise</code> for your model objects.</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">gateway</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">,</span> <span class="n">userID</span><span class="p">)</span>
-<span class="n">request</span>
-  <span class="p">.</span><span class="n">execute</span><span class="p">()</span>
-  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">User</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+<p><code>Gateway</code>s make <code>GatewayRequest</code>s, which are generic to the type of gateway:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">gateway</span> <span class="p">=</span> <span class="n">Gateway</span><span class="p">(</span><span class="n">baseURL</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;www.stablekernel.io&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">gateway</span><span class="p">.</span><span class="n">makeRequest</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">)</span> <span class="c1">// GatewayRequest&lt;Gateway&gt;</span>
 </pre></div>
 
 
-<p><code>Gateway</code>s <a href="../gateway/">can be customized</a> to modify all requests made through them.</p>
-<p><code>Request</code>s include conveniences for working with <code>HTTPMethod</code>s, <code>HTTPHeaders</code> and <code>HTTPBody</code>s, and return <code>Response</code>s, that can be modified or decoded.
-More on <code>Request</code>s <a href="../request/">here</a>.</p>
-<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">gateway</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">)</span>
-<span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">add</span><span class="p">(.</span><span class="n">contentType</span><span class="p">,</span> <span class="s">&quot;application/json&quot;</span><span class="p">)</span>
-<span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="p">=</span> <span class="p">.</span><span class="n">post</span>
-<span class="k">try</span> <span class="n">request</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">myNewUser</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">oauthGateway</span> <span class="p">=</span> <span class="n">OAuthGateway</span><span class="p">(</span><span class="n">baseURL</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;www.stablekernel.io&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">oauthGateway</span><span class="p">.</span><span class="n">makeRequest</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">)</span> <span class="c1">// GatewayRequest&lt;OAuthGateway&gt;</span>
+</pre></div>
+
+
+<p>It is also possible to define your own type that conforms to <code>Request</code>.</p>
+<h2 id="modifying-requests">Modifying Requests</h2>
+<h3 id="httpmethod">HTTPMethod</h3>
+<p><code>HTTPMethod</code> includes the common defined types like <code>.get</code> or <code>.post</code>, but it can also accept custom values</p>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="p">=</span> <span class="p">.</span><span class="n">post</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">.</span><span class="n">method</span> <span class="p">=</span> <span class="s">&quot;OTHER&quot;</span>
+</pre></div>
+
+
+<h3 id="httpheaders">HTTPHeaders</h3>
+<p>Any string value can be added to a <code>Request</code>'s <code>HTTPHeaders</code>, and there are also conveniences for common values</p>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;x-my-custom-header&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="s">&quot;Some value&quot;</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">add</span><span class="p">(.</span><span class="n">accept</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="s">&quot;application/json&quot;</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="n">authorization</span> <span class="p">=</span> <span class="s">&quot;Basic asdfasdfasdfdsafas==&quot;</span>
+</pre></div>
+
+
+<h3 id="httpbody">HTTPBody</h3>
+<p>An <code>HTTPBody</code> can be used to encode or decode model objects. More information on this <a href="../model/">here</a>.</p>
+<h2 id="executing-requests">Executing Requests</h2>
+<p>Any <code>Request</code> can be executed through an <code>HTTPClient</code>, which will return a <code>Promise&lt;Response&gt;</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">client</span><span class="p">:</span> <span class="n">HTTPClient</span> <span class="p">=</span> <span class="n">URLSession</span><span class="p">(</span><span class="n">configuration</span><span class="p">:</span> <span class="p">.</span><span class="k">default</span><span class="p">)</span>
+<span class="n">client</span>
+  <span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">then</span><span class="p">(</span><span class="n">MyResponseMiddleware</span><span class="p">())</span>
+  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">User</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="c1">// Returns Promise&lt;User&gt;</span>
+</pre></div>
+
+
+<p><code>GatewayRequest</code>s have a convenience function <code>execute</code>, which executes them through their <code>gateway</code></p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">gateway</span> <span class="p">=</span> <span class="n">Gateway</span><span class="p">(</span><span class="n">baseURL</span><span class="p">:</span> <span class="n">URL</span><span class="p">(</span><span class="n">string</span><span class="p">:</span> <span class="s">&quot;www.stablekernel.io&quot;</span><span class="p">)</span><span class="o">!</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">request</span> <span class="p">=</span> <span class="n">gateway</span><span class="p">.</span><span class="n">makeRequest</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">)</span>
 <span class="n">request</span>
   <span class="p">.</span><span class="n">execute</span><span class="p">()</span>
   <span class="p">.</span><span class="n">then</span><span class="p">(</span><span class="n">MyResponseMiddleware</span><span class="p">())</span>
-  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">User</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">User</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="c1">// Returns Promise&lt;User&gt;</span>
 </pre></div>
 
 
-<p>Any model objects conforming to the <code>Codable</code> protocols can be used with <code>Request</code> and <code>Response</code>, although there are also <a href="../model/">other Codable conveniences built in</a>.</p>
+<p>More on response middleware <a href="../middleware/">here</a> and decoding responses <a href="../model/">here</a></p>
                 
                   
                 
@@ -398,7 +559,7 @@ More on <code>Request</code>s <a href="../request/">here</a>.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../gateway/" title="Customizing a Gateway" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -407,19 +568,19 @@ More on <code>Request</code>s <a href="../request/">here</a>.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                Customizing a Gateway
               </span>
             </div>
           </a>
         
         
-          <a href="../gateway/" title="Customizing a Gateway" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../model/" title="Defining a Model" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Customizing a Gateway
+                Defining a Model
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

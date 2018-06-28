@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TransportGateway Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/TransportGateway" class="dashAnchor"></a>
+    <a title="TransportGateway Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Forge Docs</a> (72% documented)</p>
+        <p class="header-right"><a href="https://github.com/stablekernel/Forge"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Forge Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        TransportGateway Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/BasicAuthenticationToken.html">BasicAuthenticationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataRequest.html">DataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EntityListRequest.html">EntityListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EntityRequest.html">EntityRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:5Forge18EpochDateFormatterC">EpochDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/HTTPRequest.html">HTTPRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/JSONRequest.html">JSONRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Keychain.html">Keychain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ListModelGraphTransformer.html">ListModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ManagedListModelGraphTransformer.html">ManagedListModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ManagedModelGraphTransformer.html">ManagedModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MockResponse.html">MockResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MockSession.html">MockSession</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ModelGraphTransformer.html">ModelGraphTransformer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/OAuthToken.html">OAuthToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceListRequest.html">ResourceListRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceRequest.html">ResourceRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ResourceUpdateRequest.html">ResourceUpdateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TransportGateway.html">TransportGateway</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UpdateModelGraphTransformer.html">UpdateModelGraphTransformer</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:5Forge24defaultJSONDateFormatterSo04DateD0Cvp">defaultJSONDateFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:5Forge20iso8601DateFormatterSo0cD0Cvp">iso8601DateFormatter</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CollectionOperation.html">CollectionOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HTTPMethod.html">HTTPMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/JSONDecoderError.html">JSONDecoderError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/KeychainError.html">KeychainError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ManagedCollectionOperation.html">ManagedCollectionOperation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MockSessionError.html">MockSessionError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ModelGraphTransformerError.html">ModelGraphTransformerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/TransportError.html">TransportError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/URLResult.html">URLResult</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/CharacterSet.html">CharacterSet</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Dictionary.html">Dictionary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Int.html">Int</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSManagedObject.html">NSManagedObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/NSNumber.html">NSNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification.html">Notification</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/Notification/Name.html">– Name</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/AuthenticationToken.html">AuthenticationToken</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge24CompletableTransportableP">CompletableTransportable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONDecodable.html">JSONDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONDecodableObject.html">JSONDecodableObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge13JSONEncodableP">JSONEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONEncoding.html">JSONEncoding</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge13JSONFormatterP">JSONFormatter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge16JSONInstantiableP">JSONInstantiable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONMappingRequest.html">JSONMappingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:5Forge17JSONRepresentableP">JSONRepresentable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONUpdatable.html">JSONUpdatable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ManagedJSONInstantiable.html">ManagedJSONInstantiable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/Matchable.html">Matchable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ModelGraphTransformerProtocol.html">ModelGraphTransformerProtocol</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLTransportable.html">URLTransportable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLTransporter.html">URLTransporter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/URLValue.html">URLValue</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:5Forge10JSONObjecta">JSONObject</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>TransportGateway</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">TransportGateway</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>A TransportGateway is responsible for creating, configuring and executing <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> instances. A transport
+gateway represents a remote server.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC07defaultC0ACvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultGateway" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC07defaultC0ACvpZ">defaultGateway</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The default TransportGateway instance. Most applications will only ever talk to one web server, if that is the
+case, you should configure and use this instance to create and execute <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> instances.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">defaultGateway</span> <span class="o">=</span> <span class="kt">TransportGateway</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20variables"></a>
+                <a name="//apple_ref/swift/Section/Public variables" class="dashAnchor"></a>
+                <a href="#/Public%20variables">
+                  <h3 class="section-name">Public variables</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC7baseURLSQy10Foundation0E0VGvp"></a>
+                    <a name="//apple_ref/swift/Property/baseURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC7baseURLSQy10Foundation0E0VGvp">baseURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>baseURL</code> of a transport gateway will be the baseURL of every <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> created by this gateway&rsquo;s
+<code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a></code> method. This is typically the protocol and hostname of the server represented by this
+gateway, i.e., <a href="http://server.com">http://server.com</a>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">baseURL</span><span class="p">:</span> <span class="kt">URL</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC7sessionSQySo10URLSessionCGvp"></a>
+                    <a name="//apple_ref/swift/Property/session" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC7sessionSQySo10URLSessionCGvp">session</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The <code>URLSession</code> of the gateway that all requests will operate within. This session is automatically configured
+to the <code>defaultSessionConfiguration</code> when the gateway is instantiated. You may create a new session and set this
+property to change that.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC5tokenAA19AuthenticationToken_pSgvp"></a>
+                    <a name="//apple_ref/swift/Property/token" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC5tokenAA19AuthenticationToken_pSgvp">token</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The gateway will use this token to validate whether or not request being queued by
+<code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC24enqueueForAuthenticationyAA16URLTransportable_pF">enqueueForAuthentication(_:)</a></code> can be executed. This token must be non-nil and return true for <code>isValid</code> for
+the request to continue executing.</p>
+
+<p>If both the username and password are non-nil, the gateway will omit calling
+<code>transportGateway:authenticateRequest:withToken:</code> and fill out the Authorization header itself.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">token</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AuthenticationToken.html">AuthenticationToken</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC15isAuthenticatedSbvp"></a>
+                    <a name="//apple_ref/swift/Property/isAuthenticated" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC15isAuthenticatedSbvp">isAuthenticated</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns whether or not the gateway will send authenticated requests immediately or will queue them until the token
+is valid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">isAuthenticated</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC8delegateAA0bC8Delegate_pSgXwvp"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC8delegateAA0bC8Delegate_pSgXwvp">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The gateway will use its delegate to perform authentication related tasks through the <code>TransportGatewayDelegate</code>
+protocol. Gateways that don&rsquo;t need authentication will not need a delegate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt">TransportGatewayDelegate</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC26configureDefaultConnectionyAC_AA16URLTransportable_ptcSgvp"></a>
+                    <a name="//apple_ref/swift/Property/configureDefaultConnection" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC26configureDefaultConnectionyAC_AA16URLTransportable_ptcSgvp">configureDefaultConnection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This block will be used to further configure any new connection returned from <code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">configureDefaultConnection</span><span class="p">:</span> <span class="p">((</span><span class="kt">TransportGateway</span><span class="p">,</span> <span class="kt"><a href="../Protocols/URLTransportable.html">URLTransportable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Methods"></a>
+                <a name="//apple_ref/swift/Section/Methods" class="dashAnchor"></a>
+                <a href="#/Methods">
+                  <h3 class="section-name">Methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/makeRequest(identifiers:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will create and return a new <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> for configuration. The identifiers array can only be made
+up of <code><a href="../Protocols/URLValue.html">URLValue</a></code> instances. The request&rsquo;s URL will be composed of this gateway&rsquo;s <code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC7baseURLSQy10Foundation0E0VGvp">baseURL</a></code> followed by a path
+made up by joining these identifiers with the <code>/</code> character.</p>
+
+<p>For example, a gateway with the baseURL <a href="http://server.com">http://server.com</a> that is sent <code>makeRequest(identifiers:)</code> with the
+argument <code>[&quot;users&quot;, 1]</code> will produce an <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> pointing at the URL <a href="http://server.com/users/1">http://server.com/users/1</a>.</p>
+<div class="aside aside-see-also">
+    <p class="aside-title">See also</p>
+    <p><code><a href="../Protocols/URLValue.html">URLValue</a></code></p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">makeRequest</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLTransportable.html">URLTransportable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">identifiers</span><span class="p">:</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt"><a href="../Protocols/URLValue.html">URLValue</a></span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>identifiers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A list of <code><a href="../Protocols/URLValue.html">URLValue</a></code>s to form the path of the connection</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly-initialized <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC24enqueueForAuthenticationyAA16URLTransportable_pF"></a>
+                    <a name="//apple_ref/swift/Method/enqueueForAuthentication(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC24enqueueForAuthenticationyAA16URLTransportable_pF">enqueueForAuthentication(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will take a configured <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> previously returned by this gateway&rsquo;s
+<code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a></code> and, if the gateway believes it is authenticated, will immediately execute it. If the
+gateway doesn&rsquo;t believe it is authenticated, it will queue this request until the gateway is given authentication
+details.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">enqueueForAuthentication</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLTransportable.html">URLTransportable</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A fully configured <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> that must be returned from this gateway&rsquo;s
+<code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC28executeWithoutAuthenticationyAA16URLTransportable_pF"></a>
+                    <a name="//apple_ref/swift/Method/executeWithoutAuthentication(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC28executeWithoutAuthenticationyAA16URLTransportable_pF">executeWithoutAuthentication(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will immediately execute an <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> previously returned by this gateway&rsquo;s
+<code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">executeWithoutAuthentication</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLTransportable.html">URLTransportable</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>connection</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A fully configured <code><a href="../Protocols/URLTransportable.html">URLTransportable</a></code> that must be returned from this gateway&rsquo;s
+<code><a href="../Classes/TransportGateway.html#/s:5Forge16TransportGatewayC11makeRequestxSayAA8URLValue_pG11identifiers_tAA16URLTransportableRzlF">makeRequest(identifiers:)</a></code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC17cancelAllRequestsyyF"></a>
+                    <a name="//apple_ref/swift/Method/cancelAllRequests()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC17cancelAllRequestsyyF">cancelAllRequests()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will cancel all queued and currently executing requests.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelAllRequests</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC23cancelAllQueuedRequestsyyF"></a>
+                    <a name="//apple_ref/swift/Method/cancelAllQueuedRequests()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC23cancelAllQueuedRequestsyyF">cancelAllQueuedRequests()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This method will cancel all queued requests that are pending authentication, but it will not cancel requests
+currently in flight.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancelAllQueuedRequests</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge16TransportGatewayC13isResponsibleSbAA16URLTransportable_p3for_tF"></a>
+                    <a name="//apple_ref/swift/Method/isResponsible(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge16TransportGatewayC13isResponsibleSbAA16URLTransportable_p3for_tF">isResponsible(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">isResponsible</span><span class="p">(</span><span class="k">for</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLTransportable.html">URLTransportable</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Forge@objc(cs)TransportGateway(im)requestFailedAuthenticationWithNotification:"></a>
+                    <a name="//apple_ref/swift/Method/requestFailedAuthentication(notification:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Forge@objc(cs)TransportGateway(im)requestFailedAuthenticationWithNotification:">requestFailedAuthentication(notification:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">requestFailedAuthentication</span><span class="p">(</span><span class="nv">notification</span><span class="p">:</span> <span class="kt">Notification</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:5Forge14URLTransporterP8finishedyAA16URLTransportable_p7request_tF"></a>
+                    <a name="//apple_ref/swift/Method/finished(request:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:5Forge14URLTransporterP8finishedyAA16URLTransportable_p7request_tF">finished(request:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">finished</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/URLTransportable.html">URLTransportable</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="http://stablekernel.com" target="_blank" rel="external">Stable|Kernel</a>. All rights reserved. (Last updated: 2018-06-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

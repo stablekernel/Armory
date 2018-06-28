@@ -1,0 +1,763 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Forge, an iOS HTTP Framework.">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.6">
+    
+    
+      
+        <title>Defining a Model - Forge</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.78aab2dc.css">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../style/css/override.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#defining-and-decoding-model-objects" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Forge" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Forge
+              </span>
+              <span class="md-header-nav__topic">
+                Defining a Model
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/stablekernel/forge" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Forge
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/stablekernel/forge" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../gateway/" title="Customizing a Gateway" class="md-nav__link">
+      Customizing a Gateway
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../request/" title="Making Requests" class="md-nav__link">
+      Making Requests
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Defining a Model
+      </label>
+    
+    <a href="./" title="Defining a Model" class="md-nav__link md-nav__link--active">
+      Defining a Model
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#codable" title="Codable" class="md-nav__link">
+    Codable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoderupdatable" title="DecoderUpdatable" class="md-nav__link">
+    DecoderUpdatable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decodingfactory" title="DecodingFactory" class="md-nav__link">
+    DecodingFactory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manageddecodable" title="ManagedDecodable" class="md-nav__link">
+    ManagedDecodable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codingformats" title="CodingFormats" class="md-nav__link">
+    CodingFormats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoding-promises" title="Decoding Promises" class="md-nav__link">
+    Decoding Promises
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../middleware/" title="Middleware" class="md-nav__link">
+      Middleware
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../documentation/" title="Documentation" class="md-nav__link">
+      Documentation
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#codable" title="Codable" class="md-nav__link">
+    Codable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoderupdatable" title="DecoderUpdatable" class="md-nav__link">
+    DecoderUpdatable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decodingfactory" title="DecodingFactory" class="md-nav__link">
+    DecodingFactory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manageddecodable" title="ManagedDecodable" class="md-nav__link">
+    ManagedDecodable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codingformats" title="CodingFormats" class="md-nav__link">
+    CodingFormats
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decoding-promises" title="Decoding Promises" class="md-nav__link">
+    Decoding Promises
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="defining-and-decoding-model-objects">Defining and Decoding Model Objects</h1>
+<h2 id="codable">Codable</h2>
+<p>Any type that conforms to <code>Encodable</code> can be encoded to an <code>HTTPBody</code> in a <code>Request</code> or <code>Response</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">struct</span> <span class="nc">MyType</span><span class="p">:</span> <span class="n">Codable</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">myObject</span> <span class="p">=</span> <span class="n">MyType</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&quot;Bob&quot;</span><span class="p">)</span>
+
+<span class="k">try</span> <span class="n">someRequest</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">myObject</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Likewise, any class that is <code>Decodable</code> can be decoded from an <code>HTTPBody</code>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">value</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someRequest</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">MyType</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In addtion to these <code>Codable</code> protocols, Forge also has some extensions that can be used:</p>
+<h2 id="decoderupdatable">DecoderUpdatable</h2>
+<p>To create a type that can be updated from a <code>Decoder</code>, make it conform to <code>DecoderUpdatable</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">protocol</span> <span class="nc">DecoderUpdatable</span> <span class="p">{</span>
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">struct</span> <span class="nc">MyUpdatableType</span><span class="p">:</span> <span class="n">DecoderUpdatable</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+
+    <span class="kd">enum</span> <span class="nc">Key</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">CodingKey</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">id</span>
+        <span class="k">case</span> <span class="n">name</span>
+    <span class="p">}</span>
+
+    <span class="kr">mutating</span> <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">container</span> <span class="p">=</span> <span class="k">try</span> <span class="n">decoder</span><span class="p">.</span><span class="n">container</span><span class="p">(</span><span class="n">keyedBy</span><span class="p">:</span> <span class="n">Key</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+        <span class="n">name</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><code>DecoderUpdatable</code> types can be updated from an <code>HTTPBody</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">myObject</span> <span class="p">=</span> <span class="n">MyUpdatableType</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&quot;old name&quot;</span><span class="p">)</span>
+
+<span class="kd">let</span> <span class="nv">updated</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someResponse</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">myObject</span><span class="p">)</span>
+</pre></div>
+
+
+<p><code>DecoderUpdatable</code> types can also be updated from containers:</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Parent</span><span class="p">:</span> <span class="n">DecoderUpdatable</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">?</span>
+    <span class="kd">var</span> <span class="nv">child</span><span class="p">:</span> <span class="n">MyUpdatableType</span>
+
+    <span class="kd">init</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">?,</span> <span class="n">child</span><span class="p">:</span> <span class="n">MyUpdatableType</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">id</span> <span class="p">=</span> <span class="n">id</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="n">name</span>
+        <span class="kc">self</span><span class="p">.</span><span class="n">child</span> <span class="p">=</span> <span class="n">child</span>
+    <span class="p">}</span>
+
+    <span class="kd">enum</span> <span class="nc">Key</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">CodingKey</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">id</span>
+        <span class="k">case</span> <span class="n">name</span>
+        <span class="k">case</span> <span class="n">child</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">container</span> <span class="p">=</span> <span class="k">try</span> <span class="n">decoder</span><span class="p">.</span><span class="n">container</span><span class="p">(</span><span class="n">keyedBy</span><span class="p">:</span> <span class="n">Key</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+        <span class="n">name</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">child</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">child</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nv">parent</span> <span class="p">=</span> <span class="n">Parent</span><span class="p">(</span><span class="n">id</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="s">&quot;Parent Old Name&quot;</span><span class="p">,</span> <span class="n">child</span><span class="p">:</span> <span class="n">myObject</span><span class="p">)</span>
+
+<span class="c1">// parent is a reference type and does not need reassignment after the update</span>
+<span class="k">try</span> <span class="n">someResponse</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="decodingfactory">DecodingFactory</h2>
+<p>There are some classes that just can't be made to conform to <code>Decodable</code> for these, you can use a <code>DecodingFactory</code> to create an object from a <code>Decoder</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">protocol</span> <span class="nc">DecodingFactory</span> <span class="p">{</span>
+    <span class="n">associatedtype</span> <span class="n">Model</span>
+    <span class="kd">func</span> <span class="nf">create</span><span class="p">(</span><span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="n">Model</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kd">struct</span> <span class="nc">CLLocationFactory</span><span class="p">:</span> <span class="n">DecodingFactory</span> <span class="p">{</span>
+    <span class="kd">enum</span> <span class="nc">Key</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">CodingKey</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">latitude</span>
+        <span class="k">case</span> <span class="n">longitude</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">create</span><span class="p">(</span><span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="bp">CLLocation</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">container</span> <span class="p">=</span> <span class="k">try</span> <span class="n">decoder</span><span class="p">.</span><span class="n">container</span><span class="p">(</span><span class="n">keyedBy</span><span class="p">:</span> <span class="n">Key</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">latitude</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="nb">Double</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">latitude</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">longitude</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="nb">Double</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">longitude</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">CLLocation</span><span class="p">(</span><span class="n">latitude</span><span class="p">:</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="n">longitude</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><code>DecodingFactory</code> can be used with <code>HTTPBody</code>s instead of a <code>Decodable</code> type:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">location</span> <span class="p">=</span> <span class="n">someResponse</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="n">CLLocationFactory</span><span class="p">())</span>
+</pre></div>
+
+
+<h2 id="manageddecodable">ManagedDecodable</h2>
+<p>CoreData objects are among those that can't be made <code>Decodable</code>. For these there is another protocol: <code>ManagedDecodable</code></p>
+<div class="codehilite"><pre><span></span><span class="kd">protocol</span> <span class="nc">ManagedDecodable</span><span class="p">:</span> <span class="n">DecoderUpdatable</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">entityName</span><span class="p">:</span> <span class="nb">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">matchKeys</span><span class="p">:</span> <span class="p">[</span><span class="n">MatchKey</span><span class="p">]?</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="kd">static</span> <span class="kd">func</span> <span class="nf">createOrUpdate</span><span class="p">(</span><span class="k">in</span> <span class="n">context</span><span class="p">:</span> <span class="bp">NSManagedObjectContext</span><span class="p">,</span> <span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="kc">Self</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The <code>createOrUpdate</code> function has a default implementation for all <code>NSManagedObject</code>s which creates a new instance of the object in the <code>NSManagedObjectContext</code>.</p>
+<p>If you provide a <code>matchKeys</code> property, the default <code>createOrUpdate</code> implementation will update a matching object if it exists, and create a new one if it cannot find a match.</p>
+<div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">User</span><span class="p">:</span> <span class="bp">NSManagedObject</span><span class="p">,</span> <span class="n">ManagedDecodable</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">entityName</span><span class="p">:</span> <span class="nb">String</span> <span class="p">=</span> <span class="s">&quot;User&quot;</span>
+    <span class="kd">static</span> <span class="kd">var</span> <span class="nv">matchKeys</span><span class="p">:</span> <span class="p">[</span><span class="n">MatchKey</span><span class="p">]?</span> <span class="p">=</span> <span class="p">[</span>
+        <span class="p">.</span><span class="n">key</span><span class="p">(</span><span class="n">Key</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="p">]</span>
+
+    <span class="kr">@NSManaged</span> <span class="kd">var</span> <span class="nv">id</span><span class="p">:</span> <span class="nb">Int</span>
+    <span class="kr">@NSManaged</span> <span class="kd">var</span> <span class="nv">name</span><span class="p">:</span> <span class="nb">String</span>
+
+    <span class="kd">enum</span> <span class="nc">Key</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="n">CodingKey</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">id</span>
+        <span class="k">case</span> <span class="n">name</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="n">from</span> <span class="n">decoder</span><span class="p">:</span> <span class="n">Decoder</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">container</span> <span class="p">=</span> <span class="k">try</span> <span class="n">decoder</span><span class="p">.</span><span class="n">container</span><span class="p">(</span><span class="n">keyedBy</span><span class="p">:</span> <span class="n">Key</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+        <span class="n">id</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="nb">Int</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">name</span> <span class="p">=</span> <span class="k">try</span> <span class="n">container</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="nb">String</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">forKey</span><span class="p">:</span> <span class="p">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><code>ManagedDecodable</code> classes can be decoded using a <code>ManagedDecodingFactory</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">let</span> <span class="nv">factory</span> <span class="p">=</span> <span class="n">ManagedDecodingFactory</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;(</span><span class="n">context</span><span class="p">:</span> <span class="n">myContext</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nv">user</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someResponse</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="n">factory</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="codingformats">CodingFormats</h2>
+<p>Forge has protocols for high-level decoders and encoders, like <code>JSONDecoder</code>, <code>PropertyListDecoder</code>, <code>JSONEncoder</code> and <code>PropertyListEncoder</code>.</p>
+<p>These are <code>DecodingFormat</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">protocol</span> <span class="nc">DecodingFormat</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">decoder</span><span class="p">(</span><span class="k">for</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">Decoder</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>and <code>EncodingFormat</code>:</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kd">protocol</span> <span class="nc">EncodingFormat</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">encode</span><span class="p">&lt;</span><span class="n">T</span><span class="p">:</span> <span class="n">Encodable</span><span class="p">&gt;(</span><span class="kc">_</span> <span class="n">value</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="kr">throws</span> <span class="p">-&gt;</span> <span class="n">Data</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><code>HTTPBody</code>s have <code>decodingFormat</code> and <code>encodingFormat</code> properties that correspond to these protocols.</p>
+<p>The default values for these are <code>JSONDecoder()</code> and <code>JSONEncoder()</code>, but requests executed through a <code>Gateway</code> may have these changed by the gateway.</p>
+<p>These properties can be changed</p>
+<div class="codehilite"><pre><span></span><span class="n">someRequest</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">encodingFormat</span> <span class="p">=</span> <span class="n">PropertyListEncoder</span><span class="p">()</span>
+<span class="kd">let</span> <span class="nv">value</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someRequest</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">MyType</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span>
+</pre></div>
+
+
+<p>or you can pass a format explicitly to <code>HTTPBody</code>'s <code>decode</code> and <code>encode</code> functions:</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span> <span class="n">someRequest</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">myObject</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="n">PropertyListEncoder</span><span class="p">())</span>
+
+<span class="kd">let</span> <span class="nv">value</span> <span class="p">=</span> <span class="k">try</span> <span class="n">someRequest</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">MyType</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="n">PropertyListDecoder</span><span class="p">())</span>
+</pre></div>
+
+
+<h2 id="decoding-promises">Decoding Promises</h2>
+<p>Forge has conveniences for Decoding <code>Response</code> or <code>Request</code> <code>Promise</code>s that match the methods on <code>HTTPBody</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">gateway</span>
+  <span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;things&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">execute</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">MyType</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="c1">// Returns Promise&lt;MyType&gt;</span>
+
+<span class="n">gateway</span>
+  <span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;things&quot;</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">execute</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="k">as</span><span class="p">:</span> <span class="n">MyType</span><span class="p">.</span><span class="kc">self</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="n">PropertyListDecoder</span><span class="p">())</span> <span class="c1">// Returns Promise&lt;MyType&gt;</span>
+
+
+<span class="n">gateway</span>
+  <span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">,</span> <span class="n">userID</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">execute</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">using</span><span class="p">:</span> <span class="n">ManagedDecodingFactory</span><span class="p">&lt;</span><span class="n">User</span><span class="p">&gt;(</span><span class="n">context</span><span class="p">:</span> <span class="n">myContext</span><span class="p">))</span> <span class="c1">// Returns Promise&lt;User&gt;</span>
+</pre></div>
+
+
+<p>Requests executed through a <code>ManagedGateway</code> also have conveniences for <code>ManagedDecodable</code> objects, instead of needing a <code>ManagedDecodingFactory</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">managedGateway</span>
+  <span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s">&quot;users&quot;</span><span class="p">,</span> <span class="n">userID</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">execute</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">managed</span><span class="p">:</span> <span class="n">User</span><span class="p">.</span><span class="kc">self</span><span class="p">)</span> <span class="c1">// Returns Promise&lt;User&gt;</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../request/" title="Making Requests" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Making Requests
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../middleware/" title="Middleware" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Middleware
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Built by stable|kernel
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.02434462.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
