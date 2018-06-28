@@ -1,0 +1,79 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Armory\n\n\nArmory is a testing framework for iOS written in Swift\n\n\nInstallation\n\n\nGit submodule\n\n\nArmory can be added as a dependency of a project as a git submodule:\n\n\ngit submodule add git@github.com:stablekernel/Armory.git\n\n\nThis leaves the option of using the source files directly or embedding as a framework.\n\n\n\n\nSource files directly\n\n\nCreate a group for Armory\n\n\nDrag the source files from Armory/Armory into the group\n\n\nEmbedded framework\n\n\nDrag Armory.xcodeproj into your project\n\n\nAdd Armory.framework to your project as an embedded binary\n\n\n\n\nUsing an embedded framework gets a little tricky when the parent project uses any configurations other than \nDebug\n and \nRelease\n. If your project needs more configuration, install the source files directly.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#armory", 
+            "text": "Armory is a testing framework for iOS written in Swift", 
+            "title": "Armory"
+        }, 
+        {
+            "location": "/#installation", 
+            "text": "", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/#git-submodule", 
+            "text": "Armory can be added as a dependency of a project as a git submodule:  git submodule add git@github.com:stablekernel/Armory.git  This leaves the option of using the source files directly or embedding as a framework.   Source files directly  Create a group for Armory  Drag the source files from Armory/Armory into the group  Embedded framework  Drag Armory.xcodeproj into your project  Add Armory.framework to your project as an embedded binary   Using an embedded framework gets a little tricky when the parent project uses any configurations other than  Debug  and  Release . If your project needs more configuration, install the source files directly.", 
+            "title": "Git submodule"
+        }, 
+        {
+            "location": "/quickstart/", 
+            "text": "Quickstart\n\n\nArmory is built to run along side existing XCTests in your project. \n\n\nTo get started, first make sure your test class conforms to the \nVCTest\n protocol:\n\n\nclass MyViewControllerTests: XCTestCase, VCTest\n\n\n\n\nThen use provided Armory methods in any place where you would like to simulate user interaction. For example, a \nUITextField\n that you want to enter text into would look like: \n\n\ntype(viewController.myTextField, text: \nSome text here\n)\n\n\n\n\nThe process is similar for other elements, so if you wanted to tap a button you would write:\n\n\ntap(myButton)\n\n\n\n\nIn addition to interacting with \nUIKit\n elements, Armory also provides conveniences for testing \nUIViewController\n presentations and dismissals. Below shows an example of how to test presenting and dismissing a \nUIAlertController\n instance:\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)", 
+            "title": "Quickstart"
+        }, 
+        {
+            "location": "/quickstart/#quickstart", 
+            "text": "Armory is built to run along side existing XCTests in your project.   To get started, first make sure your test class conforms to the  VCTest  protocol:  class MyViewControllerTests: XCTestCase, VCTest  Then use provided Armory methods in any place where you would like to simulate user interaction. For example, a  UITextField  that you want to enter text into would look like:   type(viewController.myTextField, text:  Some text here )  The process is similar for other elements, so if you wanted to tap a button you would write:  tap(myButton)  In addition to interacting with  UIKit  elements, Armory also provides conveniences for testing  UIViewController  presentations and dismissals. Below shows an example of how to test presenting and dismissing a  UIAlertController  instance:  tap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle:  Close , fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)", 
+            "title": "Quickstart"
+        }, 
+        {
+            "location": "/components/", 
+            "text": "UIAlertController\n\n\nUITableView / UICollectionView\n\n\nUIDatePicker / UIPickerView\n\n\nUISegmentedControl\n\n\nUISwitch\n\n\nUISlider\n\n\nUIStepper\n\n\nUITabBar / UITabBarController", 
+            "title": "Components"
+        }, 
+        {
+            "location": "/components/#uialertcontroller", 
+            "text": "", 
+            "title": "UIAlertController"
+        }, 
+        {
+            "location": "/components/#uitableview-uicollectionview", 
+            "text": "", 
+            "title": "UITableView / UICollectionView"
+        }, 
+        {
+            "location": "/components/#uidatepicker-uipickerview", 
+            "text": "", 
+            "title": "UIDatePicker / UIPickerView"
+        }, 
+        {
+            "location": "/components/#uisegmentedcontrol", 
+            "text": "", 
+            "title": "UISegmentedControl"
+        }, 
+        {
+            "location": "/components/#uiswitch", 
+            "text": "", 
+            "title": "UISwitch"
+        }, 
+        {
+            "location": "/components/#uislider", 
+            "text": "", 
+            "title": "UISlider"
+        }, 
+        {
+            "location": "/components/#uistepper", 
+            "text": "", 
+            "title": "UIStepper"
+        }, 
+        {
+            "location": "/components/#uitabbar-uitabbarcontroller", 
+            "text": "", 
+            "title": "UITabBar / UITabBarController"
+        }
+    ]
+}
