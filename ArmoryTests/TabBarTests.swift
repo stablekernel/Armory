@@ -15,37 +15,20 @@ class TabBarTests: XCTestCase, VCTestSetup {
 
     // MARK: - VCTestSetup
 
-    var viewController: UITabBarController!
-
-    // MARK: - Private
-
-    private var tabOneViewController: UIViewController!
-    private var tabTwoViewController: UIViewController!
+    var viewController: TabBarViewController!
 
     // MARK: - Set Up / Tear Down
 
     override func setUp() {
         super.setUp()
 
-        tabOneViewController = UIViewController()
-        tabOneViewController.tabBarItem = UITabBarItem(title: "Red", image: UIImage.close(), selectedImage: nil)
-
-        tabTwoViewController = UIViewController()
-        tabTwoViewController.tabBarItem = UITabBarItem(title: "Blue", image: UIImage.lock(), selectedImage: nil)
-
-        viewController = UITabBarController()
-        viewController.viewControllers = [tabOneViewController, tabTwoViewController]
+        viewController = TabBarViewController()
 
         build()
-
-        tabOneViewController.view.backgroundColor = .red
-        tabTwoViewController.view.backgroundColor = .blue
     }
 
     override func tearDown() {
         viewController = nil
-        tabOneViewController = nil
-        tabTwoViewController = nil
 
         super.tearDown()
     }
@@ -53,33 +36,81 @@ class TabBarTests: XCTestCase, VCTestSetup {
     // MARK: - Tests
 
     func testSelectTabByIndex() {
-        let selectedViewController: UIViewController = selectTab(atIndex: 1, fromTabBar: viewController.tabBar)
+        try! selectTab(atIndex: 0, fromTabBar: viewController.tabBar)
 
-        XCTAssertEqual(selectedViewController, tabTwoViewController)
+        XCTAssertEqual(viewController.tabBar.selectedItem, viewController.tabOneItem)
+    }
+
+    func testSelectTabByIndexLessThanZero() {
+        var thrownError: ArmoryError?
+
+        do {
+            try selectTab(atIndex: -1, fromTabBar: viewController.tabBar)
+        } catch let error as ArmoryError {
+            thrownError = error
+        } catch {
+            thrownError = nil
+        }
+
+        XCTAssertEqual(thrownError, ArmoryError.indexOutOfBounds)
+    }
+
+    func testSelectTabByIndexGreaterThanTabCount() {
+        var thrownError: ArmoryError?
+
+        do {
+            let tabCount = viewController.tabBar.items?.count ?? 0
+            try selectTab(atIndex: tabCount + 1, fromTabBar: viewController.tabBar)
+        } catch let error as ArmoryError {
+            thrownError = error
+        } catch {
+            thrownError = nil
+        }
+
+        XCTAssertEqual(thrownError, ArmoryError.indexOutOfBounds)
     }
 
     func testSelectTabByTitle() {
-        var selectedViewController: UIViewController
+        try! selectTab(withTitle: "Index 1", fromTabBar: viewController.tabBar)
 
-        selectedViewController = selectTab(withTitle: "Red", fromTabBar: viewController.tabBar)
-        XCTAssertEqual(selectedViewController, tabOneViewController)
+        XCTAssertEqual(viewController.tabBar.selectedItem, viewController.tabTwoItem)
+    }
 
-        selectedViewController = selectTab(withTitle: "Blue", fromTabBar: viewController.tabBar)
-        XCTAssertEqual(selectedViewController, tabTwoViewController)
+    func testSelectTabByTitleFailure() {
+        var thrownError: ArmoryError?
 
-        selectedViewController = selectTab(withTitle: "Red", fromTabBar: viewController.tabBar)
-        XCTAssertEqual(selectedViewController, tabOneViewController)
+        do {
+            try selectTab(withTitle: "Missing Title", fromTabBar: viewController.tabBar)
+        } catch let error as ArmoryError {
+            thrownError = error
+        } catch {
+            thrownError = nil
+        }
+
+        XCTAssertEqual(thrownError, ArmoryError.titleLookupFailed)
     }
 
     func testSelectTabByImage() {
-        var selectedViewController: UIViewController
+        try! selectTab(withImage: UIImage.close(), fromTabBar: viewController.tabBar)
 
-        selectedViewController = selectTab(withImage: UIImage.lock(), fromTabBar: viewController.tabBar)
-        XCTAssertEqual(selectedViewController, tabTwoViewController)
+        XCTAssertEqual(viewController.tabBar.selectedItem, viewController.tabTwoItem)
+    }
 
-        selectedViewController = selectTab(withImage: UIImage.close(), fromTabBar: viewController.tabBar)
-        XCTAssertEqual(selectedViewController, tabOneViewController)
+    func testSelectTabByImageFailure() {
+        var thrownError: ArmoryError?
+
+        do {
+            try selectTab(withImage: UIImage(), fromTabBar: viewController.tabBar)
+        } catch let error as ArmoryError {
+            thrownError = error
+        } catch {
+            thrownError = nil
+        }
+
+        XCTAssertEqual(thrownError, ArmoryError.imageLookupFailed)
     }
 
 }
+
+
 
