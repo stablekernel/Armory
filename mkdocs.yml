@@ -1,0 +1,7 @@
+site_name: Armory
+repo_url: https://github.com/stablekernel/armory
+pages:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Components: components.md
+theme: readthedocs
