@@ -1,19 +1,7 @@
-site_name: Forge
-theme: 'material'
-markdown_extensions:
-  - codehilite
-  - markdown.extensions.admonition
-extra_css:
-  - style/css/override.css
-edit_uri: ''
-repo_url: https://github.com/stablekernel/forge
-site_description: Documentation for Forge, an iOS HTTP Framework.
-use_directory_urls: true
-copyright: Built by stable|kernel
+site_name: Armory
+repo_url: https://github.com/stablekernel/armory
 pages:
-- Home: 'index.md'
-- Quickstart: 'quickstart.md'
-- Customizing a Gateway: 'gateway.md'
-- Making Requests: 'request.md'
-- Defining a Model: 'model.md'
-- Documentation: 'documentation/index.md'
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Components: components.md
+theme: readthedocs
