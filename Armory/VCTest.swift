@@ -138,12 +138,20 @@ extension VCTest {
     }
     
     func increment(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value < stepper.maximumValue else {
+            return
+        }
+        
         stepper.value += stepper.stepValue
         stepper.sendActions(for: .valueChanged)
         pump()
     }
     
     func decrement(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value > stepper.minimumValue else {
+            return
+        }
+        
         stepper.value -= stepper.stepValue
         stepper.sendActions(for: .valueChanged)
         pump()
@@ -190,6 +198,8 @@ extension VCTest {
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return control.superview?.hitTest(control.center, with: nil) == control
+        // Disabled controls do not receive touch events
+        // Since we are programmatically hit testing, we need to confirm the control is enabled
+        return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
     }
 }

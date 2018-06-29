@@ -12,9 +12,21 @@ import UIKit
 
 @testable import Armory
 
+enum StepperAction {
+    case didFire
+}
+
 class StepperViewTests: XCTestCase, VCTest {
     
+    // MARK: - Private
+    
+    private var actions: [StepperAction] = []
+    
+    // MARK: - VCTest
+    
     var viewController: StepperViewController!
+    
+    // MARK: - Set Up / Tear Down
     
     override func setUp() {
         super.setUp()
@@ -24,14 +36,15 @@ class StepperViewTests: XCTestCase, VCTest {
     }
     
     override func tearDown() {
-        super.tearDown()
-        
+        actions = []
         viewController = nil
+        
+        super.tearDown()
     }
     
     // MARK: - UIStepper tests
     
-    func testStepperWillIncrement() {
+    func testStepperIncrement() {
         let originalValue = viewController.stepper.value
         
         increment(viewController.stepper)
@@ -39,7 +52,7 @@ class StepperViewTests: XCTestCase, VCTest {
         XCTAssertEqual(viewController.stepper.value, originalValue + viewController.stepper.stepValue )
     }
     
-    func testStepperWillDecrement() {
+    func testStepperDecrement() {
         let originalValue = viewController.stepper.value
         
         decrement(viewController.stepper)
@@ -47,7 +60,7 @@ class StepperViewTests: XCTestCase, VCTest {
         XCTAssertEqual(viewController.stepper.value, originalValue - viewController.stepper.stepValue)
     }
     
-    func testCantExceedMaximumValue() {
+    func testStepperStopsAtMaximumValue() {
         let startingValue: Double = 95
         viewController.stepper.value = startingValue
         
@@ -59,7 +72,7 @@ class StepperViewTests: XCTestCase, VCTest {
         XCTAssertEqual(viewController.stepper.value, viewController.stepper.maximumValue)
     }
     
-    func testCantExceedMinimumValue() {
+    func testStepperStopsAtMinimumValue() {
         let startingValue: Double = 5
         viewController.stepper.value = startingValue
         
@@ -71,4 +84,43 @@ class StepperViewTests: XCTestCase, VCTest {
         XCTAssertEqual(viewController.stepper.value, viewController.stepper.minimumValue)
     }
     
+    func testActionNotCalledForDisabledStepper() {
+        viewController.stepper.addTarget(self, action: #selector(stepperAction(_:)), for: .valueChanged)
+        
+        viewController.stepper.isEnabled = false
+        
+        increment(viewController.stepper)
+        
+        XCTAssertFalse(actions.contains(.didFire))
+    }
+    
+    func testActionNotCalledForDecrement() {
+        viewController.stepper.addTarget(self, action: #selector(stepperAction(_:)), for: .valueChanged)
+        
+        viewController.stepper.value = viewController.stepper.minimumValue
+        
+        decrement(viewController.stepper)
+        
+        XCTAssertFalse(actions.contains(.didFire))
+    }
+    
+    func testActionNotCalledForIncrement() {
+        viewController.stepper.addTarget(self, action: #selector(stepperAction(_:)), for: .valueChanged)
+        
+        viewController.stepper.value = viewController.stepper.maximumValue
+        
+        increment(viewController.stepper)
+        
+        XCTAssertFalse(actions.contains(.didFire))
+    }
+    
+}
+
+// MARK: - Stepper Actions
+
+extension StepperViewTests {
+    
+    @objc func stepperAction(_ sender: UIStepper) {
+        actions.append(.didFire)
+    }
 }
