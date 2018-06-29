@@ -67,7 +67,7 @@ protocol VCTest {
      - parameter aSwitch: `UISwitch` instance to toggle
      - parameter animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
     */
-    func toggleSwitch(_ aSwitch: UISwitch, animated: Bool)
+    func toggle(_ aSwitch: UISwitch, animated: Bool)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -131,8 +131,12 @@ extension VCTest {
         pump()
     }
     
-    func toggleSwitch(_ aSwitch: UISwitch, animated: Bool = true) {
-        aSwitch.setOn(!aSwitch.isOn, animated: true)
+    func toggle(_ aSwitch: UISwitch, animated: Bool = true) {
+        guard isTappable(aSwitch) else {
+            return
+        }
+        
+        aSwitch.setOn(!aSwitch.isOn, animated: animated)
         aSwitch.sendActions(for: .valueChanged)
         pump()
     }
@@ -178,6 +182,8 @@ extension VCTest {
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return control.superview?.hitTest(control.center, with: nil) == control
+        // Disabled controls do not receive touch events
+        // Since we are programmatically hit testing, we need to confirm the control is enabled
+        return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
     }
 }
