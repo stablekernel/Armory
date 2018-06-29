@@ -108,4 +108,28 @@ class AlertControllerTests: XCTestCase, VCTest {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
     }
+    
+    func testDisabledAlertActionForAlertStyleNotCalled() {
+        viewController.setupAlertController(style: .alert, title: "Change Background", actions: alertActions)
+        
+        alertActions.first?.isEnabled = false
+        
+        tap(viewController.showAlertButton)
+        
+        try! tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
+        
+        XCTAssertFalse(calledAlertActions.contains(.blue))
+    }
+    
+    func testDisabledAlertActionForActionSheetStyleNotCalled() {
+        viewController.setupAlertController(style: .actionSheet, title: "Change Background", actions: alertActions)
+        
+        alertActions.first?.isEnabled = false
+        
+        tap(viewController.showAlertButton)
+        
+        try! tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
+        
+        XCTAssertFalse(calledAlertActions.contains(.blue))
+    }
 }

@@ -132,6 +132,10 @@ extension VCTest {
             throw ArmoryError.titleLookupFailed
         }
         
+        guard action.isEnabled else {
+            return
+        }
+        
         let actionhandler = action.value(forKey: "handler")
         let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionhandler as AnyObject).toOpaque())
         let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
@@ -222,6 +226,8 @@ extension VCTest {
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return control.superview?.hitTest(control.center, with: nil) == control
+        // Disabled controls do not receive touch events
+        // Since we are programmatically hit testing, we need to confirm the control is enabled
+        return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
     }
 }
