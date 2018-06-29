@@ -164,6 +164,10 @@ extension VCTest {
     }
 
     func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool = true) {
+        guard isTappable(slider) else {
+            return
+        }
+        
         let cleanValue = value > 0 ? min(value, 1) : max(value, 0)
         let distance = slider.maximumValue - slider.minimumValue
         let displayValue = (cleanValue * distance) + slider.minimumValue
@@ -218,6 +222,8 @@ extension VCTest {
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return control.superview?.hitTest(control.center, with: nil) == control
+        // Disabled controls do not receive touch events
+        // Since we are programmatically hit testing, we need to confirm the control is enabled
+        return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
     }
 }

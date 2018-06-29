@@ -130,6 +130,16 @@ class SliderViewTests: XCTestCase, VCTest {
         
         XCTAssertFalse(actions.contains(.didFire))
     }
+    
+    func testSliderActionNotCalled() {
+        viewController.slider.addTarget(self, action: #selector(slider(_:)), for: .valueChanged)
+        
+        viewController.slider.isEnabled = false
+        
+        slide(viewController.slider, toNormalizedValue: 0.5)
+        
+        XCTAssertFalse(actions.contains(.didFire))
+    }
 }
 
 // MARK: - Slider Action
