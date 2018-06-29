@@ -9,6 +9,15 @@
 import Foundation
 import XCTest
 
+enum ArmoryError: Error {
+    
+    case indexOutOfBounds
+    case imageLookupFailed
+    case titleLookupFailed
+    case invalidCellType
+    
+}
+
 // MARK: - VCTestSetup
 
 protocol VCTestSetup: VCTest {
@@ -62,15 +71,16 @@ protocol VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
     /**
-     Returns cell from given `row` in a `UICollectionView` instance
+     Returns cell of provided type from the given `UICollectionView` instance
      
-     - parameter row: Cell's row within `collectionView`
-     - parameter section: Section where cell is located (default = 0)
+     - parameter indexPath: The `IndexPath` for cell retrieval
      - parameter collectionView: The `UICollectionView` that contains the cell
      
-     - returns: The cell at given row and section
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
      */
-    func selectCell<A: UICollectionViewCell>(atRow row: Int, inSection section: Int, fromCollectionView collectionView: UICollectionView) -> A
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -134,13 +144,11 @@ extension VCTest {
         pump()
     }
     
-    func selectCell<A: UICollectionViewCell>(atRow row: Int, inSection section: Int = 0, fromCollectionView collectionView: UICollectionView) -> A {
-        let indexPath = IndexPath(row: row, section: section)
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
         let cell = collectionView.cellForItem(at: indexPath)
         
         guard let validCell = cell as? A else {
-            XCTFail("Invalid cell type (\(Swift.type(of: cell)) found for expected cell type (\(A.self)")
-            return cell as! A
+            throw ArmoryError.invalidCellType
         }
         
         return validCell

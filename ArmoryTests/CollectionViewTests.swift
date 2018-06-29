@@ -33,13 +33,28 @@ class CollectionViewTests: XCTestCase, VCTest {
     
     // MARK: - UICollectionView Tests
     
-    func testCollectionViewItemIsSelectable() {
+    func testCellRetrieval() {
         viewController.setupDataSource(colors: testColors)
         pump()
         
-        let row = 1
-        let cell: CollectionViewCell = selectCell(atRow: row, fromCollectionView: viewController.collectionView)
+        let indexPath = IndexPath(row: 2, section: 0)
+        let aCell: CollectionViewCell = try! cell(at: indexPath, fromCollectionView: viewController.collectionView)
         
-        XCTAssertEqual(cell.color, testColors[row])
+        XCTAssertEqual(aCell.color, testColors[indexPath.row])
+    }
+    
+    func testCellRetrievalFailure() {
+        viewController.setupDataSource(colors: testColors)
+        pump()
+        
+        let indexPath = IndexPath(row: 2, section: 0)
+        
+        do {
+            let _: UICollectionViewCell = try cell(at: indexPath, fromCollectionView: viewController.collectionView)
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.invalidCellType)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
     }
 }
