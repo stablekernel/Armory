@@ -73,13 +73,12 @@ protocol VCTest {
     /**
      Returns cell of provided type from the given `UITableView` instance
      
-     - parameter row: Cell's row within `tableView`
-     - parameter section: Section where cell is located (default = 0)
+     - parameter indexPath: The `IndexPath` for cell retrieval
      - parameter tableView: The `UITableView` that contains the cell
      
      - throws: ArmoryError.invalidCellType
      
-     - returns: The cell at given row and section
+     - returns: The cell at the given `indexPath`
      */
     func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
     
