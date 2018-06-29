@@ -42,32 +42,24 @@ class TabBarTests: XCTestCase, VCTestSetup {
     }
 
     func testSelectTabByIndexLessThanZero() {
-        var thrownError: ArmoryError?
-
         do {
             try selectTab(atIndex: -1, fromTabBar: viewController.tabBar)
         } catch let error as ArmoryError {
-            thrownError = error
+            XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
         } catch {
-            thrownError = nil
+            XCTFail("Unexpected error: \(error.localizedDescription)")
         }
-
-        XCTAssertEqual(thrownError, ArmoryError.indexOutOfBounds)
     }
 
     func testSelectTabByIndexGreaterThanTabCount() {
-        var thrownError: ArmoryError?
-
         do {
             let tabCount = viewController.tabBar.items?.count ?? 0
             try selectTab(atIndex: tabCount + 1, fromTabBar: viewController.tabBar)
         } catch let error as ArmoryError {
-            thrownError = error
+            XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
         } catch {
-            thrownError = nil
+            XCTFail("Unexpected error: \(error.localizedDescription)")
         }
-
-        XCTAssertEqual(thrownError, ArmoryError.indexOutOfBounds)
     }
 
     func testSelectTabByTitle() {
@@ -77,17 +69,13 @@ class TabBarTests: XCTestCase, VCTestSetup {
     }
 
     func testSelectTabByTitleFailure() {
-        var thrownError: ArmoryError?
-
         do {
             try selectTab(withTitle: "Missing Title", fromTabBar: viewController.tabBar)
         } catch let error as ArmoryError {
-            thrownError = error
+            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
         } catch {
-            thrownError = nil
+            XCTFail("Unexpected error: \(error.localizedDescription)")
         }
-
-        XCTAssertEqual(thrownError, ArmoryError.titleLookupFailed)
     }
 
     func testSelectTabByImage() {
@@ -97,19 +85,14 @@ class TabBarTests: XCTestCase, VCTestSetup {
     }
 
     func testSelectTabByImageFailure() {
-        var thrownError: ArmoryError?
-
         do {
             try selectTab(withImage: UIImage(), fromTabBar: viewController.tabBar)
         } catch let error as ArmoryError {
-            thrownError = error
+            XCTAssertEqual(error, ArmoryError.imageLookupFailed)
         } catch {
-            thrownError = nil
+            XCTFail("Unexpected error: \(error.localizedDescription)")
         }
-
-        XCTAssertEqual(thrownError, ArmoryError.imageLookupFailed)
     }
-
 }
 
 
