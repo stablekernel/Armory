@@ -33,13 +33,32 @@ class TableViewTests: XCTestCase, VCTest {
     
     // MARK: - UITableView Tests
     
-    func testTableViewCellIsSelectable() {
+    func testCellRetrieval() {
         viewController.setupDataSource(names: testNames)
         pump()
         
-        let row = 2
-        let cell: UITableViewCell = selectCell(atRow: row, fromTableView: viewController.tableView)
+        let indexPath = IndexPath(row: 2, section: 0)
+        let aCell: UITableViewCell = try! cell(at: indexPath, fromTableView: viewController.tableView)
         
-        XCTAssertEqual(cell.textLabel?.text, testNames[2])
+        XCTAssertEqual(aCell.textLabel?.text, testNames[2])
+    }
+    
+    func testCellRetrievalFailure() {
+        viewController.setupDataSource(names: testNames)
+        pump()
+        
+        let indexPath = IndexPath(row: 2, section: 0)
+        
+        do {
+            let _: FailureCell = try cell(at: indexPath, fromTableView: viewController.tableView)
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.invalidCellType)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
     }
 }
+
+// MARK: - FailureCell
+
+class FailureCell: UITableViewCell {}

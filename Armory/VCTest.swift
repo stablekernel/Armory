@@ -9,6 +9,15 @@
 import Foundation
 import XCTest
 
+enum ArmoryError: Error {
+    
+    case indexOutOfBounds
+    case imageLookupFailed
+    case titleLookupFailed
+    case invalidCellType
+    
+}
+
 // MARK: - VCTestSetup
 
 protocol VCTestSetup: VCTest {
@@ -62,14 +71,17 @@ protocol VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
     /**
-     Calls the `cellForRow` method for a `UITableView` instance and returns selected cell
+     Returns cell of provided type from the given `UITableView` instance
      
      - parameter row: Cell's row within `tableView`
      - parameter section: Section where cell is located (default = 0)
      - parameter tableView: The `UITableView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
      - returns: The cell at given row and section
      */
-    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int, fromTableView tableView: UITableView) -> A
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
     
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -133,13 +145,11 @@ extension VCTest {
         pump()
     }
     
-    func selectCell<A: UITableViewCell>(atRow row: Int, inSection section: Int = 0, fromTableView tableView: UITableView) -> A {
-        let indexPath = IndexPath(row: row, section: section)
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
         let cell = tableView.cellForRow(at: indexPath)
         
         guard let validCell = cell as? A else {
-            XCTFail("Invalid cell type (\(Swift.type(of: cell))) found for expected cell type (\(A.self))")
-            return cell as! A
+            throw ArmoryError.invalidCellType
         }
         
         return validCell
