@@ -12,9 +12,34 @@ import UIKit
 
 @testable import Armory
 
+enum AlertAction {
+    case blue
+    case red
+}
+
 class AlertControllerTests: XCTestCase, VCTest {
     
+    // MARK: - Private
+    
+    private lazy var alertActions: [UIAlertAction] = {
+        let blueAction = UIAlertAction(title: "Blue", style: .default) { action in
+            self.calledAlertActions.append(.blue)
+        }
+        
+        let redAction = UIAlertAction(title: "Red", style: .default) { action in
+            self.calledAlertActions.append(.red)
+        }
+        
+        return [blueAction, redAction]
+    }()
+    
+    private var calledAlertActions: [AlertAction] = []
+    
+    // MARK: - VCTest
+    
     var viewController: AlertViewController!
+    
+    // MARK: - Set Up / Tear Down
     
     override func setUp() {
         super.setUp()
@@ -24,60 +49,63 @@ class AlertControllerTests: XCTestCase, VCTest {
     }
     
     override func tearDown() {
+        calledAlertActions = []
+        viewController = nil
+        
         super.tearDown()
     }
     
     // MARK: - UIAlertController Tests
     
-    func testCorrectAlertActionHandlerIsCalled() {
-        let blueButton = UIAlertAction(title: "Blue", style: .default) { action in
-            self.viewController.view.backgroundColor = .blue
-        }
-        
-        let redButton = UIAlertAction(title: "Red", style: .default) { action in
-            self.viewController.view.backgroundColor = .red
-        }
-        
-        viewController.setupAlertController(style: .alert, title: "Change Background", message: nil, actions: [blueButton, redButton])
+    func testRedAlertActionForAlertStyle() {
+        viewController.setupAlertController(style: .alert, title: "Change Background", actions: alertActions)
         
         tap(viewController.showAlertButton)
         
-        tapButton(withTitle: "Red", fromAlertController: viewController.alertController)
+        try! tapButton(withTitle: "Red", fromAlertController: viewController.alertController)
         
         waitForDismissedViewController()
         
-        XCTAssertEqual(viewController.view.backgroundColor, UIColor.red)
-        XCTAssertNil(viewController.presentedViewController)
+        XCTAssertTrue(self.calledAlertActions.contains(.red))
     }
     
-    // MARK: - ActionSheet Tests
-    
-    func testActionSheetAppears() {
-        viewController.setupAlertController(style: .actionSheet, title: "Alert Title")
+    func testBlueAlertActionForActionSheetStyle() {
+        viewController.setupAlertController(style: .actionSheet, title: "Change background", actions: alertActions)
         
         tap(viewController.showAlertButton)
         
-        let _: UIAlertController = waitForPresentedViewController()
-    }
-    
-    func testCorrectActionSheetIsCalled() {
-        let blueButton = UIAlertAction(title: "Blue", style: .default) { action in
-            self.viewController.view.backgroundColor = .blue
-        }
-        
-        let redButton = UIAlertAction(title: "Red", style: .default) { action in
-            self.viewController.view.backgroundColor = .red
-        }
-        
-        viewController.setupAlertController(style: .actionSheet, title: "Change background", message: nil, actions: [blueButton, redButton])
-        
-        tap(viewController.showAlertButton)
-        
-        tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
+        try! tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
         
         waitForDismissedViewController()
         
-        XCTAssertEqual(viewController.view.backgroundColor, .blue)
-        XCTAssertNil(viewController.presentedViewController)
+        XCTAssertTrue(self.calledAlertActions.contains(.blue))
+    }
+    
+    func testAlertActionForAlertStyleFailure() {
+        viewController.setupAlertController(style: .alert, title: "Change Background", actions: alertActions)
+        
+        tap(viewController.showAlertButton)
+        
+        do {
+            try tapButton(withTitle: "Invalid", fromAlertController: viewController.alertController)
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
+    
+    func testAlertActionForActionSheetStyleFailure() {
+        viewController.setupAlertController(style: .actionSheet, title: "Change Background", actions: alertActions)
+        
+        tap(viewController.showAlertButton)
+        
+        do {
+            try tapButton(withTitle: "Invalid", fromAlertController: viewController.alertController)
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
     }
 }

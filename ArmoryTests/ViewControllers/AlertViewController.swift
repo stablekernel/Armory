@@ -26,10 +26,9 @@ class AlertViewController: TestViewController {
     
     // MARK: - Public
     
-    func setupAlertController(style: UIAlertControllerStyle, title: String, message: String? = nil, actions: [UIAlertAction]? = nil) {
+    func setupAlertController(style: UIAlertControllerStyle, title: String? = nil, message: String? = nil, actions: [UIAlertAction] = []) {
         alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         
-        let alertActions = actions ?? []
-        alertActions.forEach { alertController.addAction($0) }
+        actions.forEach { alertController.addAction($0) }
     }
 }

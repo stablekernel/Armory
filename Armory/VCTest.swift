@@ -42,12 +42,14 @@ protocol VCTest {
     func tap(_ barButtonItem: UIBarButtonItem)
     
     /**
-     Calls handler associated with specified `UIAlertAction` in a given `UIAlertController` instance
+     Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
      
      - parameter title: Title for `UIAlertAction`
      - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+     
+     - throws: ArmoryError.titleLookupFailed
      */
-    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController)
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
     
     func type(_ control: UITextField, text: String)
 
@@ -125,9 +127,9 @@ extension VCTest {
         pump()
     }
     
-    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) {
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws {
         guard let action = alertController.actions.first(where: { $0.title == title }) else {
-            return
+            throw ArmoryError.titleLookupFailed
         }
         
         let actionhandler = action.value(forKey: "handler")
