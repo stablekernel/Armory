@@ -68,9 +68,6 @@
     <li class="toctree-l2"><a href="#uicollectionview">UICollectionView</a></li>
     
 
-    <li class="toctree-l2"><a href="#uitableview">UITableView</a></li>
-    
-
     <li class="toctree-l2"><a href="#uidatepicker">UIDatePicker</a></li>
     
 
@@ -80,16 +77,19 @@
     <li class="toctree-l2"><a href="#uisegmentedcontrol">UISegmentedControl</a></li>
     
 
-    <li class="toctree-l2"><a href="#uiswitch">UISwitch</a></li>
-    
-
     <li class="toctree-l2"><a href="#uislider">UISlider</a></li>
     
 
     <li class="toctree-l2"><a href="#uistepper">UIStepper</a></li>
     
 
+    <li class="toctree-l2"><a href="#uiswitch">UISwitch</a></li>
+    
+
     <li class="toctree-l2"><a href="#uitabbar-uitabbarcontroller">UITabBar / UITabBarController</a></li>
+    
+
+    <li class="toctree-l2"><a href="#uitableview">UITableView</a></li>
     
 
     </ul>
@@ -130,7 +130,21 @@
           <div role="main">
             <div class="section">
               
-                <h3 id="uialertcontroller">UIAlertController</h3>
+                <!-- ## List of Components
+
+* [UIAlertController](#uialertcontroller)
+* [UICollectionView](#uicollectionview)
+* [UIDatePicker](#uidatepicker)
+* [UIPickerView](#uipickerview)
+* [UISegmentedControl](#uisegmentedcontrol)
+* [UISlider](#uislider)
+* [UIStepper](#uistepper)
+* [UISwitch](#uiswitch)
+* [UITabBar / UITabBarController](#uitabbar--uitabbarcontroller)
+* [UITableView](#uitableview)
+ -->
+
+<h3 id="uialertcontroller">UIAlertController</h3>
 <p>Calls handler associated with specified <code>UIAlertAction</code> in a given <code>UIAlertController</code> instance and dismisses <code>UIAlertController</code></p>
 <pre><code class="swift">func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController)
 </code></pre>
@@ -169,26 +183,6 @@ XCTAssertNil(viewController.presentedViewController)
 </code></pre>
 
 <hr />
-<h3 id="uitableview">UITableView</h3>
-<p>Returns typed cell from given <code>indexPath</code> in a <code>UITableView</code> instance</p>
-<pre><code class="swift">func selectCell&lt;A: UITableViewCell&gt;(atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -&gt; A
-</code></pre>
-
-<p><strong>Parameters</strong></p>
-<p><code>indexPath</code>: <code>IndexPath</code> where the <code>UITableViewCell</code> is located<br />
-<code>tableView</code>: The <code>UITableView</code> that contains the cell</p>
-<p><code>returns</code>: The typed cell at given <code>indexPath</code></p>
-<p><strong>Example</strong></p>
-<pre><code class="swift">for row in 0..&lt;viewController.myTableView.numberOfRows(inSection: 0) {
-    let index = IndexPath(row: row, section: 0)
-    scroll(to: index, in: viewController.myTableView)
-
-    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)
-    tap(cell.checkmarkButton)
-}
-</code></pre>
-
-<hr />
 <h3 id="uidatepicker">UIDatePicker</h3>
 <p>Sets the date for a given <code>UIDatePicker</code> instance</p>
 <pre><code class="swift">func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
@@ -214,9 +208,9 @@ XCTAssertEqual(date, datePickerVC.datePicker.date)
 </code></pre>
 
 <p><strong>Parameters</strong></p>
-<p><code>row</code>: Item's row within <code>picker</code>
-<code>picker</code>: The <code>UIPickerView</code> where item is located
-<code>animated</code>: Default <code>true</code>. Set to <code>false</code> to disable animation of item selection.</p>
+<p><code>row</code>: Item's row within <code>picker</code><br />
+<code>picker</code>: The <code>UIPickerView</code> where item is located<br />
+<code>animated</code>: Default <code>true</code>. Set to <code>false</code> to disable animation of item selection  </p>
 <p><strong>Example</strong></p>
 <pre><code class="swift">selectItem(atRow: 1, fromPicker: viewController.pickerView, animated: true)
 
@@ -273,13 +267,93 @@ XCTAssertEqual(viewController.segmentedControl.imageForSegment(at: 1), image)
 </code></pre>
 
 <hr />
-<h3 id="uiswitch">UISwitch</h3>
-<hr />
 <h3 id="uislider">UISlider</h3>
+<p>Updates the provided <code>UISlider</code> instance with the given normalized value</p>
+<pre><code class="swift">func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<p><code>slider</code>: The provided <code>UISlider</code> instance to update<br />
+<code>value</code>: The normalized value to slide to<br />
+<code>animated</code>: Default <code>true</code>. Set to <code>false</code> to disable animation of sliding action  </p>
+<p><strong>Example</strong></p>
+<pre><code class="swift">viewController.slider.minimumValue = 0
+viewController.slider.maximumValue = 100
+
+slide(viewController.slider, toNormalizedValue: 0.5)
+
+XCTAssertEqual(viewController.slider.value, 50)
+</code></pre>
+
 <hr />
 <h3 id="uistepper">UIStepper</h3>
+<p>Increments the given <code>UIStepper</code> by the default <code>stepValue</code></p>
+<pre><code class="swift">func increment(_ stepper: UIStepper)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<p><code>stepper</code>: The <code>UIStepper</code> instance to be incremented</p>
+<p><strong>Example</strong></p>
+<pre><code class="swift">let originalValue = viewController.stepper.value
+
+increment(viewController.stepper)
+
+XCTAssertEqual(viewController.stepper.value, originalValue + viewController.stepper.stepValue )
+</code></pre>
+
+<hr />
+<p>Decrements the given <code>UIStepper</code> by the default <code>stepValue</code></p>
+<pre><code class="swift">func decrement(_ stepper: UIStepper)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<p><code>stepper</code>: The <code>UIStepper</code> instance to be decremented</p>
+<p><strong>Example</strong></p>
+<pre><code class="swift">let originalValue = viewController.stepper.value
+
+decrement(viewController.stepper)
+
+XCTAssertEqual(viewController.stepper.value, originalValue - viewController.stepper.stepValue )
+</code></pre>
+
+<hr />
+<h3 id="uiswitch">UISwitch</h3>
+<p>Toggles the <code>isOn</code> property of the given <code>UISwitch</code> instance</p>
+<pre><code class="swift">func toggle(_ aSwitch: UISwitch, animated: Bool)
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<p><code>aSwitch</code>: <code>UISwitch</code> instance to toggle<br />
+<code>animated</code>: Default <code>true</code>. Set to <code>false</code> to disable animation of <code>UISwitch</code> toggle  </p>
+<p><strong>Example</strong></p>
+<pre><code class="swift">let initialState = viewController.backgroundSwitch.isOn
+
+toggle(viewController.backgroundSwitch)
+
+XCTAssertNotEqual(viewController.backgroundSwitch.isOn, initialState)
+</code></pre>
+
 <hr />
 <h3 id="uitabbar-uitabbarcontroller">UITabBar / UITabBarController</h3>
+<hr />
+<h3 id="uitableview">UITableView</h3>
+<p>Returns typed cell from given <code>indexPath</code> in a <code>UITableView</code> instance</p>
+<pre><code class="swift">func selectCell&lt;A: UITableViewCell&gt;(atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -&gt; A
+</code></pre>
+
+<p><strong>Parameters</strong></p>
+<p><code>indexPath</code>: <code>IndexPath</code> where the <code>UITableViewCell</code> is located<br />
+<code>tableView</code>: The <code>UITableView</code> that contains the cell</p>
+<p><code>returns</code>: The typed cell at given <code>indexPath</code></p>
+<p><strong>Example</strong></p>
+<pre><code class="swift">for row in 0..&lt;viewController.myTableView.numberOfRows(inSection: 0) {
+    let index = IndexPath(row: row, section: 0)
+    scroll(to: index, in: viewController.myTableView)
+
+    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)
+    tap(cell.checkmarkButton)
+}
+</code></pre>
               
             </div>
           </div>
