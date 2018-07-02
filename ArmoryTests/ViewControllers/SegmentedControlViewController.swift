@@ -8,16 +8,16 @@
 
 import UIKit
 
+enum SegmentedControlSelectionMode {
+    case indexOrTitle
+    case image
+}
+
 class SegmentedControlViewController: TestViewController {
     
     // MARK: - IBOutlets
-    
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-    // MARK: - Public
-    
-    func setupWithImages() {
-        segmentedControl.setImage(UIImage.close(), forSegmentAt: 0)
-        segmentedControl.setImage(UIImage.lock(), forSegmentAt: 1)
-    }
+
+    @IBOutlet weak var imageSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var indexOrTitleSegmentedControl: UISegmentedControl!
+
 }

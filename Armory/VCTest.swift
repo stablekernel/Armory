@@ -134,28 +134,34 @@ protocol VCTest {
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
     
     /**
-     Selects the segment at index of given `UISegmentedControl`
+     Selects the segment at the specified index from the given `UISegmentedControl` instance
      
-     - parameter segmentedControl: `UISegmentedControl` instance to update
      - parameter index: Index of segment to be selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: ArmoryError.indexOutOfBounds
      */
-    func selectSegment(_ segmentedControl: UISegmentedControl, atIndex index: Int)
+    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws
     
     /**
-     Selects the segment with specified title of given `UISegmentedControl`
+     Selects the segment with specified title from the given `UISegmentedControl` instance
      
-     - parameter segmentedControl: `UISegmentedControl` instance to update
-     - parameter title: Title of segment to tap
+     - parameter title: Title of segment to be selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: ArmoryError.titleLookupFailed
      */
-    func selectSegment(_ segmentedControl: UISegmentedControl, withTitle title: String)
+    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws
     
     /**
-     Selects the segment with specified image of given `UISegmentedControl`
+     Selects the segment with the specified image from the given `UISegmentedControl` instance
      
-     - parameter segmentedControl: `UISegmentedControl` instance to update
-     - parameter image: Image of segment to tap
+     - parameter image: Image of segment to selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: ArmoryError.imageLookupFailed
      */
-    func selectSegment(_ segmentedControl: UISegmentedControl, withImage image: UIImage)
+    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -273,9 +279,13 @@ extension VCTest {
         try selectTab(atIndex: index, fromTabBar: tabBar)
     }
     
-    func selectSegment(_ segmentedControl: UISegmentedControl, atIndex index: Int) {
-        guard index < segmentedControl.numberOfSegments else {
+    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        guard segmentedControl.selectedSegmentIndex != index else {
             return
+        }
+
+        guard index >= 0 else {
+            throw ArmoryError.indexOutOfBounds
         }
         
         segmentedControl.selectedSegmentIndex = index
@@ -283,20 +293,20 @@ extension VCTest {
         pump()
     }
     
-    func selectSegment(_ segmentedControl: UISegmentedControl, withTitle title: String) {
-        for index in 0..<segmentedControl.numberOfSegments {
-            if segmentedControl.titleForSegment(at: index) == title {
-                selectSegment(segmentedControl, atIndex: index)
-            }
+    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        guard let index = (0..<segmentedControl.numberOfSegments).first(where: { segmentedControl.titleForSegment(at: $0) == title }) else {
+            throw ArmoryError.titleLookupFailed
         }
+
+        return try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
     }
     
-    func selectSegment(_ segmentedControl: UISegmentedControl, withImage image: UIImage) {
-        for index in 0..<segmentedControl.numberOfSegments {
-            if segmentedControl.imageForSegment(at: index) == image {
-                selectSegment(segmentedControl, atIndex: index)
-            }
+    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        guard let index = (0..<segmentedControl.numberOfSegments).first(where: { segmentedControl.imageForSegment(at: $0)?.isEqual(image) == true }) else {
+            throw ArmoryError.imageLookupFailed
         }
+
+        return try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
