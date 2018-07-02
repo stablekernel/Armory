@@ -77,6 +77,8 @@
         
             <li><a class="toctree-l3" href="#tap">tap</a></li>
         
+            <li><a class="toctree-l3" href="#type">type</a></li>
+        
             <li><a class="toctree-l3" href="#after">after</a></li>
         
             <li><a class="toctree-l3" href="#pump">pump</a></li>
@@ -161,11 +163,16 @@ XCTAssertNil(viewController.presentedViewController)
 
 <hr />
 <h3 id="tap">tap</h3>
+<p>Sends a <code>touchUpInside</code> event to the given <code>UIControl</code>, or performs the action associated with a <code>UIBarButtonItem</code></p>
 <pre><code class="swift">func tap(_ control: UIControl)
 
 func tap(_ barButtonItem: UIBarButtonItem)
+</code></pre>
 
-func type(_ control: UIControl &amp; UIKeyInput, text: String)
+<hr />
+<h3 id="type">type</h3>
+<p>Inserts given <code>text</code> to the <code>UITextField</code> one character at a time to simulate a user typing</p>
+<pre><code class="swift">func type(_ control: UIControl &amp; UIKeyInput, text: String)
 </code></pre>
 
 <hr />

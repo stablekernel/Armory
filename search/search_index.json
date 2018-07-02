@@ -87,7 +87,7 @@
         }, 
         {
             "location": "/conveniences/", 
-            "text": "Conveniences\n\n\nwaitForPresentedViewController\n\n\nConvenience that asserts a view controller is presented while subsequently returning it\n\n\nfunc waitForPresentedViewController\nA: UIViewController\n() -\n A\n\n\n\n\nExample\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)\n\n\n\n\n\n\nwaitForDismissedViewController\n\n\nConvenience that asserts the presented view controller is dismissed\n\n\nfunc waitForDismissedViewController()\n\n\n\n\nExample\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)\n\n\n\n\n\n\ntap\n\n\nfunc tap(_ control: UIControl)\n\nfunc tap(_ barButtonItem: UIBarButtonItem)\n\nfunc type(_ control: UIControl \n UIKeyInput, text: String)\n\n\n\n\n\n\nafter\n\n\nConvenience that waits for given test to complete before continuing. Fails if default timeout of 4s is exceeded. \n\n\nfunc after(_ test: @autoclosure @escaping () -\n Bool)\n\n\n\n\n\n\npump\n\n\nConvenience that performs one pass through the run loop for the current thread\n\n\nfunc pump()", 
+            "text": "Conveniences\n\n\nwaitForPresentedViewController\n\n\nConvenience that asserts a view controller is presented while subsequently returning it\n\n\nfunc waitForPresentedViewController\nA: UIViewController\n() -\n A\n\n\n\n\nExample\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)\n\n\n\n\n\n\nwaitForDismissedViewController\n\n\nConvenience that asserts the presented view controller is dismissed\n\n\nfunc waitForDismissedViewController()\n\n\n\n\nExample\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)\n\n\n\n\n\n\ntap\n\n\nSends a \ntouchUpInside\n event to the given \nUIControl\n, or performs the action associated with a \nUIBarButtonItem\n\n\nfunc tap(_ control: UIControl)\n\nfunc tap(_ barButtonItem: UIBarButtonItem)\n\n\n\n\n\n\ntype\n\n\nInserts given \ntext\n to the \nUITextField\n one character at a time to simulate a user typing\n\n\nfunc type(_ control: UIControl \n UIKeyInput, text: String)\n\n\n\n\n\n\nafter\n\n\nConvenience that waits for given test to complete before continuing. Fails if default timeout of 4s is exceeded. \n\n\nfunc after(_ test: @autoclosure @escaping () -\n Bool)\n\n\n\n\n\n\npump\n\n\nConvenience that performs one pass through the run loop for the current thread\n\n\nfunc pump()", 
             "title": "Conveniences"
         }, 
         {
@@ -107,8 +107,13 @@
         }, 
         {
             "location": "/conveniences/#tap", 
-            "text": "func tap(_ control: UIControl)\n\nfunc tap(_ barButtonItem: UIBarButtonItem)\n\nfunc type(_ control: UIControl   UIKeyInput, text: String)", 
+            "text": "Sends a  touchUpInside  event to the given  UIControl , or performs the action associated with a  UIBarButtonItem  func tap(_ control: UIControl)\n\nfunc tap(_ barButtonItem: UIBarButtonItem)", 
             "title": "tap"
+        }, 
+        {
+            "location": "/conveniences/#type", 
+            "text": "Inserts given  text  to the  UITextField  one character at a time to simulate a user typing  func type(_ control: UIControl   UIKeyInput, text: String)", 
+            "title": "type"
         }, 
         {
             "location": "/conveniences/#after", 
