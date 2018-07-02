@@ -12,7 +12,7 @@ import UIKit
 
 @testable import Armory
 
-class StepperViewTests: XCTestCase, VCTest {
+class StepperTests: XCTestCase, VCTest {
     
     // MARK: - Private
 
@@ -114,7 +114,7 @@ class StepperViewTests: XCTestCase, VCTest {
 
 // MARK: - Stepper Actions
 
-extension StepperViewTests {
+extension StepperTests {
     
     @objc func stepperAction(_ sender: UIStepper) {
         events.append(.valueChanged)
