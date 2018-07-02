@@ -1,3 +1,17 @@
+<!-- ## List of Components
+
+* [UIAlertController](#uialertcontroller)
+* [UICollectionView](#uicollectionview)
+* [UIDatePicker](#uidatepicker)
+* [UIPickerView](#uipickerview)
+* [UISegmentedControl](#uisegmentedcontrol)
+* [UISlider](#uislider)
+* [UIStepper](#uistepper)
+* [UISwitch](#uiswitch)
+* [UITabBar / UITabBarController](#uitabbar--uitabbarcontroller)
+* [UITableView](#uitableview)
+ -->
+
 ### UIAlertController
 
 Calls handler associated with specified `UIAlertAction` in a given `UIAlertController` instance and dismisses `UIAlertController`
@@ -52,34 +66,6 @@ for row in 0..<viewController.myCollectionView.numberOfItems(inSection: 0) {
 ```
 
 ___
-### UITableView
-
-Returns typed cell from given `indexPath` in a `UITableView` instance
-
-```swift
-func selectCell<A: UITableViewCell>(atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -> A
-```
-
-__Parameters__
-
-`indexPath`: `IndexPath` where the `UITableViewCell` is located  
-`tableView`: The `UITableView` that contains the cell
-
-`returns`: The typed cell at given `indexPath`
-
-__Example__
-
-```swift
-for row in 0..<viewController.myTableView.numberOfRows(inSection: 0) {
-    let index = IndexPath(row: row, section: 0)
-    scroll(to: index, in: viewController.myTableView)
-    
-    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)
-    tap(cell.checkmarkButton)
-}
-```
-
-___
 ### UIDatePicker
 
 Sets the date for a given `UIDatePicker` instance
@@ -106,6 +92,7 @@ XCTAssertEqual(date, datePickerVC.datePicker.date)
 ```
 
 ___
+
 ### UIPickerView
 
 Selects item at row for a given `UIDatePicker` instance
@@ -116,9 +103,9 @@ func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
 
 __Parameters__
 
-`row`: Item's row within `picker`
-`picker`: The `UIPickerView` where item is located
-`animated`: Default `true`. Set to `false` to disable animation of item selection.
+`row`: Item's row within `picker`  
+`picker`: The `UIPickerView` where item is located  
+`animated`: Default `true`. Set to `false` to disable animation of item selection  
 
 __Example__
 
@@ -198,13 +185,126 @@ XCTAssertEqual(viewController.segmentedControl.imageForSegment(at: 1), image)
 ```
 
 ___
-### UISwitch
-
-___
 ### UISlider
+
+Updates the provided `UISlider` instance with the given normalized value
+
+```swift
+func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool)
+```
+
+__Parameters__
+
+`slider`: The provided `UISlider` instance to update  
+`value`: The normalized value to slide to  
+`animated`: Default `true`. Set to `false` to disable animation of sliding action  
+
+__Example__
+
+```swift
+viewController.slider.minimumValue = 0
+viewController.slider.maximumValue = 100
+
+slide(viewController.slider, toNormalizedValue: 0.5)
+
+XCTAssertEqual(viewController.slider.value, 50)
+```
 
 ___
 ### UIStepper
 
+Increments the given `UIStepper` by the default `stepValue`
+
+```swift
+func increment(_ stepper: UIStepper)
+```
+
+__Parameters__
+
+`stepper`: The `UIStepper` instance to be incremented
+
+__Example__
+
+```swift
+let originalValue = viewController.stepper.value
+        
+increment(viewController.stepper)
+
+XCTAssertEqual(viewController.stepper.value, originalValue + viewController.stepper.stepValue )
+```
+___
+
+Decrements the given `UIStepper` by the default `stepValue`
+
+```swift
+func decrement(_ stepper: UIStepper)
+```
+
+__Parameters__
+
+`stepper`: The `UIStepper` instance to be decremented
+
+__Example__
+
+```swift
+let originalValue = viewController.stepper.value
+        
+decrement(viewController.stepper)
+
+XCTAssertEqual(viewController.stepper.value, originalValue - viewController.stepper.stepValue )
+```
+
+___
+### UISwitch
+
+Toggles the `isOn` property of the given `UISwitch` instance
+
+```swift
+func toggle(_ aSwitch: UISwitch, animated: Bool)
+```
+
+__Parameters__
+
+`aSwitch`: `UISwitch` instance to toggle  
+`animated`: Default `true`. Set to `false` to disable animation of `UISwitch` toggle  
+
+__Example__
+
+```swift
+let initialState = viewController.backgroundSwitch.isOn
+
+toggle(viewController.backgroundSwitch)
+        
+XCTAssertNotEqual(viewController.backgroundSwitch.isOn, initialState)
+```
+
 ___
 ### UITabBar / UITabBarController
+
+___
+### UITableView
+
+Returns typed cell from given `indexPath` in a `UITableView` instance
+
+```swift
+func selectCell<A: UITableViewCell>(atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -> A
+```
+
+__Parameters__
+
+`indexPath`: `IndexPath` where the `UITableViewCell` is located  
+`tableView`: The `UITableView` that contains the cell
+
+`returns`: The typed cell at given `indexPath`
+
+__Example__
+
+```swift
+for row in 0..<viewController.myTableView.numberOfRows(inSection: 0) {
+    let index = IndexPath(row: row, section: 0)
+    scroll(to: index, in: viewController.myTableView)
+    
+    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)
+    tap(cell.checkmarkButton)
+}
+```
