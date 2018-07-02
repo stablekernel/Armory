@@ -84,6 +84,66 @@
             "location": "/components/#uitableview", 
             "text": "Returns typed cell from given  indexPath  in a  UITableView  instance  func selectCell A: UITableViewCell (atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -  A  Parameters  indexPath :  IndexPath  where the  UITableViewCell  is located  tableView : The  UITableView  that contains the cell  returns : The typed cell at given  indexPath  Example  for row in 0.. viewController.myTableView.numberOfRows(inSection: 0) {\n    let index = IndexPath(row: row, section: 0)\n    scroll(to: index, in: viewController.myTableView)\n\n    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)\n    tap(cell.checkmarkButton)\n}", 
             "title": "UITableView"
+        }, 
+        {
+            "location": "/conveniences/", 
+            "text": "Conveniences\n\n\nwaitForPresentedViewController\n\n\nConvenience that asserts a view controller is presented while subsequently returning it\n\n\nfunc waitForPresentedViewController\nA: UIViewController\n() -\n A\n\n\n\n\nExample\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)\n\n\n\n\n\n\nwaitForDismissedViewController\n\n\nConvenience that asserts the presented view controller is dismissed\n\n\nfunc waitForDismissedViewController()\n\n\n\n\nExample\n\n\ntap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)\n\n\n\n\n\n\ntap\n\n\nfunc tap(_ control: UIControl)\n\nfunc tap(_ barButtonItem: UIBarButtonItem)\n\nfunc type(_ control: UIControl \n UIKeyInput, text: String)\n\n\n\n\n\n\nafter\n\n\nConvenience that waits for given test to complete before continuing. Fails if default timeout of 4s is exceeded. \n\n\nfunc after(_ test: @autoclosure @escaping () -\n Bool)\n\n\n\n\n\n\npump\n\n\nConvenience that performs one pass through the run loop for the current thread\n\n\nfunc pump()", 
+            "title": "Conveniences"
+        }, 
+        {
+            "location": "/conveniences/#conveniences", 
+            "text": "", 
+            "title": "Conveniences"
+        }, 
+        {
+            "location": "/conveniences/#waitforpresentedviewcontroller", 
+            "text": "Convenience that asserts a view controller is presented while subsequently returning it  func waitForPresentedViewController A: UIViewController () -  A  Example  tap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle:  Close , fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)", 
+            "title": "waitForPresentedViewController"
+        }, 
+        {
+            "location": "/conveniences/#waitfordismissedviewcontroller", 
+            "text": "Convenience that asserts the presented view controller is dismissed  func waitForDismissedViewController()  Example  tap(viewController.showAlert)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle:  Close , fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)", 
+            "title": "waitForDismissedViewController"
+        }, 
+        {
+            "location": "/conveniences/#tap", 
+            "text": "func tap(_ control: UIControl)\n\nfunc tap(_ barButtonItem: UIBarButtonItem)\n\nfunc type(_ control: UIControl   UIKeyInput, text: String)", 
+            "title": "tap"
+        }, 
+        {
+            "location": "/conveniences/#after", 
+            "text": "Convenience that waits for given test to complete before continuing. Fails if default timeout of 4s is exceeded.   func after(_ test: @autoclosure @escaping () -  Bool)", 
+            "title": "after"
+        }, 
+        {
+            "location": "/conveniences/#pump", 
+            "text": "Convenience that performs one pass through the run loop for the current thread  func pump()", 
+            "title": "pump"
+        }, 
+        {
+            "location": "/robots/", 
+            "text": "Robots\n\n\nRobot classes are typed to a specific view controller, and provide app/domain-specific API around Armory. Robots are intended to be subclassed 1:1 for each view controller.\n\n\nExample\n\n\nLet's say you have a \nDatePickerViewController\n in one of your view controllers, and want to test selecting the date across multiple tests. While Armory provides a \nselectDate\n method, you likely have other user interactions that are necessary to trigger your date selection workflow as well.  \n\n\nInstead of writing out this setup code across multiple tests, create a \nViewControllerRobot\n with a \nselectDate\n method to trigger this workflow in a single line of code in your test class.  \n\n\nViewControllerRobot.swift\n\n\nclass ViewControllerRobot: Robot\nMyViewController\n {\n\n    func selectDate(_ date: Date, type: DateType, animated: Bool = true) {\n\n        tap(viewController.dateTextInput)\n        let datePickerVC: DatePickerViewController = waitForPresentedViewController()\n\n        selectDate(date, fromDatePicker: datePickerVC.datePicker, animated: animated)\n\n        XCTAssertEqual(date, datePickerVC.datePicker.date)\n\n        let button: UIBarButtonItem\n\n        switch type {\n        case .scheduled:\n            button = datePickerVC.scheduledButton\n        case .estimated:\n            button = datePickerVC.estimatedButton\n        }\n\n        tap(button)\n        waitForDismissedViewController()\n    }\n}\n\n\n\n\n\nViewControllerTests.swift\n\n\nclass ViewControllerTests: XCTest, VCTest {\n    var robot: ViewControllerRobot!\n\n    override func setUp() {\n        super.setUp()\n        robot = ViewControllerRobot(self)\n    }\n\n    func testCanSetScheduledDate() {\n        robot.selectDate(Date(), type: .scheduled)\n    }\n\n    func testCanSetEstimatedDate() {\n        robot.selectDate(Date(), type: .estimated)\n    }\n}", 
+            "title": "Robots"
+        }, 
+        {
+            "location": "/robots/#robots", 
+            "text": "Robot classes are typed to a specific view controller, and provide app/domain-specific API around Armory. Robots are intended to be subclassed 1:1 for each view controller.", 
+            "title": "Robots"
+        }, 
+        {
+            "location": "/robots/#example", 
+            "text": "Let's say you have a  DatePickerViewController  in one of your view controllers, and want to test selecting the date across multiple tests. While Armory provides a  selectDate  method, you likely have other user interactions that are necessary to trigger your date selection workflow as well.    Instead of writing out this setup code across multiple tests, create a  ViewControllerRobot  with a  selectDate  method to trigger this workflow in a single line of code in your test class.", 
+            "title": "Example"
+        }, 
+        {
+            "location": "/robots/#viewcontrollerrobotswift", 
+            "text": "class ViewControllerRobot: Robot MyViewController  {\n\n    func selectDate(_ date: Date, type: DateType, animated: Bool = true) {\n\n        tap(viewController.dateTextInput)\n        let datePickerVC: DatePickerViewController = waitForPresentedViewController()\n\n        selectDate(date, fromDatePicker: datePickerVC.datePicker, animated: animated)\n\n        XCTAssertEqual(date, datePickerVC.datePicker.date)\n\n        let button: UIBarButtonItem\n\n        switch type {\n        case .scheduled:\n            button = datePickerVC.scheduledButton\n        case .estimated:\n            button = datePickerVC.estimatedButton\n        }\n\n        tap(button)\n        waitForDismissedViewController()\n    }\n}", 
+            "title": "ViewControllerRobot.swift"
+        }, 
+        {
+            "location": "/robots/#viewcontrollertestsswift", 
+            "text": "class ViewControllerTests: XCTest, VCTest {\n    var robot: ViewControllerRobot!\n\n    override func setUp() {\n        super.setUp()\n        robot = ViewControllerRobot(self)\n    }\n\n    func testCanSetScheduledDate() {\n        robot.selectDate(Date(), type: .scheduled)\n    }\n\n    func testCanSetEstimatedDate() {\n        robot.selectDate(Date(), type: .estimated)\n    }\n}", 
+            "title": "ViewControllerTests.swift"
         }
     ]
 }
