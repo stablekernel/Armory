@@ -12,15 +12,11 @@ import UIKit
 
 @testable import Armory
 
-enum StepperAction {
-    case didFire
-}
-
 class StepperViewTests: XCTestCase, VCTest {
     
     // MARK: - Private
-    
-    private var actions: [StepperAction] = []
+
+    private var events: [UIControlEvents] = []
     
     // MARK: - VCTest
     
@@ -36,7 +32,7 @@ class StepperViewTests: XCTestCase, VCTest {
     }
     
     override func tearDown() {
-        actions = []
+        events = []
         viewController = nil
         
         super.tearDown()
@@ -91,7 +87,7 @@ class StepperViewTests: XCTestCase, VCTest {
         
         increment(viewController.stepper)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssertFalse(events.contains(.valueChanged))
     }
     
     func testActionNotCalledForDecrement() {
@@ -101,7 +97,7 @@ class StepperViewTests: XCTestCase, VCTest {
         
         decrement(viewController.stepper)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssertFalse(events.contains(.valueChanged))
     }
     
     func testActionNotCalledForIncrement() {
@@ -111,7 +107,7 @@ class StepperViewTests: XCTestCase, VCTest {
         
         increment(viewController.stepper)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssertFalse(events.contains(.valueChanged))
     }
     
 }
@@ -121,6 +117,6 @@ class StepperViewTests: XCTestCase, VCTest {
 extension StepperViewTests {
     
     @objc func stepperAction(_ sender: UIStepper) {
-        actions.append(.didFire)
+        events.append(.valueChanged)
     }
 }
