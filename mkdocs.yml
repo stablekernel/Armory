@@ -4,4 +4,6 @@ pages:
   - Home: index.md
   - Quickstart: quickstart.md
   - Components: components.md
+  - Conveniences: conveniences.md
+  - Robots: robots.md
 theme: readthedocs
