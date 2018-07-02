@@ -11,15 +11,11 @@ import UIKit
 
 @testable import Armory
 
-enum SwitchAction {
-    case didFire
-}
-
 class SwitchTests: XCTestCase, VCTest {
     
     // MARK: - Private
     
-    private var actions: [SwitchAction] = []
+    private var events: [UIControlEvents] = []
     
     // MARK: - VCTest
     
@@ -35,7 +31,7 @@ class SwitchTests: XCTestCase, VCTest {
     }
     
     override func tearDown() {
-        actions = []
+        events = []
         viewController = nil
         
         super.tearDown()
@@ -48,7 +44,7 @@ class SwitchTests: XCTestCase, VCTest {
         
         toggle(viewController.backgroundSwitch)
         
-        XCTAssertTrue(actions.contains(.didFire))
+        XCTAssertTrue(events.contains(.valueChanged))
     }
     
     func testSwitchActionNotCalled() {
@@ -58,7 +54,7 @@ class SwitchTests: XCTestCase, VCTest {
         
         toggle(viewController.backgroundSwitch)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssertTrue(events.isEmpty)
     }
     
 }
@@ -68,6 +64,6 @@ class SwitchTests: XCTestCase, VCTest {
 extension SwitchTests {
     
     @objc func switchAction(_ sender: UISwitch) {
-        actions.append(.didFire)
+        events.append(.valueChanged)
     }
 }
