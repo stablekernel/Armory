@@ -128,7 +128,7 @@
 </code></pre>
 
 <p>In addition to interacting with <code>UIKit</code> elements, Armory also provides conveniences for testing <code>UIViewController</code> presentations and dismissals. Below shows an example of how to test presenting and dismissing a <code>UIAlertController</code> instance:</p>
-<pre><code class="swift">tap(viewController.showAlert)
+<pre><code class="swift">tap(viewController.showAlertButton)
 
 let alertController: UIAlertController = waitForPresentedViewController()
 tapButton(withTitle: &quot;Close&quot;, fromAlertController: alertController)

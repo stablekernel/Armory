@@ -136,7 +136,7 @@
 </code></pre>
 
 <p><strong>Example</strong></p>
-<pre><code class="swift">tap(viewController.showAlert)
+<pre><code class="swift">tap(viewController.showAlertButton)
 
 let alertController: UIAlertController = waitForPresentedViewController()
 tapButton(withTitle: &quot;Close&quot;, fromAlertController: alertController)
@@ -152,7 +152,7 @@ XCTAssertNil(viewController.presentedViewController)
 </code></pre>
 
 <p><strong>Example</strong></p>
-<pre><code class="swift">tap(viewController.showAlert)
+<pre><code class="swift">tap(viewController.showAlertButton)
 
 let alertController: UIAlertController = waitForPresentedViewController()
 tapButton(withTitle: &quot;Close&quot;, fromAlertController: alertController)
