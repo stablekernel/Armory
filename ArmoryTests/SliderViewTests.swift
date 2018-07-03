@@ -11,16 +11,13 @@ import UIKit
 
 @testable import Armory
 
-enum SliderAction {
-    case didFire
-}
 
 class SliderViewTests: XCTestCase, VCTest {
     
     // MARK: - Private
-    
-    private var actions: [SliderAction] = []
-    
+
+    private var events: [UIControlEvents] = []
+
     // MARK: - VCTest
     
     var viewController: SliderViewController!
@@ -35,7 +32,7 @@ class SliderViewTests: XCTestCase, VCTest {
     }
     
     override func tearDown() {
-        actions = []
+        events = []
         viewController = nil
         
         super.tearDown()
@@ -108,7 +105,7 @@ class SliderViewTests: XCTestCase, VCTest {
         
         slide(viewController.slider, toNormalizedValue: 0.75)
         
-        XCTAssertTrue(actions.contains(.didFire))
+        XCTAssertTrue(events.contains(.valueChanged))
     }
     
     func testSliderActionAtMinValueNotCalled() {
@@ -118,7 +115,7 @@ class SliderViewTests: XCTestCase, VCTest {
         
         slide(viewController.slider, toNormalizedValue: 0)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssert(events.isEmpty)
     }
     
     func testSliderActionAtMaxValueNotCalled() {
@@ -128,7 +125,7 @@ class SliderViewTests: XCTestCase, VCTest {
         
         slide(viewController.slider, toNormalizedValue: 1)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssert(events.isEmpty)
     }
     
     func testSliderActionNotCalled() {
@@ -138,7 +135,7 @@ class SliderViewTests: XCTestCase, VCTest {
         
         slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertFalse(actions.contains(.didFire))
+        XCTAssertFalse(events.contains(.valueChanged))
     }
 }
 
@@ -147,6 +144,6 @@ class SliderViewTests: XCTestCase, VCTest {
 extension SliderViewTests {
     
     @objc func slider(_ sender: UISlider) {
-        actions.append(.didFire)
+        events.append(.valueChanged)
     }
 }
