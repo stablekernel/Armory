@@ -136,8 +136,8 @@ extension VCTest {
             return
         }
         
-        let actionhandler = action.value(forKey: "handler")
-        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionhandler as AnyObject).toOpaque())
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
         let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
         
         handler(action)

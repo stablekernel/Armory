@@ -66,7 +66,7 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         waitForDismissedViewController()
         
-        XCTAssertTrue(self.calledAlertActions.contains(.red))
+        XCTAssertTrue(self.calledAlertActions.elementsEqual([.red]))
     }
     
     func testBlueAlertActionForActionSheetStyle() {
@@ -78,7 +78,7 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         waitForDismissedViewController()
         
-        XCTAssertTrue(self.calledAlertActions.contains(.blue))
+        XCTAssertTrue(self.calledAlertActions.elementsEqual([.blue]))
     }
     
     func testAlertActionForAlertStyleFailure() {
