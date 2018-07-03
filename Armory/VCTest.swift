@@ -6,12 +6,6 @@
 //  Copyright © 2017 stablekernel. All rights reserved.
 //
 
-enum ArmoryError: Error {
-    case indexOutOfBounds
-    case imageLookupFailed
-    case titleLookupFailed
-}
-
 import Foundation
 import XCTest
 
