@@ -44,7 +44,7 @@ class SliderTests: XCTestCase, VCTest {
         viewController.slider.minimumValue = -5
         viewController.slider.maximumValue = -2
         
-        slide(viewController.slider, toNormalizedValue: 0.5)
+        try! slide(viewController.slider, toNormalizedValue: 0.5)
         
         XCTAssertEqual(viewController.slider.value, -3.5)
     }
@@ -53,7 +53,7 @@ class SliderTests: XCTestCase, VCTest {
         viewController.slider.minimumValue = -5
         viewController.slider.maximumValue = 5
         
-        slide(viewController.slider, toNormalizedValue: 0.5)
+        try! slide(viewController.slider, toNormalizedValue: 0.5)
         
         XCTAssertEqual(viewController.slider.value, 0)
     }
@@ -62,7 +62,7 @@ class SliderTests: XCTestCase, VCTest {
         viewController.slider.minimumValue = 5
         viewController.slider.maximumValue = 25
         
-        slide(viewController.slider, toNormalizedValue: 0.5)
+        try! slide(viewController.slider, toNormalizedValue: 0.5)
         
         XCTAssertEqual(viewController.slider.value, 15)
     }
@@ -71,31 +71,39 @@ class SliderTests: XCTestCase, VCTest {
         viewController.slider.minimumValue = 0
         viewController.slider.maximumValue = 0
         
-        slide(viewController.slider, toNormalizedValue: 0.5)
+        try! slide(viewController.slider, toNormalizedValue: 0.5)
         
         XCTAssertEqual(viewController.slider.value, 0)
     }
     
     func testNormalizedValueGreaterThanOne() {
-        slide(viewController.slider, toNormalizedValue: 1.5)
-        
-        XCTAssertEqual(viewController.slider.value, viewController.slider.maximumValue)
+        do {
+            try slide(viewController.slider, toNormalizedValue: 1.5)
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.invalidValue)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
     }
     
     func testNormalizedValueLessThanZero() {
-        slide(viewController.slider, toNormalizedValue: -1)
-        
-        XCTAssertEqual(viewController.slider.value, viewController.slider.minimumValue)
+        do {
+            try slide(viewController.slider, toNormalizedValue: -1)
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.invalidValue)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
     }
     
     func testNormalizedValueIsZero() {
-        slide(viewController.slider, toNormalizedValue: 0)
+        try! slide(viewController.slider, toNormalizedValue: 0)
         
         XCTAssertEqual(viewController.slider.value, viewController.slider.minimumValue)
     }
     
     func testNormalizedValueIsOne() {
-        slide(viewController.slider, toNormalizedValue: 1)
+        try! slide(viewController.slider, toNormalizedValue: 1)
         
         XCTAssertEqual(viewController.slider.value, viewController.slider.maximumValue)
     }
@@ -103,7 +111,7 @@ class SliderTests: XCTestCase, VCTest {
     func testSliderAction() {
         viewController.slider.addTarget(self, action: #selector(slider(_:)), for: .valueChanged)
         
-        slide(viewController.slider, toNormalizedValue: 0.75)
+        try! slide(viewController.slider, toNormalizedValue: 0.75)
         
         XCTAssertTrue(events.contains(.valueChanged))
     }
@@ -113,7 +121,7 @@ class SliderTests: XCTestCase, VCTest {
         
         viewController.slider.value = 0
         
-        slide(viewController.slider, toNormalizedValue: 0)
+        try! slide(viewController.slider, toNormalizedValue: 0)
         
         XCTAssert(events.isEmpty)
     }
@@ -123,7 +131,7 @@ class SliderTests: XCTestCase, VCTest {
         
         viewController.slider.value = 1
         
-        slide(viewController.slider, toNormalizedValue: 1)
+        try! slide(viewController.slider, toNormalizedValue: 1)
         
         XCTAssert(events.isEmpty)
     }
@@ -133,7 +141,7 @@ class SliderTests: XCTestCase, VCTest {
         
         viewController.slider.isEnabled = false
         
-        slide(viewController.slider, toNormalizedValue: 0.5)
+        try! slide(viewController.slider, toNormalizedValue: 0.5)
         
         XCTAssertFalse(events.contains(.valueChanged))
     }

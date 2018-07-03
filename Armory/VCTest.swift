@@ -15,7 +15,7 @@ enum ArmoryError: Error {
     case imageLookupFailed
     case titleLookupFailed
     case invalidCellType
-    
+    case invalidValue
 }
 
 // MARK: - VCTestSetup
@@ -86,10 +86,12 @@ protocol VCTest {
      Updates the provided `UISlider` instance with the given normalized value
      
      - parameter slider: The provided `UISlider` instance to update
-     - parameter value: The normalized value to slide to
+     - parameter value: The normalized value to slide to. Valid values are between 0.0 and 1.0 inclusive.
      - parameter animated: Default `true`. Set to `false` to disable animation of sliding action.
+
+     - throws: ArmoryError.invalidValue
     */
-    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool)
+    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool) throws
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -163,9 +165,13 @@ extension VCTest {
         return validCell
     }
 
-    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool = true) {
+    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool = true) throws {
         guard isTappable(slider) else {
             return
+        }
+
+        guard value >= 0 && value <= 1 else {
+            throw ArmoryError.invalidValue
         }
         
         let cleanValue = value > 0 ? min(value, 1) : max(value, 0)
