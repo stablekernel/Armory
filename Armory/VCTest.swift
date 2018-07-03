@@ -9,6 +9,15 @@
 import Foundation
 import XCTest
 
+enum ArmoryError: Error {
+    
+    case indexOutOfBounds
+    case imageLookupFailed
+    case titleLookupFailed
+    case invalidCellType
+    
+}
+
 // MARK: - VCTestSetup
 
 protocol VCTestSetup: VCTest {
@@ -60,7 +69,19 @@ protocol VCTest {
      - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
-
+    
+    /**
+     Returns cell of provided type from the given `UITableView` instance
+     
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter tableView: The `UITableView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
+     */
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
+    
     func after(_ test: @autoclosure @escaping () -> Bool)
 
     func pump()
@@ -121,6 +142,16 @@ extension VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool = true) {
         picker.selectRow(row, inComponent: 0, animated: animated)
         pump()
+    }
+    
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
+        }
+        
+        return validCell
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
