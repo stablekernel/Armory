@@ -50,7 +50,7 @@ class CollectionViewTests: XCTestCase, VCTest {
         let indexPath = IndexPath(row: 2, section: 0)
         
         do {
-            let _: UICollectionViewCell = try cell(at: indexPath, fromCollectionView: viewController.collectionView)
+            let _: FailureCell = try cell(at: indexPath, fromCollectionView: viewController.collectionView)
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.invalidCellType)
         } catch {
@@ -58,3 +58,7 @@ class CollectionViewTests: XCTestCase, VCTest {
         }
     }
 }
+
+// MARK: - FailureCell
+
+class FailureCell: UICollectionViewCell {}
