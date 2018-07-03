@@ -12,7 +12,7 @@ import UIKit
 @testable import Armory
 
 
-class SliderViewTests: XCTestCase, VCTest {
+class SliderTests: XCTestCase, VCTest {
     
     // MARK: - Private
 
@@ -141,7 +141,7 @@ class SliderViewTests: XCTestCase, VCTest {
 
 // MARK: - Slider Action
 
-extension SliderViewTests {
+extension SliderTests {
     
     @objc func slider(_ sender: UISlider) {
         events.append(.valueChanged)
