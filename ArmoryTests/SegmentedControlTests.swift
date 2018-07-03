@@ -117,7 +117,9 @@ class SegmentedControlTests: XCTestCase, VCTest {
     }
 
     func testSegmentedControlNoAction() {
-        viewController.indexOrTitleSegmentedControl.removeTarget(nil, action: nil, for: .valueChanged)
+        viewController.indexOrTitleSegmentedControl.addTarget(self, action: #selector(segmentedControl(_:)), for: .valueChanged)
+
+        viewController.indexOrTitleSegmentedControl.isEnabled = false
 
         try! selectSegment(atIndex: 0, fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
 
