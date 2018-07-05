@@ -61,6 +61,7 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
     func testSelectTabByIndexLessThanZero() {
         do {
             try selectTab(atIndex: -1, fromTabBarController: viewController)
+            XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
         } catch {
@@ -72,6 +73,7 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
         do {
             let tabCount = viewController.tabBar.items?.count ?? 0
             try selectTab(atIndex: tabCount + 1, fromTabBarController: viewController)
+            XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
         } catch {
@@ -89,6 +91,7 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
     func testSelectTabByTitleFailure() {
         do {
             try selectTab(withTitle: "Missing Title", fromTabBarController: viewController)
+            XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.titleLookupFailed)
         } catch {
@@ -105,6 +108,7 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
     func testSelectTabByImageFailure() {
         do {
             try selectTab(withImage: UIImage(), fromTabBarController: viewController)
+            XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.imageLookupFailed)
         } catch {
