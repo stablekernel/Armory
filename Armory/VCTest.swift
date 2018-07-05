@@ -16,6 +16,7 @@ enum ArmoryError: Error {
     case titleLookupFailed
     case invalidCellType
     case invalidValue
+    case multipleMatchesFound
 }
 
 // MARK: - VCTestSetup
@@ -139,6 +140,72 @@ protocol VCTest {
      - throws: ArmoryError.invalidValue
     */
     func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool) throws
+
+    /**
+     Selects the tab at the specified index from the given `UITabBarController` instance
+
+     - parameter index: Index of the tab to be selected
+     - parameter tabBarController: `UITabBarController` instance used for selection
+
+     - throws: ArmoryError.indexOutOfBounds
+
+     - returns: The view controller that is selected
+     */
+    @discardableResult func selectTab<A: UIViewController>(atIndex index: Int, fromTabBarController tabBarController: UITabBarController) throws -> A
+
+    /**
+     Selects the tab with the specified title from the given `UITabBarController` instance
+
+     - parameter title: Title of tab to be selected
+     - parameter tabBarController: `UITabBarController` instance used for selection
+
+     - throws: ArmoryError.titleLookupFailed
+
+     - returns: The view controller that is selected
+     */
+    @discardableResult func selectTab<A: UIViewController>(withTitle title: String, fromTabBarController tabBarController: UITabBarController) throws -> A
+
+    /**
+     Selects the tab with the specified image from the given `UITabBarController` instance
+
+     - parameter image: Image of tab to be selected
+     - parameter tabBarController: `UITabBarController` instance used for selection
+
+     - throws: ArmoryError.imageLookupFailed
+
+     - returns: The view controller that is selected
+     */
+    @discardableResult func selectTab<A: UIViewController>(withImage image: UIImage, fromTabBarController tabBarController: UITabBarController) throws -> A
+
+    /**
+     Selects the tab at the specified index from the given `UITabBar` instance
+
+     - parameter index: Index of the tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - throws: ArmoryError.indexOutOfBounds
+     */
+    func selectTab(atIndex index: Int, fromTabBar tabBar: UITabBar) throws
+
+    /**
+     Selects the tab with the specified title from the given `UITabBar` instance
+
+     - parameter title: Title of tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - throws: ArmoryError.titleLookupFailed
+     */
+    func selectTab(withTitle title: String, fromTabBar tabBar: UITabBar) throws
+
+    /**
+     Selects the tab with the specified image from the given `UITabBar` instance.
+
+     - parameter image: Image of tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - throws: ArmoryError.imageLookupFailed
+     */
+    func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -292,10 +359,97 @@ extension VCTest {
         pump()
     }
 
+    @discardableResult func selectTab<A: UIViewController>(atIndex index: Int, fromTabBarController tabBarController: UITabBarController) throws -> A  {
+        guard let items = tabBarController.tabBar.items,
+            index >= 0 && index < items.count else {
+                throw ArmoryError.indexOutOfBounds
+        }
+
+        tabBarController.selectedIndex = index
+        pump()
+
+        return tabBarController.selectedViewController as! A
+    }
+
+    @discardableResult func selectTab<A: UIViewController>(withTitle title: String, fromTabBarController tabBarController: UITabBarController) throws -> A {
+        let filteredItems = tabBarController.tabBar.items!.enumerated().filter{ $0.element.title == title }
+
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.titleLookupFailed
+        }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
+
+        return try selectTab(atIndex: index, fromTabBarController: tabBarController)
+    }
+
+    @discardableResult func selectTab<A: UIViewController>(withImage image: UIImage, fromTabBarController tabBarController: UITabBarController) throws -> A {
+        let filteredItems = tabBarController.tabBar.items!.enumerated().filter{ $0.element.image?.isEqual(image) == true }
+
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.imageLookupFailed
+        }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
+
+        return try selectTab(atIndex: index, fromTabBarController: tabBarController)
+    }
+
+    func selectTab(atIndex index: Int, fromTabBar tabBar: UITabBar) throws {
+        guard let items = tabBar.items,
+            index >= 0 && index < items.count else {
+                throw ArmoryError.indexOutOfBounds
+        }
+
+        tabBar.selectedItem = items[index]
+        pump()
+    }
+
+    func selectTab(withTitle title: String, fromTabBar tabBar: UITabBar) throws {
+        let filteredItems = tabBar.items!.enumerated().filter{ $0.element.title == title }
+
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.titleLookupFailed
+        }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
+
+        try selectTab(atIndex: index, fromTabBar: tabBar)
+    }
+
+    func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws {
+        let filteredItems = tabBar.items!.enumerated().filter{ $0.element.image?.isEqual(image) == true }
+
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.imageLookupFailed
+        }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
+
+        try selectTab(atIndex: index, fromTabBar: tabBar)
+    }
+
     func after(_ test: @autoclosure @escaping () -> Bool) {
         let exp = expectation(description: "Foobarxyz")
         let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.afterWaiting.rawValue, true, 0) { (observer, _) in
             let _ = self.viewController.view.layer.presentation()
+
             if test() == true {
                 CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
                 exp.fulfill()
