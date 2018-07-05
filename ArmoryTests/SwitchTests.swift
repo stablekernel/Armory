@@ -39,6 +39,14 @@ class SwitchTests: XCTestCase, VCTest {
     
     // MARK: - UISwitch tests
     
+    func testSwitchIsToggleable() {
+        let initialState = viewController.backgroundSwitch.isOn
+        
+        toggle(viewController.backgroundSwitch)
+        
+        XCTAssertNotEqual(initialState, viewController.backgroundSwitch.isOn)
+    }
+    
     func testSwitchAction() {
         viewController.backgroundSwitch.addTarget(self, action: #selector(switchAction(_:)), for: .valueChanged)
         
