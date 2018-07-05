@@ -9,6 +9,15 @@
 import Foundation
 import XCTest
 
+enum ArmoryError: Error {
+    
+    case indexOutOfBounds
+    case imageLookupFailed
+    case titleLookupFailed
+    case invalidCellType
+    case invalidValue
+}
+
 // MARK: - VCTestSetup
 
 protocol VCTestSetup: VCTest {
@@ -20,7 +29,10 @@ protocol VCTestSetup: VCTest {
 
 // MARK: - VCTest
 
+typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
 protocol VCTest {
+    
     associatedtype ViewControllerType: UIViewController
 
     var viewController: ViewControllerType! { get }
@@ -28,6 +40,16 @@ protocol VCTest {
     func tap(_ control: UIControl)
 
     func tap(_ barButtonItem: UIBarButtonItem)
+    
+    /**
+     Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
+     
+     - parameter title: Title for `UIAlertAction`
+     - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+     
+     - throws: ArmoryError.titleLookupFailed
+     */
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
     
     func type(_ control: UITextField, text: String)
 
@@ -57,7 +79,7 @@ protocol VCTest {
      
      - parameter row: Item's row within `picker`
      - parameter picker: The `UIPickerView` where item is located
-     - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
+     - parameter animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
@@ -68,6 +90,55 @@ protocol VCTest {
      - parameter animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
     */
     func toggle(_ aSwitch: UISwitch, animated: Bool)
+    
+    /**
+     Increments `stepper` by default `stepValue`
+     
+     - parameter stepper: The `UIStepper` instance to be incremented
+    */
+    func increment(_ stepper: UIStepper)
+    
+    /**
+     Decrements `stepper` by default `stepValue`
+     
+     - parameter stepper: The `UIStepper` instance to be decremented
+     */
+    func decrement(_ stepper: UIStepper)
+    
+    /**
+     Returns cell of provided type from the given `UICollectionView` instance
+     
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter collectionView: The `UICollectionView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
+     */
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
+
+    /**
+     Returns cell of provided type from the given `UITableView` instance
+     
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter tableView: The `UITableView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
+     */
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
+    
+    /**     
+     Updates the provided `UISlider` instance with the given normalized value
+     
+     - parameter slider: The provided `UISlider` instance to update
+     - parameter value: The normalized value to slide to. Valid values are between 0.0 and 1.0 inclusive.
+     - parameter animated: Default `true`. Set to `false` to disable animation of sliding action.
+
+     - throws: ArmoryError.invalidValue
+    */
+    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool) throws
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -98,6 +169,24 @@ extension VCTest {
         }
 
         let _ = target.perform(action, with: barButtonItem)
+        pump()
+    }
+    
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws {
+        guard let action = alertController.actions.first(where: { $0.title == title }) else {
+            throw ArmoryError.titleLookupFailed
+        }
+        
+        guard action.isEnabled else {
+            return
+        }
+        
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
+        
+        handler(action)
+        alertController.dismiss(animated: true, completion: nil)
         pump()
     }
 
@@ -138,6 +227,68 @@ extension VCTest {
         
         aSwitch.setOn(!aSwitch.isOn, animated: animated)
         aSwitch.sendActions(for: .valueChanged)
+        pump()
+    }
+
+    func increment(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value < stepper.maximumValue else {
+            return
+        }
+        
+        stepper.value += stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+        pump()
+    }
+    
+    func decrement(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value > stepper.minimumValue else {
+            return
+        }
+        
+        stepper.value -= stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+	    pump()
+    }
+
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
+        }
+        
+        return validCell
+    }
+
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
+        }
+        
+        return validCell
+    }
+
+    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool = true) throws {
+        guard isTappable(slider) else {
+            return
+        }
+
+        guard value >= 0 && value <= 1 else {
+            throw ArmoryError.invalidValue
+        }
+        
+        let cleanValue = value > 0 ? min(value, 1) : max(value, 0)
+        let distance = slider.maximumValue - slider.minimumValue
+        let displayValue = (cleanValue * distance) + slider.minimumValue
+        
+        guard slider.value != displayValue else {
+            return
+        }
+        
+        slider.setValue(displayValue, animated: animated)
+        slider.sendActions(for: .valueChanged)
         pump()
     }
 
