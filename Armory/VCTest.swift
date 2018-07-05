@@ -79,9 +79,17 @@ protocol VCTest {
      
      - parameter row: Item's row within `picker`
      - parameter picker: The `UIPickerView` where item is located
-     - paramater animated: Default `true`. Set to `false` to disable animation of item selection.
+     - parameter animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
+    
+    /**
+     Calls the `setOn` method of the given `UISwitch` instance
+     
+     - parameter aSwitch: `UISwitch` instance to toggle
+     - parameter animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
+    */
+    func toggle(_ aSwitch: UISwitch, animated: Bool)
     
     /**
      Increments `stepper` by default `stepValue`
@@ -212,6 +220,16 @@ extension VCTest {
         pump()
     }
     
+    func toggle(_ aSwitch: UISwitch, animated: Bool = true) {
+        guard isTappable(aSwitch) else {
+            return
+        }
+        
+        aSwitch.setOn(!aSwitch.isOn, animated: animated)
+        aSwitch.sendActions(for: .valueChanged)
+        pump()
+    }
+
     func increment(_ stepper: UIStepper) {
         guard isTappable(stepper) && stepper.value < stepper.maximumValue else {
             return
