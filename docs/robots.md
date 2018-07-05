@@ -19,8 +19,6 @@ class ViewControllerRobot: Robot<MyViewController> {
 
 		selectDate(date, fromDatePicker: datePickerVC.datePicker, animated: animated)
 
-		XCTAssertEqual(date, datePickerVC.datePicker.date)
-
 		let button: UIBarButtonItem
 
 		switch type {
@@ -48,11 +46,19 @@ class ViewControllerTests: XCTest, VCTest {
 	}
 
 	func testCanSetScheduledDate() {
-		robot.selectDate(Date(), type: .scheduled)
+		let date = Date()
+
+		robot.selectDate(date, type: .scheduled)
+
+		XCTAssertEqual(date, datePickerVC.datePicker.date)
 	}
 
 	func testCanSetEstimatedDate() {
-		robot.selectDate(Date(), type: .estimated)
+		let date = Date()
+
+		robot.selectDate(date, type: .estimated)
+
+		XCTAssertEqual(date, datePickerVC.datePicker.date)
 	}
 }
 ```

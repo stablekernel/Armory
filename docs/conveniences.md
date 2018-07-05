@@ -11,7 +11,7 @@ func waitForPresentedViewController<A: UIViewController>() -> A
 __Example__
 
 ```swift
-tap(viewController.showAlert)
+tap(viewController.showAlertButton)
 
 let alertController: UIAlertController = waitForPresentedViewController()
 tapButton(withTitle: "Close", fromAlertController: alertController)
@@ -33,7 +33,7 @@ func waitForDismissedViewController()
 __Example__
 
 ```swift
-tap(viewController.showAlert)
+tap(viewController.showAlertButton)
 
 let alertController: UIAlertController = waitForPresentedViewController()
 tapButton(withTitle: "Close", fromAlertController: alertController)
@@ -46,11 +46,20 @@ ___
 
 ### tap
 
+Sends a `touchUpInside` event to the given `UIControl`, or performs the action associated with a `UIBarButtonItem`
+
 ```swift
 func tap(_ control: UIControl)
 
 func tap(_ barButtonItem: UIBarButtonItem)
+```
+___
 
+### type
+
+Inserts given `text` to the `UITextField` one character at a time to simulate a user typing
+
+```swift
 func type(_ control: UIControl & UIKeyInput, text: String)
 ```
 ___

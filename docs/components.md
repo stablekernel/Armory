@@ -28,7 +28,7 @@ __Parameters__
 __Example__
 
 ```swift
-tap(viewController.showAlert)
+tap(viewController.showAlertButton)
 
 let alertController: UIAlertController = waitForPresentedViewController()
 tapButton(withTitle: "Close", fromAlertController: alertController)
@@ -287,13 +287,15 @@ ___
 Returns typed cell from given `indexPath` in a `UITableView` instance
 
 ```swift
-func selectCell<A: UITableViewCell>(atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -> A
+func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
 ```
 
 __Parameters__
 
-`indexPath`: `IndexPath` where the `UITableViewCell` is located  
-`tableView`: The `UITableView` that contains the cell
+`indexPath`: The `IndexPath` for cell retrieval  
+`tableView`: The `UITableView` that contains the cell  
+
+`throws`: ArmoryError.invalidCellType
 
 `returns`: The typed cell at given `indexPath`
 
@@ -304,7 +306,7 @@ for row in 0..<viewController.myTableView.numberOfRows(inSection: 0) {
     let index = IndexPath(row: row, section: 0)
     scroll(to: index, in: viewController.myTableView)
     
-    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)
+    let cell: MyTableViewCell = try! cell(at: index, fromTableView: viewController.myTableView)
     tap(cell.checkmarkButton)
 }
 ```

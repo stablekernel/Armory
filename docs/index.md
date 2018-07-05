@@ -12,10 +12,11 @@ Armory can be added as a dependency of a project as a git submodule:
 
 This leaves the option of using the source files directly or embedding as a framework.
 
-* Source files directly
+###### Source files directly
 * Create a group for Armory
 * Drag the source files from Armory/Armory into the group
-* Embedded framework
+
+###### Embedded framework  
 * Drag Armory.xcodeproj into your project
 * Add Armory.framework to your project as an embedded binary
 
