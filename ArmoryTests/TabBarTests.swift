@@ -38,7 +38,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
     func testSelectTabByIndex() {
         try! selectTab(atIndex: 0, fromTabBar: viewController.tabBar)
 
-        XCTAssertEqual(viewController.tabBar.selectedItem, viewController.tabOneItem)
+        XCTAssertEqual(viewController.tabOneItem, viewController.tabBar.selectedItem)
     }
 
     func testSelectTabByIndexLessThanZero() {
@@ -46,7 +46,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
             try selectTab(atIndex: -1, fromTabBar: viewController.tabBar)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
+            XCTAssertEqual(ArmoryError.indexOutOfBounds, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -58,7 +58,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
             try selectTab(atIndex: tabCount + 1, fromTabBar: viewController.tabBar)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
+            XCTAssertEqual(ArmoryError.indexOutOfBounds, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -67,7 +67,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
     func testSelectTabByTitle() {
         try! selectTab(withTitle: "Index 1", fromTabBar: viewController.tabBar)
 
-        XCTAssertEqual(viewController.tabBar.selectedItem, viewController.tabTwoItem)
+        XCTAssertEqual(viewController.tabTwoItem, viewController.tabBar.selectedItem)
     }
 
     func testSelectTabByTitleFailure() {
@@ -75,7 +75,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
             try selectTab(withTitle: "Missing Title", fromTabBar: viewController.tabBar)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertEqual(ArmoryError.titleLookupFailed, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -99,7 +99,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
     func testSelectTabByImage() {
         try! selectTab(withImage: UIImage.close(), fromTabBar: viewController.tabBar)
 
-        XCTAssertEqual(viewController.tabBar.selectedItem, viewController.tabTwoItem)
+        XCTAssertEqual(viewController.tabTwoItem, viewController.tabBar.selectedItem)
     }
 
     func testSelectTabByImageFailure() {
@@ -107,7 +107,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
             try selectTab(withImage: UIImage(), fromTabBar: viewController.tabBar)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.imageLookupFailed)
+            XCTAssertEqual(ArmoryError.imageLookupFailed, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
