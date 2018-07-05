@@ -83,7 +83,7 @@ class TabBarTests: XCTestCase, VCTestSetup {
 
     func testSelectTabByTitleMultipleMatchesFailure() {
         let title = "Tab One"
-        
+
         viewController.tabBar.items!.forEach { $0.title = title }
 
         do {
