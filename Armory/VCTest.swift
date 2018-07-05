@@ -29,7 +29,10 @@ protocol VCTestSetup: VCTest {
 
 // MARK: - VCTest
 
+typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
 protocol VCTest {
+    
     associatedtype ViewControllerType: UIViewController
 
     var viewController: ViewControllerType! { get }
@@ -37,6 +40,16 @@ protocol VCTest {
     func tap(_ control: UIControl)
 
     func tap(_ barButtonItem: UIBarButtonItem)
+    
+    /**
+     Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
+     
+     - parameter title: Title for `UIAlertAction`
+     - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+     
+     - throws: ArmoryError.titleLookupFailed
+     */
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
     
     func type(_ control: UITextField, text: String)
 
@@ -70,6 +83,18 @@ protocol VCTest {
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
+    /**
+     Returns cell of provided type from the given `UICollectionView` instance
+     
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter collectionView: The `UICollectionView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
+     */
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
+
     /**
      Returns cell of provided type from the given `UITableView` instance
      
@@ -124,6 +149,24 @@ extension VCTest {
         let _ = target.perform(action, with: barButtonItem)
         pump()
     }
+    
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws {
+        guard let action = alertController.actions.first(where: { $0.title == title }) else {
+            throw ArmoryError.titleLookupFailed
+        }
+        
+        guard action.isEnabled else {
+            return
+        }
+        
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
+        
+        handler(action)
+        alertController.dismiss(animated: true, completion: nil)
+        pump()
+    }
 
     func type(_ control: UITextField, text: String) {
         // Should make sure it can be become first responder via tap
@@ -155,6 +198,16 @@ extension VCTest {
         pump()
     }
     
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
+        }
+        
+        return validCell
+    }
+
     func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
         let cell = tableView.cellForRow(at: indexPath)
         
