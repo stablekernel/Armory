@@ -82,6 +82,18 @@ protocol VCTest {
      */
     func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
 
+    /**
+     Returns cell of provided type from the given `UITableView` instance
+     
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter tableView: The `UITableView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
+     */
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
+    
     func after(_ test: @autoclosure @escaping () -> Bool)
 
     func pump()
@@ -146,6 +158,16 @@ extension VCTest {
     
     func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
         let cell = collectionView.cellForItem(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
+        }
+        
+        return validCell
+    }
+
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
+        let cell = tableView.cellForRow(at: indexPath)
         
         guard let validCell = cell as? A else {
             throw ArmoryError.invalidCellType
