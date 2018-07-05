@@ -89,7 +89,7 @@ class StepperTests: XCTestCase, VCTest {
         XCTAssertFalse(events.contains(.valueChanged))
     }
     
-    func testActionNotCalledForDecrement() {
+    func testActionNotCalledForDecrementingAtMinimumValue() {
         viewController.stepper.addTarget(self, action: #selector(stepperAction(_:)), for: .valueChanged)
         
         viewController.stepper.value = viewController.stepper.minimumValue
@@ -99,7 +99,7 @@ class StepperTests: XCTestCase, VCTest {
         XCTAssertFalse(events.contains(.valueChanged))
     }
     
-    func testActionNotCalledForIncrement() {
+    func testActionNotCalledForIncrementingAtMaximumValue() {
         viewController.stepper.addTarget(self, action: #selector(stepperAction(_:)), for: .valueChanged)
         
         viewController.stepper.value = viewController.stepper.maximumValue
