@@ -29,7 +29,10 @@ protocol VCTestSetup: VCTest {
 
 // MARK: - VCTest
 
+typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
 protocol VCTest {
+    
     associatedtype ViewControllerType: UIViewController
 
     var viewController: ViewControllerType! { get }
@@ -37,6 +40,16 @@ protocol VCTest {
     func tap(_ control: UIControl)
 
     func tap(_ barButtonItem: UIBarButtonItem)
+    
+    /**
+     Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
+     
+     - parameter title: Title for `UIAlertAction`
+     - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+     
+     - throws: ArmoryError.titleLookupFailed
+     */
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
     
     func type(_ control: UITextField, text: String)
 
@@ -123,6 +136,24 @@ extension VCTest {
         }
 
         let _ = target.perform(action, with: barButtonItem)
+        pump()
+    }
+    
+    func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws {
+        guard let action = alertController.actions.first(where: { $0.title == title }) else {
+            throw ArmoryError.titleLookupFailed
+        }
+        
+        guard action.isEnabled else {
+            return
+        }
+        
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: AlertHandler.self)
+        
+        handler(action)
+        alertController.dismiss(animated: true, completion: nil)
         pump()
     }
 
@@ -217,6 +248,8 @@ extension VCTest {
      - parameter control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
-        return control.superview?.hitTest(control.center, with: nil) == control
+        // Disabled controls do not receive touch events
+        // Since we are programmatically hit testing, we need to confirm the control is enabled
+        return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
     }
 }
