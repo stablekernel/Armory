@@ -51,6 +51,7 @@ class CollectionViewTests: XCTestCase, VCTest {
         
         do {
             let _: FailureCollectionCell = try cell(at: indexPath, fromCollectionView: viewController.collectionView)
+            XCTFail("Incorrect cell type returned")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.invalidCellType)
         } catch {
