@@ -84,6 +84,20 @@ protocol VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
     /**
+     Increments `stepper` by default `stepValue`
+     
+     - parameter stepper: The `UIStepper` instance to be incremented
+    */
+    func increment(_ stepper: UIStepper)
+    
+    /**
+     Decrements `stepper` by default `stepValue`
+     
+     - parameter stepper: The `UIStepper` instance to be decremented
+     */
+    func decrement(_ stepper: UIStepper)
+    
+    /**
      Returns cell of provided type from the given `UICollectionView` instance
      
      - parameter indexPath: The `IndexPath` for cell retrieval
@@ -198,6 +212,26 @@ extension VCTest {
         pump()
     }
     
+    func increment(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value < stepper.maximumValue else {
+            return
+        }
+        
+        stepper.value += stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+        pump()
+    }
+    
+    func decrement(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value > stepper.minimumValue else {
+            return
+        }
+        
+        stepper.value -= stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+	    pump()
+    }
+
     func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
         let cell = collectionView.cellForItem(at: indexPath)
         
