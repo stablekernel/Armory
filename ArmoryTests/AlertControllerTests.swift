@@ -66,7 +66,7 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         waitForDismissedViewController()
         
-        XCTAssertTrue(self.calledAlertActions.elementsEqual([.red]))
+        XCTAssertEqual([.red], self.calledAlertActions)
     }
     
     func testBlueAlertActionForActionSheetStyle() {
@@ -78,7 +78,7 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         waitForDismissedViewController()
         
-        XCTAssertTrue(self.calledAlertActions.elementsEqual([.blue]))
+        XCTAssertEqual([.blue], self.calledAlertActions)
     }
     
     func testAlertActionForAlertStyleFailure() {
@@ -118,7 +118,7 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         try! tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
         
-        XCTAssertFalse(calledAlertActions.contains(.blue))
+        XCTAssertTrue(calledAlertActions.isEmpty)
     }
     
     func testDisabledAlertActionForActionSheetStyleNotCalled() {
@@ -130,6 +130,6 @@ class AlertControllerTests: XCTestCase, VCTest {
         
         try! tapButton(withTitle: "Blue", fromAlertController: viewController.alertController)
         
-        XCTAssertFalse(calledAlertActions.contains(.blue))
+        XCTAssertTrue(calledAlertActions.isEmpty)
     }
 }
