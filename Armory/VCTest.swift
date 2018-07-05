@@ -84,6 +84,18 @@ protocol VCTest {
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
     /**
+     Returns cell of provided type from the given `UICollectionView` instance
+     
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter collectionView: The `UICollectionView` that contains the cell
+     
+     - throws: ArmoryError.invalidCellType
+     
+     - returns: The cell at the given `indexPath`
+     */
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
+
+    /**
      Returns cell of provided type from the given `UITableView` instance
      
      - parameter indexPath: The `IndexPath` for cell retrieval
@@ -175,6 +187,16 @@ extension VCTest {
         pump()
     }
     
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
+        }
+        
+        return validCell
+    }
+
     func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
         let cell = tableView.cellForRow(at: indexPath)
         
