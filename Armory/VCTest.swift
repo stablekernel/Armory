@@ -16,6 +16,7 @@ enum ArmoryError: Error {
     case titleLookupFailed
     case invalidCellType
     case invalidValue
+    case multipleMatchesFound
 }
 
 // MARK: - VCTestSetup
@@ -371,17 +372,33 @@ extension VCTest {
     }
 
     @discardableResult func selectTab<A: UIViewController>(withTitle title: String, fromTabBarController tabBarController: UITabBarController) throws -> A {
-        guard let index = tabBarController.tabBar.items?.enumerated().first(where: { $0.element.title == title })?.offset else {
+        let filteredItems = tabBarController.tabBar.items!.enumerated().filter{ $0.element.title == title }
+
+        guard !filteredItems.isEmpty else {
             throw ArmoryError.titleLookupFailed
         }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
 
         return try selectTab(atIndex: index, fromTabBarController: tabBarController)
     }
 
     @discardableResult func selectTab<A: UIViewController>(withImage image: UIImage, fromTabBarController tabBarController: UITabBarController) throws -> A {
-        guard let index = tabBarController.tabBar.items?.enumerated().first(where: { $0.element.image == image })?.offset else {
+        let filteredItems = tabBarController.tabBar.items!.enumerated().filter{ $0.element.image?.isEqual(image) == true }
+
+        guard !filteredItems.isEmpty else {
             throw ArmoryError.imageLookupFailed
         }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
 
         return try selectTab(atIndex: index, fromTabBarController: tabBarController)
     }
@@ -397,17 +414,33 @@ extension VCTest {
     }
 
     func selectTab(withTitle title: String, fromTabBar tabBar: UITabBar) throws {
-        guard let index = tabBar.items?.enumerated().first(where: { $0.element.title == title })?.offset else {
+        let filteredItems = tabBar.items!.enumerated().filter{ $0.element.title == title }
+
+        guard !filteredItems.isEmpty else {
             throw ArmoryError.titleLookupFailed
         }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
     }
 
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws {
-        guard let index = tabBar.items?.enumerated().first(where: { $0.element.image?.isEqual(image) == true })?.offset else {
+        let filteredItems = tabBar.items!.enumerated().filter{ $0.element.image?.isEqual(image) == true }
+
+        guard !filteredItems.isEmpty else {
             throw ArmoryError.imageLookupFailed
         }
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0].offset
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
     }

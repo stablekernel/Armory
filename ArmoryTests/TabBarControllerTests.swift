@@ -99,6 +99,21 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
         }
     }
 
+    func testSelectTabByTitleMultipleMatchesFailure() {
+        let title = "Tab One"
+
+        viewController.tabBar.items!.forEach { $0.title = title }
+
+        do {
+            try selectTab(withTitle: title, fromTabBarController: viewController)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
+
     func testSelectTabByImage() {
         let selectedViewController = try! selectTab(withImage: UIImage.lock(), fromTabBarController: viewController)
 
@@ -111,6 +126,21 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.imageLookupFailed)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
+
+    func testSelectTabByImageMultipleMatchesFailure() {
+        let image = UIImage.lock()
+
+        viewController.tabBar.items!.forEach { $0.image = image }
+
+        do {
+            try selectTab(withImage: image, fromTabBarController: viewController)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
