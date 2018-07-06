@@ -7,52 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7E4A070D20DC147700CA1EB6 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */; };
-		7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */; };
-		7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */; };
 		7E37908120D9445E00BFCD60 /* SwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */; };
 		7E37908220D9445E00BFCD60 /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908020D9445E00BFCD60 /* SwitchViewController.xib */; };
 		7E37908420D9463000BFCD60 /* SwitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908320D9463000BFCD60 /* SwitchTests.swift */; };
-		7E37909920DA861300BFCD60 /* StepperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909720DA861300BFCD60 /* StepperViewController.swift */; };
-		7E37909A20DA861300BFCD60 /* StepperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37909820DA861300BFCD60 /* StepperViewController.xib */; };
-		7E37909C20DA88E100BFCD60 /* StepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909B20DA88E100BFCD60 /* StepperTests.swift */; };
-		7E37909320D98FD900BFCD60 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37909120D98FD800BFCD60 /* CollectionViewController.xib */; };
-		7E37909420D98FD900BFCD60 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909220D98FD800BFCD60 /* CollectionViewController.swift */; };
-		7E37909620D9900700BFCD60 /* CollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909520D9900600BFCD60 /* CollectionViewTests.swift */; };
-		7E37908D20D98BF400BFCD60 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908B20D98BF400BFCD60 /* TableViewController.xib */; };
-		7E37908E20D98BF400BFCD60 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908C20D98BF400BFCD60 /* TableViewController.swift */; };
-		7E37909020D98C1500BFCD60 /* TableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908F20D98C1500BFCD60 /* TableViewTests.swift */; };
 		7E37908720D9697A00BFCD60 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908520D9697A00BFCD60 /* SliderViewController.swift */; };
 		7E37908820D9697A00BFCD60 /* SliderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908620D9697A00BFCD60 /* SliderViewController.xib */; };
 		7E37908A20D96C6A00BFCD60 /* SliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908920D96C6A00BFCD60 /* SliderTests.swift */; };
+		7E37908D20D98BF400BFCD60 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37908B20D98BF400BFCD60 /* TableViewController.xib */; };
+		7E37908E20D98BF400BFCD60 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908C20D98BF400BFCD60 /* TableViewController.swift */; };
+		7E37909020D98C1500BFCD60 /* TableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37908F20D98C1500BFCD60 /* TableViewTests.swift */; };
+		7E37909320D98FD900BFCD60 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37909120D98FD800BFCD60 /* CollectionViewController.xib */; };
+		7E37909420D98FD900BFCD60 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909220D98FD800BFCD60 /* CollectionViewController.swift */; };
+		7E37909620D9900700BFCD60 /* CollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909520D9900600BFCD60 /* CollectionViewTests.swift */; };
+		7E37909920DA861300BFCD60 /* StepperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909720DA861300BFCD60 /* StepperViewController.swift */; };
+		7E37909A20DA861300BFCD60 /* StepperViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37909820DA861300BFCD60 /* StepperViewController.xib */; };
+		7E37909C20DA88E100BFCD60 /* StepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909B20DA88E100BFCD60 /* StepperTests.swift */; };
 		7E37909F20DA8D7500BFCD60 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E37909D20DA8D7500BFCD60 /* AlertViewController.xib */; };
 		7E3790A020DA8D7500BFCD60 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37909E20DA8D7500BFCD60 /* AlertViewController.swift */; };
 		7E3790A220DA8D8E00BFCD60 /* AlertControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3790A120DA8D8E00BFCD60 /* AlertControllerTests.swift */; };
+		7E4A070D20DC147700CA1EB6 /* SegmentedControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */; };
+		7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */; };
+		7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
 		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
 		7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181120D4207B006636E6 /* DatePickerViewController.swift */; };
 		7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0181220D4207B006636E6 /* DatePickerViewController.xib */; };
 		7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181520D420E9006636E6 /* DatePickerTests.swift */; };
+		7EFFEE7920EEB16F00E8B9A4 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */; };
+		7EFFEE7A20EEB18F00E8B9A4 /* UIImage+TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34BC62720DAA2CA00921DEA /* UIImage+TestImages.swift */; };
+		7EFFEE7B20EEB1A800E8B9A4 /* ArmoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182981F560D9800DD6309 /* ArmoryTests.swift */; };
+		7EFFEE7C20EEB1F300E8B9A4 /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34BC62520DAA21300921DEA /* TabBarTests.swift */; };
 		BE26628E1F5869C5009CDB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628D1F5869C5009CDB89 /* AppDelegate.swift */; };
 		BE2662901F5869C5009CDB89 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26628F1F5869C5009CDB89 /* ViewController.swift */; };
 		BE2662931F5869C5009CDB89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662911F5869C5009CDB89 /* Main.storyboard */; };
 		BE2662951F5869C5009CDB89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE2662941F5869C5009CDB89 /* Assets.xcassets */; };
 		BE2662981F5869C5009CDB89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662961F5869C5009CDB89 /* LaunchScreen.storyboard */; };
 		BE4182941F560D9800DD6309 /* Armory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE41828A1F560D9800DD6309 /* Armory.framework */; };
-		BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182981F560D9800DD6309 /* ArmoryTests.swift */; };
 		BE41829B1F560D9800DD6309 /* Armory.h in Headers */ = {isa = PBXBuildFile; fileRef = BE41828D1F560D9800DD6309 /* Armory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
 		D30CD5D920E52BEC003D8C2C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30CD5D820E52BEC003D8C2C /* Media.xcassets */; };
 		D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
-		D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */; };
 		D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */; };
 		D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33F9BCE20D196BE00BC8892 /* TestViewController.swift */; };
 		D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800B20D16B9E00B19F8E /* WaitViewController.swift */; };
 		D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D349800C20D16B9E00B19F8E /* WaitViewController.xib */; };
 		D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800F20D16C2C00B19F8E /* WaitTests.swift */; };
-		D34BC62620DAA21300921DEA /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34BC62520DAA21300921DEA /* TabBarTests.swift */; };
-		D34BC62820DAA2CA00921DEA /* UIImage+TestImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34BC62720DAA2CA00921DEA /* UIImage+TestImages.swift */; };
 		D37C6CEB20DD7354005AB9A3 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */; };
 		D37C6CEE20DD8568005AB9A3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */; };
 		D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */; };
@@ -76,27 +76,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
-		7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlViewController.xib; sourceTree = "<group>"; };
-		7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlTests.swift; sourceTree = "<group>"; };
 		7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchViewController.swift; sourceTree = "<group>"; };
 		7E37908020D9445E00BFCD60 /* SwitchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
 		7E37908320D9463000BFCD60 /* SwitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTests.swift; sourceTree = "<group>"; };
-		7E37909720DA861300BFCD60 /* StepperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewController.swift; sourceTree = "<group>"; };
-		7E37909820DA861300BFCD60 /* StepperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperViewController.xib; sourceTree = "<group>"; };
-		7E37909B20DA88E100BFCD60 /* StepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTests.swift; sourceTree = "<group>"; };
-		7E37909120D98FD800BFCD60 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
-		7E37909220D98FD800BFCD60 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		7E37909520D9900600BFCD60 /* CollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTests.swift; sourceTree = "<group>"; };
-		7E37908B20D98BF400BFCD60 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
-		7E37908C20D98BF400BFCD60 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		7E37908F20D98C1500BFCD60 /* TableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTests.swift; sourceTree = "<group>"; };
 		7E37908520D9697A00BFCD60 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		7E37908620D9697A00BFCD60 /* SliderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SliderViewController.xib; sourceTree = "<group>"; };
 		7E37908920D96C6A00BFCD60 /* SliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTests.swift; sourceTree = "<group>"; };
+		7E37908B20D98BF400BFCD60 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
+		7E37908C20D98BF400BFCD60 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7E37908F20D98C1500BFCD60 /* TableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewTests.swift; sourceTree = "<group>"; };
+		7E37909120D98FD800BFCD60 /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		7E37909220D98FD800BFCD60 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		7E37909520D9900600BFCD60 /* CollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewTests.swift; sourceTree = "<group>"; };
+		7E37909720DA861300BFCD60 /* StepperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperViewController.swift; sourceTree = "<group>"; };
+		7E37909820DA861300BFCD60 /* StepperViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperViewController.xib; sourceTree = "<group>"; };
+		7E37909B20DA88E100BFCD60 /* StepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperTests.swift; sourceTree = "<group>"; };
 		7E37909D20DA8D7500BFCD60 /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		7E37909E20DA8D7500BFCD60 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		7E3790A120DA8D8E00BFCD60 /* AlertControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerTests.swift; sourceTree = "<group>"; };
+		7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlViewController.swift; sourceTree = "<group>"; };
+		7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlViewController.xib; sourceTree = "<group>"; };
+		7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlTests.swift; sourceTree = "<group>"; };
 		7EE0180920D418DF006636E6 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		7EE0180A20D418DF006636E6 /* PickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewTests.swift; sourceTree = "<group>"; };
@@ -212,8 +212,6 @@
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
 				D34BC63020DAA74500921DEA /* Extensions */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
-				D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */,
-				D34BC62520DAA21300921DEA /* TabBarTests.swift */,
 				7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */,
 				7E37908320D9463000BFCD60 /* SwitchTests.swift */,
 				7E37909B20DA88E100BFCD60 /* StepperTests.swift */,
@@ -409,7 +407,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D34BC62F20DAA73700921DEA /* close.png in Resources */,
 				7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */,
 				7E37908220D9445E00BFCD60 /* SwitchViewController.xib in Resources */,
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
@@ -454,24 +451,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E37909920DA861300BFCD60 /* StepperViewController.swift in Sources */,
+				7EFFEE7B20EEB1A800E8B9A4 /* ArmoryTests.swift in Sources */,
 				7E37908A20D96C6A00BFCD60 /* SliderTests.swift in Sources */,
+				7EFFEE7C20EEB1F300E8B9A4 /* TabBarTests.swift in Sources */,
 				7EE0181620D420E9006636E6 /* DatePickerTests.swift in Sources */,
 				7E37908720D9697A00BFCD60 /* SliderViewController.swift in Sources */,
 				7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */,
 				7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */,
-				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
-				D34BC62620DAA21300921DEA /* TabBarTests.swift in Sources */,
-				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				7E37908120D9445E00BFCD60 /* SwitchViewController.swift in Sources */,
-				D33F9BCB20D18DCB00BC8892 /* ModalViewController.swift in Sources */,
 				7E37908E20D98BF400BFCD60 /* TableViewController.swift in Sources */,
 				7E3790A020DA8D7500BFCD60 /* AlertViewController.swift in Sources */,
-				D34BC62620DAA21300921DEA /* TabBarTests.swift in Sources */,
-				BE4182991F560D9800DD6309 /* ArmoryTests.swift in Sources */,
 				7E37909C20DA88E100BFCD60 /* StepperTests.swift in Sources */,
 				7E37909420D98FD900BFCD60 /* CollectionViewController.swift in Sources */,
+				7EFFEE7920EEB16F00E8B9A4 /* ModalViewController.swift in Sources */,
 				7E37909620D9900700BFCD60 /* CollectionViewTests.swift in Sources */,
 				D37C6CEB20DD7354005AB9A3 /* TabBarControllerTests.swift in Sources */,
+				7EFFEE7A20EEB18F00E8B9A4 /* UIImage+TestImages.swift in Sources */,
 				D349800D20D16B9E00B19F8E /* WaitViewController.swift in Sources */,
 				7E37909020D98C1500BFCD60 /* TableViewTests.swift in Sources */,
 				7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */,
@@ -481,7 +476,6 @@
 				D33F9BCF20D196BE00BC8892 /* TestViewController.swift in Sources */,
 				D37C6CEE20DD8568005AB9A3 /* TabBarViewController.swift in Sources */,
 				D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */,
-				D34BC62820DAA2CA00921DEA /* UIImage+TestImages.swift in Sources */,
 				7E4A070D20DC147700CA1EB6 /* SegmentedControlViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
