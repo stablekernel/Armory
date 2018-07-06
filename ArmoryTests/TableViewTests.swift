@@ -14,9 +14,17 @@ import UIKit
 
 class TableViewTests: XCTestCase, VCTest {
     
+    // MARK: - Private
+    
+    private var actions: [String] = []
+    
+    // MARK: - VCTest
+    
     var viewController: TableViewController!
     
     var testNames = ["John", "Jaime", "Jeremy"]
+    
+    // MARK: - Set Up / Tear Down
     
     override func setUp() {
         super.setUp()
@@ -57,8 +65,53 @@ class TableViewTests: XCTestCase, VCTest {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
     }
+    
+    func testCallTableViewActionWithTitle() {
+        viewController.setupDataSource(names: testNames)
+        pump()
+        
+        viewController.delegate = self
+        
+        let indexPath = IndexPath(row: 1, section: 0)
+        let title = "Delete"
+        
+        let action = try! retrieveActionForCell(withTitle: title, at: indexPath, in: viewController.tableView)
+        
+        selectCellAction(action, at: indexPath)
+        
+        XCTAssertTrue(actions.contains(title))
+    }
+    
+    func testCallTableViewActionWithTitleFailure() {
+        viewController.setupDataSource(names: testNames)
+        pump()
+        
+        viewController.delegate = self
+        
+        let indexPath = IndexPath(row: 1, section: 0)
+        let title = "Invalid"
+        
+        do {
+            let action = try retrieveActionForCell(withTitle: title, at: indexPath, in: viewController.tableView)
+            selectCellAction(action, at: indexPath)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
 }
 
 // MARK: - FailureCell
 
 class FailureCell: UITableViewCell {}
+
+// MARK: - TableViewControllerDelegate
+
+extension TableViewTests: TableViewControllerDelegate {
+    
+    func didCallEditAction(withTitle title: String) {
+        actions.append(title)
+    }
+}

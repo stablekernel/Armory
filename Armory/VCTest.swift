@@ -17,6 +17,7 @@ enum ArmoryError: Error {
     case invalidCellType
     case invalidValue
     case multipleMatchesFound
+    case cellNotEditable
 }
 
 // MARK: - VCTestSetup
@@ -31,6 +32,8 @@ protocol VCTestSetup: VCTest {
 // MARK: - VCTest
 
 typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
+typealias TableViewCellHandler = @convention(block) (UITableViewRowAction, IndexPath) -> Void
 
 protocol VCTest {
     
@@ -206,6 +209,27 @@ protocol VCTest {
      - throws: ArmoryError.imageLookupFailed
      */
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
+    
+    /**
+     Returns `UITableViewRowAction` with specified title for the `UITableViewCell` at given `IndexPath` in `UITableView`
+     
+     - parameter title: Title of edit action to be retrieved
+     - parameter indexPath: `IndexPath` of `UITableViewCell` that contains action
+     - parameter tableView: `UITableView` instance where `UITableViewCell` is located
+     
+     - throws: ArmoryError
+    */
+    func retrieveActionForCell(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws -> UITableViewRowAction
+    
+    /**
+     Calls handler for `UITableViewRowAction` provided at the given `IndexPath`
+     
+     - parameter action: The `UITableViewRowAction` to call handler for
+     - parameter indexPath: `IndexPath` of `UITableViewCell` that contains action
+     
+     - throws: ArmoryError
+    */
+    func selectCellAction(_ action: UITableViewRowAction, at indexPath: IndexPath)
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -443,6 +467,34 @@ extension VCTest {
         let index = filteredItems[0].offset
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
+    }
+    
+    func retrieveActionForCell(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws -> UITableViewRowAction {
+        
+        guard let actions = tableView.delegate!.tableView!(tableView, editActionsForRowAt: indexPath) else {
+            throw ArmoryError.cellNotEditable
+        }
+        
+        let filteredActions = actions.filter { $0.title == title }
+        
+        guard !filteredActions.isEmpty else {
+            throw ArmoryError.titleLookupFailed
+        }
+        
+        guard filteredActions.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+        
+        return filteredActions[0]
+    }
+    
+    func selectCellAction(_ action: UITableViewRowAction, at indexPath: IndexPath) {
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: TableViewCellHandler.self)
+        
+        handler(action, indexPath)
+        pump()
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {

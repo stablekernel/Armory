@@ -8,6 +8,14 @@
 
 import UIKit
 
+// MARK: - TableViewControllerDelegate
+
+protocol TableViewControllerDelegate: class {
+    func didCallEditAction(withTitle title: String)
+}
+
+// MARK: - TableViewController
+
 class TableViewController: TestViewController {
     
     // MARK: - Properties
@@ -15,6 +23,8 @@ class TableViewController: TestViewController {
     private(set) var names: [String] = []
     
     let reuseIdentifier = "Cell"
+    
+    weak var delegate: TableViewControllerDelegate?
     
     // MARK: - IBOutlets
 
@@ -27,6 +37,7 @@ class TableViewController: TestViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     // MARK: - Public
@@ -53,5 +64,21 @@ extension TableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return names.count
+    }
+}
+
+// MARK: - UITableView Delegate Methods
+
+extension TableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { action, index in
+            self.delegate?.didCallEditAction(withTitle: action.title!)
+        }
+        
+        let favorite = UITableViewRowAction(style: .normal, title: "Favorite") { action, index in
+            self.delegate?.didCallEditAction(withTitle: action.title!)
+        }
+        
+        return [delete, favorite]
     }
 }
