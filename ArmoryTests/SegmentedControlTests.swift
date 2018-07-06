@@ -87,14 +87,15 @@ class SegmentedControlTests: XCTestCase, VCTest {
     func testSelectSegmentByTitleMultipleMatchesFailure() {
         viewController.indexOrTitleSegmentedControl.removeAllSegments()
         
-        let titles = ["One","One"]
+        let numberOfSegments = 2
+        let title = "One"
         
-        for (index, title) in titles.enumerated() {
+        for index in 0..<numberOfSegments {
             viewController.indexOrTitleSegmentedControl.insertSegment(withTitle: title, at: index, animated: false)
         }
         
         do {
-            try selectSegment(withTitle: titles[0], fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
+            try selectSegment(withTitle: title, fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
@@ -123,14 +124,15 @@ class SegmentedControlTests: XCTestCase, VCTest {
     func testSelectSegmentByImageMultipleMatchesFailure() {
         viewController.imageSegmentedControl.removeAllSegments()
         
-        let images = [UIImage.lock(), UIImage.lock()]
+        let numberOfSegments = 2
+        let image = UIImage.lock()
         
-        for (index, image) in images.enumerated() {
+        for index in 0..<numberOfSegments {
             viewController.imageSegmentedControl.insertSegment(with: image, at: index, animated: false)
         }
         
         do {
-            try selectSegment(withImage: images[0], fromSegmentedControl: viewController.imageSegmentedControl)
+            try selectSegment(withImage: image, fromSegmentedControl: viewController.imageSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
