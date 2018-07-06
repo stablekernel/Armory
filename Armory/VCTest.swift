@@ -213,7 +213,7 @@ protocol VCTest {
      - parameter index: Index of segment to be selected
      - parameter segmentedControl: `UISegmentedControl` instance used for selection
 
-     - throws: ArmoryError.indexOutOfBounds
+     - throws: `ArmoryError`
      */
     func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws
     
@@ -223,7 +223,7 @@ protocol VCTest {
      - parameter title: Title of segment to be selected
      - parameter segmentedControl: `UISegmentedControl` instance used for selection
 
-     - throws: ArmoryError.titleLookupFailed
+     - throws: `ArmoryError`
      */
     func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws
     
@@ -233,7 +233,7 @@ protocol VCTest {
      - parameter image: Image of segment to selected
      - parameter segmentedControl: `UISegmentedControl` instance used for selection
 
-     - throws: ArmoryError.imageLookupFailed
+     - throws: `ArmoryError`
      */
     func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
 
