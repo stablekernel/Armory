@@ -6,5 +6,5 @@ pages:
   - Components: components.md
   - Conveniences: conveniences.md
   - Robots: robots.md
-  - Documentation: https://stablekernel.github.io/Armory/documentation/index.html
+  - Documentation: documentation/index.md
 theme: readthedocs
