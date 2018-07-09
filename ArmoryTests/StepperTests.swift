@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class StepperTests: XCTestCase, VCTest {
+class StepperTests: XCTestCase, VCTestSetup {
     
     // MARK: - Private
 

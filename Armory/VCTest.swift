@@ -306,19 +306,6 @@ protocol VCTest {
 
 extension VCTest {
 
-    // MARK: - VCTestSetup Methods
-
-    func harness(_ vc: UIViewController) {
-        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
-        window.rootViewController = vc
-        window.makeKeyAndVisible()
-    }
-
-    func build() {
-        harness(viewController)
-        pump()
-    }
-
     func after(_ test: @autoclosure @escaping () -> Bool) {
         let exp = expectation(description: "Foobarxyz")
         let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.afterWaiting.rawValue, true, 0) { (observer, _) in
@@ -625,4 +612,21 @@ extension VCTest {
         // Since we are programmatically hit testing, we need to confirm the control is enabled
         return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
     }
+}
+
+// MARK: - VCTestSetup
+
+extension VCTestSetup {
+
+    func harness(_ vc: UIViewController) {
+        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+
+    func build() {
+        harness(viewController)
+        pump()
+    }
+
 }

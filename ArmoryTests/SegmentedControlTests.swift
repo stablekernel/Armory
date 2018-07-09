@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class SegmentedControlTests: XCTestCase, VCTest {
+class SegmentedControlTests: XCTestCase, VCTestSetup {
 
     // MARK: - Private
 
