@@ -6,4 +6,5 @@ pages:
   - Components: components.md
   - Conveniences: conveniences.md
   - Robots: robots.md
+  - Documentation: documentation/index.md
 theme: readthedocs
