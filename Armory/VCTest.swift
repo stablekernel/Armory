@@ -497,6 +497,11 @@ extension VCTest {
         pump()
     }
 
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) {
+        
+        tableView.delegate!.tableView!(tableView, didSelectRowAt: indexPath)
+    }
+
     func after(_ test: @autoclosure @escaping () -> Bool) {
         let exp = expectation(description: "Foobarxyz")
         let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.afterWaiting.rawValue, true, 0) { (observer, _) in

@@ -12,6 +12,7 @@ import UIKit
 
 protocol TableViewControllerDelegate: class {
     func didCallEditAction(withTitle title: String)
+    func didSelectRow(at indexPath: IndexPath)
 }
 
 // MARK: - TableViewController
@@ -80,5 +81,9 @@ extension TableViewController: UITableViewDelegate {
         }
         
         return [delete, favorite]
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectRow(at: indexPath)
     }
 }
