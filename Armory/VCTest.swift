@@ -9,6 +9,9 @@
 import Foundation
 import XCTest
 
+/**
+Errors that can be thrown when working with Armory methods
+*/
 enum ArmoryError: Error {
     
     case indexOutOfBounds
@@ -30,6 +33,9 @@ protocol VCTestSetup: VCTest {
 
 // MARK: - VCTest
 
+/**
+Convenience typealias used internally to cast `UIAlertAction` handlers
+*/
 typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
 
 protocol VCTest {
@@ -38,8 +44,18 @@ protocol VCTest {
 
     var viewController: ViewControllerType! { get }
 
+    /**
+     Sends a `touchUpInside` event to the given `UIControl`
+
+     - parameter control: The `UIControl` to send event to
+    */
     func tap(_ control: UIControl)
 
+    /**
+     Performs the action associated with a `UIBarButtonItem`
+
+     - parameter barButtonItem: The `UIBarButtonItem` with action to perform
+     */
     func tap(_ barButtonItem: UIBarButtonItem)
     
     /**
@@ -51,7 +67,13 @@ protocol VCTest {
      - throws: ArmoryError.titleLookupFailed
      */
     func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
-    
+
+    /**
+     Inserts given `text` into the `UITextField` one character at a time to simulate a user typing
+
+     - parameter control: The `UITextField` to enter text into
+     - parameter text: The text to type into the `textField`
+    */
     func type(_ control: UITextField, text: String)
 
     /**
@@ -237,8 +259,16 @@ protocol VCTest {
      */
     func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
 
+    /**
+     Convenience that waits for a given test to complete before continuing
+
+     - Note: Fails if default timeout of 4s is exceeded
+    */
     func after(_ test: @autoclosure @escaping () -> Bool)
 
+    /**
+     Convenience that performs one pass through the run loop for the current thread
+    */
     func pump()
 
     func expectation(description: String) -> XCTestExpectation
