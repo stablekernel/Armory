@@ -44,6 +44,38 @@ protocol VCTest {
 
     var viewController: ViewControllerType! { get }
 
+    // MARK: - Conveniences
+
+    /**
+     Convenience that waits for a given test to complete before continuing
+
+     - Note: Fails if default timeout of 4s is exceeded
+     */
+    func after(_ test: @autoclosure @escaping () -> Bool)
+
+    /**
+     Convenience that performs one pass through the run loop for the current thread
+     */
+    func pump()
+
+    func expectation(description: String) -> XCTestExpectation
+
+    func waitForExpectations(timeout: TimeInterval, handler: XCWaitCompletionHandler?)
+
+    /**
+     Convenience that asserts a view controller is presented while subsequently returning it.
+
+     - returns: The presented view controller
+     */
+    func waitForPresentedViewController<A: UIViewController>() -> A
+
+    /**
+     Convenience that asserts the presented view controller is dismissed
+     */
+    func waitForDismissedViewController()
+
+    // MARK: - UIControl Methods
+
     /**
      Sends a `touchUpInside` event to the given `UIControl`
 
@@ -57,6 +89,16 @@ protocol VCTest {
      - parameter barButtonItem: The `UIBarButtonItem` with action to perform
      */
     func tap(_ barButtonItem: UIBarButtonItem)
+
+    /**
+     Inserts given `text` into the `UITextField` one character at a time to simulate a user typing
+
+     - parameter control: The `UITextField` to enter text into
+     - parameter text: The text to type into the `textField`
+     */
+    func type(_ control: UITextField, text: String)
+
+    // MARK: - UIAlertController Methods
     
     /**
      Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
@@ -68,34 +110,32 @@ protocol VCTest {
      */
     func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
 
-    /**
-     Inserts given `text` into the `UITextField` one character at a time to simulate a user typing
-
-     - parameter control: The `UITextField` to enter text into
-     - parameter text: The text to type into the `textField`
-    */
-    func type(_ control: UITextField, text: String)
+    // MARK: - UICollectionView Methods
 
     /**
-     Convenience that asserts a view controller is presented while subsequently returning it.
+     Returns cell of provided type from the given `UICollectionView` instance
 
-     - returns: The presented view controller
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter collectionView: The `UICollectionView` that contains the cell
+
+     - throws: ArmoryError.invalidCellType
+
+     - returns: The cell at the given `indexPath`
      */
-    func waitForPresentedViewController<A: UIViewController>() -> A
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
 
-    /**
-     Convenience that asserts the presented view controller is dismissed
-     */
-    func waitForDismissedViewController()
-    
+    // MARK: - UIDatePicker Methods
+
     /**
      Calls the `setDate` method for the given `UIDatePicker` instance
-     
+
      - parameter date: `Date` to be set in `UIDatePicker`
      - parameter datePicker: `UIDatePicker` instance to set date on
      - parameter animated: Default `true`. Set to `false` to disable animation of date selection.
-    */
+     */
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
+
+    // MARK: - UIPickerView Methods
     
     /**
      Calls the `selectRow` method for given `UIPickerView` instance
@@ -105,6 +145,69 @@ protocol VCTest {
      - parameter animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
+
+    // MARK: - UISegmentedControl Methods
+
+    /**
+     Selects the segment at the specified index from the given `UISegmentedControl` instance
+
+     - parameter index: Index of segment to be selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: `ArmoryError`
+     */
+    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws
+
+    /**
+     Selects the segment with specified title from the given `UISegmentedControl` instance
+
+     - parameter title: Title of segment to be selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: `ArmoryError`
+     */
+    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws
+
+    /**
+     Selects the segment with the specified image from the given `UISegmentedControl` instance
+
+     - parameter image: Image of segment to selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: `ArmoryError`
+     */
+    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
+
+    // MARK: - UISlider Methods
+
+    /**
+     Updates the provided `UISlider` instance with the given normalized value
+
+     - parameter slider: The provided `UISlider` instance to update
+     - parameter value: The normalized value to slide to. Valid values are between 0.0 and 1.0 inclusive.
+     - parameter animated: Default `true`. Set to `false` to disable animation of sliding action.
+
+     - throws: ArmoryError.invalidValue
+     */
+    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool) throws
+
+    // MARK: - UIStepper Methods
+
+    /**
+     Increments `stepper` by default `stepValue`
+
+     - parameter stepper: The `UIStepper` instance to be incremented
+     */
+    func increment(_ stepper: UIStepper)
+
+    /**
+     Decrements `stepper` by default `stepValue`
+
+     - parameter stepper: The `UIStepper` instance to be decremented
+     */
+    func decrement(_ stepper: UIStepper)
+
+    // MARK: - UISwitch Methods
     
     /**
      Calls the `setOn` method of the given `UISwitch` instance
@@ -113,55 +216,8 @@ protocol VCTest {
      - parameter animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
     */
     func toggle(_ aSwitch: UISwitch, animated: Bool)
-    
-    /**
-     Increments `stepper` by default `stepValue`
-     
-     - parameter stepper: The `UIStepper` instance to be incremented
-    */
-    func increment(_ stepper: UIStepper)
-    
-    /**
-     Decrements `stepper` by default `stepValue`
-     
-     - parameter stepper: The `UIStepper` instance to be decremented
-     */
-    func decrement(_ stepper: UIStepper)
-    
-    /**
-     Returns cell of provided type from the given `UICollectionView` instance
-     
-     - parameter indexPath: The `IndexPath` for cell retrieval
-     - parameter collectionView: The `UICollectionView` that contains the cell
-     
-     - throws: ArmoryError.invalidCellType
-     
-     - returns: The cell at the given `indexPath`
-     */
-    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
 
-    /**
-     Returns cell of provided type from the given `UITableView` instance
-     
-     - parameter indexPath: The `IndexPath` for cell retrieval
-     - parameter tableView: The `UITableView` that contains the cell
-     
-     - throws: ArmoryError.invalidCellType
-     
-     - returns: The cell at the given `indexPath`
-     */
-    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
-    
-    /**     
-     Updates the provided `UISlider` instance with the given normalized value
-     
-     - parameter slider: The provided `UISlider` instance to update
-     - parameter value: The normalized value to slide to. Valid values are between 0.0 and 1.0 inclusive.
-     - parameter animated: Default `true`. Set to `false` to disable animation of sliding action.
-
-     - throws: ArmoryError.invalidValue
-    */
-    func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool) throws
+    // MARK: - UITabBar / UITabBarController Methods
 
     /**
      Selects the tab at the specified index from the given `UITabBarController` instance
@@ -229,56 +285,66 @@ protocol VCTest {
      */
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
 
-    /**
-     Selects the segment at the specified index from the given `UISegmentedControl` instance
-     
-     - parameter index: Index of segment to be selected
-     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+    // MARK: - UITableView Methods
 
-     - throws: `ArmoryError`
+    /**
+     Returns cell of provided type from the given `UITableView` instance
+
+     - parameter indexPath: The `IndexPath` for cell retrieval
+     - parameter tableView: The `UITableView` that contains the cell
+
+     - throws: ArmoryError.invalidCellType
+
+     - returns: The cell at the given `indexPath`
      */
-    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws
-    
-    /**
-     Selects the segment with specified title from the given `UISegmentedControl` instance
-     
-     - parameter title: Title of segment to be selected
-     - parameter segmentedControl: `UISegmentedControl` instance used for selection
-
-     - throws: `ArmoryError`
-     */
-    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws
-    
-    /**
-     Selects the segment with the specified image from the given `UISegmentedControl` instance
-     
-     - parameter image: Image of segment to selected
-     - parameter segmentedControl: `UISegmentedControl` instance used for selection
-
-     - throws: `ArmoryError`
-     */
-    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
-
-    /**
-     Convenience that waits for a given test to complete before continuing
-
-     - Note: Fails if default timeout of 4s is exceeded
-    */
-    func after(_ test: @autoclosure @escaping () -> Bool)
-
-    /**
-     Convenience that performs one pass through the run loop for the current thread
-    */
-    func pump()
-
-    func expectation(description: String) -> XCTestExpectation
-
-    func waitForExpectations(timeout: TimeInterval, handler: XCWaitCompletionHandler?)
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
 }
 
 // MARK: - VCTest Default Implementation
 
 extension VCTest {
+
+    // MARK: - VCTestSetup Methods
+
+    func harness(_ vc: UIViewController) {
+        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+
+    func build() {
+        harness(viewController)
+        pump()
+    }
+
+    func after(_ test: @autoclosure @escaping () -> Bool) {
+        let exp = expectation(description: "Foobarxyz")
+        let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.afterWaiting.rawValue, true, 0) { (observer, _) in
+            let _ = self.viewController.view.layer.presentation()
+
+            if test() == true {
+                CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+                exp.fulfill()
+            }
+        }
+
+        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+
+        waitForExpectations(timeout: 4.0, handler: nil)
+    }
+
+    func pump() {
+        RunLoop.current.limitDate(forMode: RunLoopMode.defaultRunLoopMode)
+    }
+
+    func waitForPresentedViewController<A: UIViewController>() -> A {
+        after(self.viewController.presentedViewController != nil)
+        return viewController.presentedViewController as! A
+    }
+
+    func waitForDismissedViewController() {
+        after(self.viewController.presentedViewController == nil)
+    }
 
     func tap(_ control: UIControl) {
         guard isTappable(control) else {
@@ -297,6 +363,17 @@ extension VCTest {
 
         let _ = target.perform(action, with: barButtonItem)
         pump()
+    }
+
+    func type(_ control: UITextField, text: String) {
+        // Should make sure it can be become first responder via tap
+        control.becomeFirstResponder()
+        pump()
+
+        for c in text {
+            control.insertText(String(c))
+            pump()
+        }
     }
     
     func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws {
@@ -317,24 +394,14 @@ extension VCTest {
         pump()
     }
 
-    func type(_ control: UITextField, text: String) {
-        // Should make sure it can be become first responder via tap
-        control.becomeFirstResponder()
-        pump()
-        
-        for c in text {
-            control.insertText(String(c))
-            pump()
+    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
+        let cell = collectionView.cellForItem(at: indexPath)
+
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
         }
-    }
 
-    func waitForPresentedViewController<A: UIViewController>() -> A {
-        after(self.viewController.presentedViewController != nil)
-        return viewController.presentedViewController as! A
-    }
-
-    func waitForDismissedViewController() {
-        after(self.viewController.presentedViewController == nil)
+        return validCell
     }
 
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool = true) {
@@ -346,55 +413,51 @@ extension VCTest {
         picker.selectRow(row, inComponent: 0, animated: animated)
         pump()
     }
-    
-    func toggle(_ aSwitch: UISwitch, animated: Bool = true) {
-        guard isTappable(aSwitch) else {
+
+    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        guard isTappable(segmentedControl) && segmentedControl.selectedSegmentIndex != index else {
             return
         }
-        
-        aSwitch.setOn(!aSwitch.isOn, animated: animated)
-        aSwitch.sendActions(for: .valueChanged)
+
+        guard index >= 0 && index < segmentedControl.numberOfSegments else {
+            throw ArmoryError.indexOutOfBounds
+        }
+
+        segmentedControl.selectedSegmentIndex = index
+        segmentedControl.sendActions(for: .valueChanged)
         pump()
     }
 
-    func increment(_ stepper: UIStepper) {
-        guard isTappable(stepper) && stepper.value < stepper.maximumValue else {
-            return
+    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        let filteredItems = (0..<segmentedControl.numberOfSegments).filter { segmentedControl.titleForSegment(at: $0) == title }
+
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.titleLookupFailed
         }
-        
-        stepper.value += stepper.stepValue
-        stepper.sendActions(for: .valueChanged)
-        pump()
-    }
-    
-    func decrement(_ stepper: UIStepper) {
-        guard isTappable(stepper) && stepper.value > stepper.minimumValue else {
-            return
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
         }
-        
-        stepper.value -= stepper.stepValue
-        stepper.sendActions(for: .valueChanged)
-	    pump()
+
+        let index = filteredItems[0]
+
+        try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
     }
 
-    func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A {
-        let cell = collectionView.cellForItem(at: indexPath)
-        
-        guard let validCell = cell as? A else {
-            throw ArmoryError.invalidCellType
-        }
-        
-        return validCell
-    }
+    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        let filteredItems = (0..<segmentedControl.numberOfSegments).filter { segmentedControl.imageForSegment(at: $0)?.isEqual(image) == true }
 
-    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
-        let cell = tableView.cellForRow(at: indexPath)
-        
-        guard let validCell = cell as? A else {
-            throw ArmoryError.invalidCellType
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.imageLookupFailed
         }
-        
-        return validCell
+
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        let index = filteredItems[0]
+
+        try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
     }
 
     func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool = true) throws {
@@ -405,17 +468,47 @@ extension VCTest {
         guard value >= 0 && value <= 1 else {
             throw ArmoryError.invalidValue
         }
-        
+
         let cleanValue = value > 0 ? min(value, 1) : max(value, 0)
         let distance = slider.maximumValue - slider.minimumValue
         let displayValue = (cleanValue * distance) + slider.minimumValue
-        
+
         guard slider.value != displayValue else {
             return
         }
-        
+
         slider.setValue(displayValue, animated: animated)
         slider.sendActions(for: .valueChanged)
+        pump()
+    }
+
+    func increment(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value < stepper.maximumValue else {
+            return
+        }
+
+        stepper.value += stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+        pump()
+    }
+
+    func decrement(_ stepper: UIStepper) {
+        guard isTappable(stepper) && stepper.value > stepper.minimumValue else {
+            return
+        }
+
+        stepper.value -= stepper.stepValue
+        stepper.sendActions(for: .valueChanged)
+        pump()
+    }
+    
+    func toggle(_ aSwitch: UISwitch, animated: Bool = true) {
+        guard isTappable(aSwitch) else {
+            return
+        }
+        
+        aSwitch.setOn(!aSwitch.isOn, animated: animated)
+        aSwitch.sendActions(for: .valueChanged)
         pump()
     }
 
@@ -504,82 +597,15 @@ extension VCTest {
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
     }
-    
-    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
-        guard isTappable(segmentedControl) && segmentedControl.selectedSegmentIndex != index else {
-            return
-        }
 
-        guard index >= 0 && index < segmentedControl.numberOfSegments else {
-            throw ArmoryError.indexOutOfBounds
+    func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        guard let validCell = cell as? A else {
+            throw ArmoryError.invalidCellType
         }
         
-        segmentedControl.selectedSegmentIndex = index
-        segmentedControl.sendActions(for: .valueChanged)
-        pump()
-    }
-    
-    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
-        let filteredItems = (0..<segmentedControl.numberOfSegments).filter { segmentedControl.titleForSegment(at: $0) == title }
-        
-        guard !filteredItems.isEmpty else {
-            throw ArmoryError.titleLookupFailed
-        }
-        
-        guard filteredItems.count == 1 else {
-            throw ArmoryError.multipleMatchesFound
-        }
-        
-        let index = filteredItems[0]
-
-        try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
-    }
-    
-    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
-        let filteredItems = (0..<segmentedControl.numberOfSegments).filter { segmentedControl.imageForSegment(at: $0)?.isEqual(image) == true }
-        
-        guard !filteredItems.isEmpty else {
-            throw ArmoryError.imageLookupFailed
-        }
-        
-        guard filteredItems.count == 1 else {
-            throw ArmoryError.multipleMatchesFound
-        }
-        
-        let index = filteredItems[0]
-        
-        try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
-    }
-
-    func after(_ test: @autoclosure @escaping () -> Bool) {
-        let exp = expectation(description: "Foobarxyz")
-        let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.afterWaiting.rawValue, true, 0) { (observer, _) in
-            let _ = self.viewController.view.layer.presentation()
-
-            if test() == true {
-                CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
-                exp.fulfill()
-            }
-        }
-        
-        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
-        
-        waitForExpectations(timeout: 4.0, handler: nil)
-    }
-
-    func pump() {
-        RunLoop.current.limitDate(forMode: RunLoopMode.defaultRunLoopMode)
-    }
-
-    func harness(_ vc: UIViewController) {
-        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
-        window.rootViewController = vc
-        window.makeKeyAndVisible()
-    }
-
-    func build() {
-        harness(viewController)
-        pump()
+        return validCell
     }
 }
 
