@@ -105,6 +105,11 @@
     <a class="" href="../robots/">Robots</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../documentation/">Documentation</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -348,19 +353,20 @@ XCTAssertNotEqual(viewController.backgroundSwitch.isOn, initialState)
 <hr />
 <h3 id="uitableview">UITableView</h3>
 <p>Returns typed cell from given <code>indexPath</code> in a <code>UITableView</code> instance</p>
-<pre><code class="swift">func selectCell&lt;A: UITableViewCell&gt;(atIndex indexPath: IndexPath, fromTableView tableView: UITableView) -&gt; A
+<pre><code class="swift">func cell&lt;A: UITableViewCell&gt;(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -&gt; A
 </code></pre>
 
 <p><strong>Parameters</strong></p>
-<p><code>indexPath</code>: <code>IndexPath</code> where the <code>UITableViewCell</code> is located<br />
-<code>tableView</code>: The <code>UITableView</code> that contains the cell</p>
+<p><code>indexPath</code>: The <code>IndexPath</code> for cell retrieval<br />
+<code>tableView</code>: The <code>UITableView</code> that contains the cell  </p>
+<p><code>throws</code>: ArmoryError.invalidCellType</p>
 <p><code>returns</code>: The typed cell at given <code>indexPath</code></p>
 <p><strong>Example</strong></p>
 <pre><code class="swift">for row in 0..&lt;viewController.myTableView.numberOfRows(inSection: 0) {
     let index = IndexPath(row: row, section: 0)
     scroll(to: index, in: viewController.myTableView)
 
-    let cell: MyTableViewCell = selectCell(atIndex: index, fromTableView: viewController.myTableView)
+    let cell: MyTableViewCell = try! cell(at: index, fromTableView: viewController.myTableView)
     tap(cell.checkmarkButton)
 }
 </code></pre>
