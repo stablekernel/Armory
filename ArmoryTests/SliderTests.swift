@@ -12,7 +12,7 @@ import UIKit
 @testable import Armory
 
 
-class SliderTests: XCTestCase, VCTest {
+class SliderTests: XCTestCase, VCTestSetup {
     
     // MARK: - Private
 

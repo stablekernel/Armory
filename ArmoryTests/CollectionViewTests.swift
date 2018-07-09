@@ -12,7 +12,7 @@ import UIKit
 
 @testable import Armory
 
-class CollectionViewTests: XCTestCase, VCTest {
+class CollectionViewTests: XCTestCase, VCTestSetup {
     
     var viewController: CollectionViewController!
     

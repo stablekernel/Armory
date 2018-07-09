@@ -12,7 +12,7 @@ import Foundation
 
 @testable import Armory
 
-class PickerViewTests: XCTestCase, VCTest {
+class PickerViewTests: XCTestCase, VCTestSetup {
     
     var viewController: PickerViewController!
     

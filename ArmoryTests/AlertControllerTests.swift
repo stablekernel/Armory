@@ -17,7 +17,7 @@ enum AlertAction {
     case red
 }
 
-class AlertControllerTests: XCTestCase, VCTest {
+class AlertControllerTests: XCTestCase, VCTestSetup {
     
     // MARK: - Private
     

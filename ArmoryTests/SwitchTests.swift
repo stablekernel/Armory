@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class SwitchTests: XCTestCase, VCTest {
+class SwitchTests: XCTestCase, VCTestSetup {
     
     // MARK: - Private
     
