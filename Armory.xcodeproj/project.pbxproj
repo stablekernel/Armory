@@ -29,7 +29,6 @@
 		7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */; };
 		7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
-		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
 		7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181120D4207B006636E6 /* DatePickerViewController.swift */; };
 		7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0181220D4207B006636E6 /* DatePickerViewController.xib */; };
@@ -55,7 +54,8 @@
 		D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800F20D16C2C00B19F8E /* WaitTests.swift */; };
 		D37C6CEB20DD7354005AB9A3 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */; };
 		D37C6CEE20DD8568005AB9A3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */; };
-		D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */; };
+		D3C6905820F3F93100658C37 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
+		D3C6905920F3F93100658C37 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -412,11 +412,9 @@
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
 				7E37909320D98FD900BFCD60 /* CollectionViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
-				D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */,
-				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
+				D3C6905920F3F93100658C37 /* TabBarViewController.xib in Resources */,
+				D3C6905820F3F93100658C37 /* PickerViewController.xib in Resources */,
 				7E37908820D9697A00BFCD60 /* SliderViewController.xib in Resources */,
-				D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */,
-				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				7E37908D20D98BF400BFCD60 /* TableViewController.xib in Resources */,
 				D30CD5D920E52BEC003D8C2C /* Media.xcassets in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
