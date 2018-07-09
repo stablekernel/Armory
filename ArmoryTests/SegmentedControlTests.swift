@@ -32,6 +32,7 @@ class SegmentedControlTests: XCTestCase, VCTest {
     
     override func tearDown() {
         viewController = nil
+        events = []
 
         super.tearDown()
     }
