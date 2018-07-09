@@ -676,6 +676,22 @@ extension Armory {
         handler(action, indexPath)
         pump()
     }
+
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) {
+        
+        tableView.delegate!.tableView!(tableView, didSelectRowAt: indexPath)
+    }
+
+    func harness(_ vc: UIViewController) {
+        let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 500))
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+    }
+
+    func build() {
+        harness(viewController)
+        pump()
+    }
 }
 
 // MARK: - Private

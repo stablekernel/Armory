@@ -17,6 +17,8 @@ class TableViewTests: XCTestCase, ArmoryTestable {
 
     private var actions: [String] = []
 
+    private var selectedIndexPaths: [IndexPath] = []
+
     // MARK: - VCTest
 
     var viewController: TableViewController!
@@ -33,9 +35,11 @@ class TableViewTests: XCTestCase, ArmoryTestable {
     }
 
     override func tearDown() {
-        super.tearDown()
-
         viewController = nil
+        actions = []
+        selectedIndexPaths = []
+
+        super.tearDown()
     }
 
     // MARK: - UITableView Tests
@@ -100,6 +104,19 @@ class TableViewTests: XCTestCase, ArmoryTestable {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
     }
+
+    func testSelectCell() {
+        viewController.setupDataSource(names: testNames)
+        pump()
+
+        viewController.delegate = self
+
+        let indexPath = IndexPath(row: 1, section: 0)
+
+        selectRow(at: indexPath, fromTableView: viewController.tableView)
+
+        XCTAssertTrue(selectedIndexPaths.contains(indexPath))
+    }
 }
 
 // MARK: - FailureCell
@@ -112,5 +129,9 @@ extension TableViewTests: TableViewControllerDelegate {
 
     func didCallEditAction(withTitle title: String) {
         actions.append(title)
+    }
+
+    func didSelectRow(at indexPath: IndexPath) {
+        selectedIndexPaths.append(indexPath)
     }
 }
