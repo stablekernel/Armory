@@ -74,7 +74,7 @@ protocol VCTest {
      */
     func waitForDismissedViewController()
 
-    // MARK: - UIControl Methods
+    // MARK: - UIControl
 
     /**
      Sends a `touchUpInside` event to the given `UIControl`
@@ -98,7 +98,7 @@ protocol VCTest {
      */
     func type(_ control: UITextField, text: String)
 
-    // MARK: - UIAlertController Methods
+    // MARK: - UIAlertController
     
     /**
      Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
@@ -110,7 +110,7 @@ protocol VCTest {
      */
     func tapButton(withTitle title: String, fromAlertController alertController: UIAlertController) throws
 
-    // MARK: - UICollectionView Methods
+    // MARK: - UICollectionView
 
     /**
      Returns cell of provided type from the given `UICollectionView` instance
@@ -124,7 +124,7 @@ protocol VCTest {
      */
     func cell<A: UICollectionViewCell>(at indexPath: IndexPath, fromCollectionView collectionView: UICollectionView) throws -> A
 
-    // MARK: - UIDatePicker Methods
+    // MARK: - UIDatePicker
 
     /**
      Calls the `setDate` method for the given `UIDatePicker` instance
@@ -135,7 +135,7 @@ protocol VCTest {
      */
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
 
-    // MARK: - UIPickerView Methods
+    // MARK: - UIPickerView
     
     /**
      Calls the `selectRow` method for given `UIPickerView` instance
@@ -146,7 +146,7 @@ protocol VCTest {
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
 
-    // MARK: - UISegmentedControl Methods
+    // MARK: - UISegmentedControl
 
     /**
      Selects the segment at the specified index from the given `UISegmentedControl` instance
@@ -178,7 +178,7 @@ protocol VCTest {
      */
     func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
 
-    // MARK: - UISlider Methods
+    // MARK: - UISlider
 
     /**
      Updates the provided `UISlider` instance with the given normalized value
@@ -191,7 +191,7 @@ protocol VCTest {
      */
     func slide(_ slider: UISlider, toNormalizedValue value: Float, animated: Bool) throws
 
-    // MARK: - UIStepper Methods
+    // MARK: - UIStepper
 
     /**
      Increments `stepper` by default `stepValue`
@@ -207,7 +207,7 @@ protocol VCTest {
      */
     func decrement(_ stepper: UIStepper)
 
-    // MARK: - UISwitch Methods
+    // MARK: - UISwitch
     
     /**
      Calls the `setOn` method of the given `UISwitch` instance
@@ -217,7 +217,39 @@ protocol VCTest {
     */
     func toggle(_ aSwitch: UISwitch, animated: Bool)
 
-    // MARK: - UITabBar / UITabBarController Methods
+    // MARK: - UITabBar
+
+    /**
+     Selects the tab at the specified index from the given `UITabBar` instance
+
+     - parameter index: Index of the tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - throws: ArmoryError.indexOutOfBounds
+     */
+    func selectTab(atIndex index: Int, fromTabBar tabBar: UITabBar) throws
+
+    /**
+     Selects the tab with the specified title from the given `UITabBar` instance
+
+     - parameter title: Title of tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - throws: ArmoryError.titleLookupFailed
+     */
+    func selectTab(withTitle title: String, fromTabBar tabBar: UITabBar) throws
+
+    /**
+     Selects the tab with the specified image from the given `UITabBar` instance.
+
+     - parameter image: Image of tab to be selected
+     - parameter tabBar: `UITabBar` instance used for selection
+
+     - throws: ArmoryError.imageLookupFailed
+     */
+    func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
+
+    // MARK: - UITabBarController
 
     /**
      Selects the tab at the specified index from the given `UITabBarController` instance
@@ -254,36 +286,6 @@ protocol VCTest {
      - returns: The view controller that is selected
      */
     @discardableResult func selectTab<A: UIViewController>(withImage image: UIImage, fromTabBarController tabBarController: UITabBarController) throws -> A
-
-    /**
-     Selects the tab at the specified index from the given `UITabBar` instance
-
-     - parameter index: Index of the tab to be selected
-     - parameter tabBar: `UITabBar` instance used for selection
-
-     - throws: ArmoryError.indexOutOfBounds
-     */
-    func selectTab(atIndex index: Int, fromTabBar tabBar: UITabBar) throws
-
-    /**
-     Selects the tab with the specified title from the given `UITabBar` instance
-
-     - parameter title: Title of tab to be selected
-     - parameter tabBar: `UITabBar` instance used for selection
-
-     - throws: ArmoryError.titleLookupFailed
-     */
-    func selectTab(withTitle title: String, fromTabBar tabBar: UITabBar) throws
-
-    /**
-     Selects the tab with the specified image from the given `UITabBar` instance.
-
-     - parameter image: Image of tab to be selected
-     - parameter tabBar: `UITabBar` instance used for selection
-
-     - throws: ArmoryError.imageLookupFailed
-     */
-    func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
 
     // MARK: - UITableView Methods
 
