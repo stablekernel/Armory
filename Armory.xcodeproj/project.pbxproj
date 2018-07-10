@@ -196,8 +196,8 @@
 			children = (
 				BE41828D1F560D9800DD6309 /* Armory.h */,
 				BE41828E1F560D9800DD6309 /* Info.plist */,
-				BE4182A61F560E3700DD6309 /* VCTest.swift */,
 				D338A7F220CEDF1900EE26B6 /* Robot.swift */,
+				BE4182A61F560E3700DD6309 /* VCTest.swift */,
 			);
 			path = Armory;
 			sourceTree = "<group>";
@@ -205,23 +205,23 @@
 		BE4182971F560D9800DD6309 /* ArmoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E3790A120DA8D8E00BFCD60 /* AlertControllerTests.swift */,
+				D34BC63020DAA74500921DEA /* Extensions */,
 				D30CD5D820E52BEC003D8C2C /* Media.xcassets */,
+				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
+				7E3790A120DA8D8E00BFCD60 /* AlertControllerTests.swift */,
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7E37909520D9900600BFCD60 /* CollectionViewTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
-				D34BC63020DAA74500921DEA /* Extensions */,
+				BE41829A1F560D9800DD6309 /* Info.plist */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */,
-				7E37908320D9463000BFCD60 /* SwitchTests.swift */,
-				7E37909B20DA88E100BFCD60 /* StepperTests.swift */,
 				7E37908920D96C6A00BFCD60 /* SliderTests.swift */,
+				7E37909B20DA88E100BFCD60 /* StepperTests.swift */,
+				7E37908320D9463000BFCD60 /* SwitchTests.swift */,
 				D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */,
 				D34BC62520DAA21300921DEA /* TabBarTests.swift */,
 				7E37908F20D98C1500BFCD60 /* TableViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
-				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
-				BE41829A1F560D9800DD6309 /* Info.plist */,
 			);
 			path = ArmoryTests;
 			sourceTree = "<group>";
@@ -229,10 +229,10 @@
 		D33F9BCD20D195ED00BC8892 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7E37909220D98FD800BFCD60 /* CollectionViewController.swift */,
-				7E37909120D98FD800BFCD60 /* CollectionViewController.xib */,
 				7E37909E20DA8D7500BFCD60 /* AlertViewController.swift */,
 				7E37909D20DA8D7500BFCD60 /* AlertViewController.xib */,
+				7E37909220D98FD800BFCD60 /* CollectionViewController.swift */,
+				7E37909120D98FD800BFCD60 /* CollectionViewController.xib */,
 				7EE0181120D4207B006636E6 /* DatePickerViewController.swift */,
 				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
@@ -241,17 +241,17 @@
 				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
 				7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */,
 				7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */,
-				7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */,
-				7E37908020D9445E00BFCD60 /* SwitchViewController.xib */,
-				7E37909720DA861300BFCD60 /* StepperViewController.swift */,
-				7E37909820DA861300BFCD60 /* StepperViewController.xib */,
 				7E37908520D9697A00BFCD60 /* SliderViewController.swift */,
 				7E37908620D9697A00BFCD60 /* SliderViewController.xib */,
+				7E37909720DA861300BFCD60 /* StepperViewController.swift */,
+				7E37909820DA861300BFCD60 /* StepperViewController.xib */,
+				7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */,
+				7E37908020D9445E00BFCD60 /* SwitchViewController.xib */,
+				D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */,
+				D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */,
 				7E37908C20D98BF400BFCD60 /* TableViewController.swift */,
 				7E37908B20D98BF400BFCD60 /* TableViewController.xib */,
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
-				D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */,
-				D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */,
 				D349800B20D16B9E00B19F8E /* WaitViewController.swift */,
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
 			);
