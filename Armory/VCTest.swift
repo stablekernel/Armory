@@ -22,15 +22,6 @@ enum ArmoryError: Error {
     case multipleMatchesFound
 }
 
-// MARK: - ArmoryTestable
-
-protocol ArmoryTestable: Armory {
-    
-    func build()
-    
-    func harness(_ vc: UIViewController)
-}
-
 // MARK: - Armory
 
 /**
@@ -632,6 +623,15 @@ extension Armory {
 }
 
 // MARK: - ArmoryTestable
+
+protocol ArmoryTestable: Armory {
+
+    func build()
+
+    func harness(_ vc: UIViewController)
+}
+
+// MARK: - ArmoryTestable Default Implementation
 
 extension ArmoryTestable {
     
