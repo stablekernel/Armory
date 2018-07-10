@@ -57,9 +57,23 @@ protocol VCTest {
      Convenience that performs one pass through the run loop for the current thread
      */
     func pump()
-    
+
+    /**
+     The result of this function is used by `after` to handle testing asynchronous expectations
+
+     Typically an `XCTestCase` will conform to `VCTestSetup` and provide a convenient default implementation
+
+     Documentation for the default implementation can be found in the `XCTestCase` class reference
+     */
     func expectation(description: String) -> XCTestExpectation
-    
+
+    /**
+     Used by `after` to wait for expectations expected to be fulfilled
+
+     Typically an `XCTestCase` will conform to `VCTestSetup` and provide a convenient default implementation
+
+     Documentation for the default implementation can be found in the `XCTestCase` class reference
+     */
     func waitForExpectations(timeout: TimeInterval, handler: XCWaitCompletionHandler?)
     
     /**
