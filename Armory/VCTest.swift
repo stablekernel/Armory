@@ -1,5 +1,5 @@
 //
-//  VCTest.swift
+//  Armory.swift
 //  Armory
 //
 //  Created by Joe Conway on 8/29/17.
@@ -22,23 +22,23 @@ enum ArmoryError: Error {
     case multipleMatchesFound
 }
 
-// MARK: - VCTestSetup
+// MARK: - ArmoryTestable
 
-protocol VCTestSetup: VCTest {
+protocol ArmoryTestable: Armory {
     
     func build()
     
     func harness(_ vc: UIViewController)
 }
 
-// MARK: - VCTest
+// MARK: - Armory
 
 /**
  Convenience typealias used internally to cast `UIAlertAction` handlers
  */
 typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
 
-protocol VCTest {
+protocol Armory {
     
     associatedtype ViewControllerType: UIViewController
     
@@ -61,7 +61,7 @@ protocol VCTest {
     /**
      The result of this function is used by `after` to handle testing asynchronous expectations
 
-     Typically an `XCTestCase` will conform to `VCTestSetup` and provide a convenient default implementation
+     Typically an `XCTestCase` will conform to `ArmoryTestable` and provide a convenient default implementation
 
      Documentation for the default implementation can be found in the `XCTestCase` class reference
      */
@@ -70,7 +70,7 @@ protocol VCTest {
     /**
      Used by `after` to wait for expectations expected to be fulfilled
 
-     Typically an `XCTestCase` will conform to `VCTestSetup` and provide a convenient default implementation
+     Typically an `XCTestCase` will conform to `ArmoryTestable` and provide a convenient default implementation
 
      Documentation for the default implementation can be found in the `XCTestCase` class reference
      */
@@ -316,9 +316,9 @@ protocol VCTest {
     func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
 }
 
-// MARK: - VCTest Default Implementation
+// MARK: - Armory Default Implementation
 
-extension VCTest {
+extension Armory {
     
     func after(_ test: @autoclosure @escaping () -> Bool) {
         let exp = expectation(description: "Foobarxyz")
@@ -614,7 +614,7 @@ extension VCTest {
 
 // MARK: - Private
 
-extension VCTest {
+extension Armory {
     
     /**
      Returns whether UIControl is able to be tapped.
@@ -628,9 +628,9 @@ extension VCTest {
     }
 }
 
-// MARK: - VCTestSetup
+// MARK: - ArmoryTestable
 
-extension VCTestSetup {
+extension ArmoryTestable {
     
     func harness(_ vc: UIViewController) {
         let window = UIWindow(frame: UIScreen.main.bounds)

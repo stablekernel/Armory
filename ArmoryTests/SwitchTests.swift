@@ -11,13 +11,13 @@ import UIKit
 
 @testable import Armory
 
-class SwitchTests: XCTestCase, VCTestSetup {
+class SwitchTests: XCTestCase, ArmoryTestable {
     
     // MARK: - Private
     
     private var events: [UIControlEvents] = []
     
-    // MARK: - VCTest
+    // MARK: - Armory
     
     var viewController: SwitchViewController!
     

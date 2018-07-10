@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class ArmoryTests: XCTestCase, VCTestSetup {
+class ArmoryTests: XCTestCase, ArmoryTestable {
     var viewController: ViewController!
     
     override func setUp() {

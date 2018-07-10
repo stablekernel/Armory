@@ -9,7 +9,7 @@
 import XCTest
 import UIKit
 
-class Robot<ViewControllerType: UIViewController>: VCTest {
+class Robot<ViewControllerType: UIViewController>: Armory {
     
     // MARK: - Public
     
@@ -23,11 +23,11 @@ class Robot<ViewControllerType: UIViewController>: VCTest {
         self.viewController = viewController
     }
     
-    convenience init<TestClass: XCTestCase>(_ testClass: TestClass) where TestClass: VCTest, TestClass.ViewControllerType == ViewControllerType {
+    convenience init<TestClass: XCTestCase>(_ testClass: TestClass) where TestClass: Armory, TestClass.ViewControllerType == ViewControllerType {
         self.init(testClass: testClass, viewController: testClass.viewController)
     }
     
-    // MARK: - VCTest
+    // MARK: - Armory
     
     func expectation(description: String) -> XCTestExpectation {
         return testCase.expectation(description: description)

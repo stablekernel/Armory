@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class TableViewTests: XCTestCase, VCTestSetup {
+class TableViewTests: XCTestCase, ArmoryTestable {
     
     var viewController: TableViewController!
     

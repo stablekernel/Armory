@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class DatePickerTests: XCTestCase, VCTestSetup {
+class DatePickerTests: XCTestCase, ArmoryTestable {
     
     var viewController: DatePickerViewController!
     

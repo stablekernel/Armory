@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class PickerViewTests: XCTestCase, VCTestSetup {
+class PickerViewTests: XCTestCase, ArmoryTestable {
     
     var viewController: PickerViewController!
     

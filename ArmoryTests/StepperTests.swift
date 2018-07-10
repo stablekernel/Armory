@@ -11,13 +11,13 @@ import UIKit
 
 @testable import Armory
 
-class StepperTests: XCTestCase, VCTestSetup {
+class StepperTests: XCTestCase, ArmoryTestable {
     
     // MARK: - Private
     
     private var events: [UIControlEvents] = []
     
-    // MARK: - VCTest
+    // MARK: - Armory
     
     var viewController: StepperViewController!
     

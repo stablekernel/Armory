@@ -16,7 +16,7 @@ enum AlertAction {
     case red
 }
 
-class AlertControllerTests: XCTestCase, VCTestSetup {
+class AlertControllerTests: XCTestCase, ArmoryTestable {
     
     // MARK: - Private
     
@@ -34,7 +34,7 @@ class AlertControllerTests: XCTestCase, VCTestSetup {
     
     private var calledAlertActions: [AlertAction] = []
     
-    // MARK: - VCTest
+    // MARK: - Armory
     
     var viewController: AlertViewController!
     
