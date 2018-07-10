@@ -207,6 +207,36 @@ protocol VCTest {
      */
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
 
+    /**
+     Selects the segment at the specified index from the given `UISegmentedControl` instance
+     
+     - parameter index: Index of segment to be selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: `ArmoryError`
+     */
+    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws
+    
+    /**
+     Selects the segment with specified title from the given `UISegmentedControl` instance
+     
+     - parameter title: Title of segment to be selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: `ArmoryError`
+     */
+    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws
+    
+    /**
+     Selects the segment with the specified image from the given `UISegmentedControl` instance
+     
+     - parameter image: Image of segment to selected
+     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - throws: `ArmoryError`
+     */
+    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws
+
     func after(_ test: @autoclosure @escaping () -> Bool)
 
     func pump()
@@ -443,6 +473,52 @@ extension VCTest {
         let index = filteredItems[0].offset
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
+    }
+    
+    func selectSegment(atIndex index: Int, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        guard isTappable(segmentedControl) && segmentedControl.selectedSegmentIndex != index else {
+            return
+        }
+
+        guard index >= 0 && index < segmentedControl.numberOfSegments else {
+            throw ArmoryError.indexOutOfBounds
+        }
+        
+        segmentedControl.selectedSegmentIndex = index
+        segmentedControl.sendActions(for: .valueChanged)
+        pump()
+    }
+    
+    func selectSegment(withTitle title: String, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        let filteredItems = (0..<segmentedControl.numberOfSegments).filter { segmentedControl.titleForSegment(at: $0) == title }
+        
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.titleLookupFailed
+        }
+        
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+        
+        let index = filteredItems[0]
+
+        try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
+    }
+    
+    func selectSegment(withImage image: UIImage, fromSegmentedControl segmentedControl: UISegmentedControl) throws {
+        let filteredItems = (0..<segmentedControl.numberOfSegments).filter { segmentedControl.imageForSegment(at: $0)?.isEqual(image) == true }
+        
+        guard !filteredItems.isEmpty else {
+            throw ArmoryError.imageLookupFailed
+        }
+        
+        guard filteredItems.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+        
+        let index = filteredItems[0]
+        
+        try selectSegment(atIndex: index, fromSegmentedControl: segmentedControl)
     }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {

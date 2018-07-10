@@ -128,3 +128,4 @@ class TabBarTests: XCTestCase, VCTestSetup {
         }
     }
 }
+
