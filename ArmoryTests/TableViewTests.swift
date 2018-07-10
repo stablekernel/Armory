@@ -78,9 +78,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
         let indexPath = IndexPath(row: 1, section: 0)
         let title = "Delete"
 
-        let action = try! retrieveActionForCell(withTitle: title, at: indexPath, in: viewController.tableView)
-
-        selectCellAction(action, at: indexPath)
+        try! selectCellAction(withTitle: title, at: indexPath, in: viewController.tableView)
 
         XCTAssertTrue(actions.contains(title))
     }
@@ -95,8 +93,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
         let title = "Invalid"
 
         do {
-            let action = try retrieveActionForCell(withTitle: title, at: indexPath, in: viewController.tableView)
-            selectCellAction(action, at: indexPath)
+            try selectCellAction(withTitle: title, at: indexPath, in: viewController.tableView)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.titleLookupFailed)
