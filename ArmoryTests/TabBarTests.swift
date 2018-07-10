@@ -112,12 +112,12 @@ class TabBarTests: XCTestCase, VCTestSetup {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
     }
-    
+
     func testSelectTabByImageFailureMultipleMatchesFailure() {
         let image = UIImage.lock()
-        
+
         viewController.tabBar.items!.forEach { $0.image = image }
-        
+
         do {
             try selectTab(withImage: image, fromTabBar: viewController.tabBar)
             XCTFail("Expected test to throw error")
@@ -128,3 +128,4 @@ class TabBarTests: XCTestCase, VCTestSetup {
         }
     }
 }
+
