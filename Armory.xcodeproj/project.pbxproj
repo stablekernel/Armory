@@ -44,7 +44,7 @@
 		BE2662981F5869C5009CDB89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662961F5869C5009CDB89 /* LaunchScreen.storyboard */; };
 		BE4182941F560D9800DD6309 /* Armory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE41828A1F560D9800DD6309 /* Armory.framework */; };
 		BE41829B1F560D9800DD6309 /* Armory.h in Headers */ = {isa = PBXBuildFile; fileRef = BE41828D1F560D9800DD6309 /* Armory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
+		BE4182A71F560E3700DD6309 /* Armory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* Armory.swift */; };
 		D30CD5D920E52BEC003D8C2C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30CD5D820E52BEC003D8C2C /* Media.xcassets */; };
 		D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
 		D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */; };
@@ -116,7 +116,7 @@
 		BE4182931F560D9800DD6309 /* ArmoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArmoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4182981F560D9800DD6309 /* ArmoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmoryTests.swift; sourceTree = "<group>"; };
 		BE41829A1F560D9800DD6309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE4182A61F560E3700DD6309 /* VCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTest.swift; sourceTree = "<group>"; };
+		BE4182A61F560E3700DD6309 /* Armory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Armory.swift; sourceTree = "<group>"; };
 		D30CD5D820E52BEC003D8C2C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		D338A7F220CEDF1900EE26B6 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
@@ -195,9 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				BE41828D1F560D9800DD6309 /* Armory.h */,
+				BE4182A61F560E3700DD6309 /* Armory.swift */,
 				BE41828E1F560D9800DD6309 /* Info.plist */,
 				D338A7F220CEDF1900EE26B6 /* Robot.swift */,
-				BE4182A61F560E3700DD6309 /* VCTest.swift */,
 			);
 			path = Armory;
 			sourceTree = "<group>";
@@ -440,7 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */,
-				BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */,
+				BE4182A71F560E3700DD6309 /* Armory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
