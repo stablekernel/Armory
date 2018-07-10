@@ -45,7 +45,7 @@ class SliderTests: XCTestCase, ArmoryTestable {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, -3.5)
+        XCTAssertEqual(-3.5, viewController.slider.value)
     }
     
     func testNegativeMinPositiveMax() {
@@ -54,7 +54,7 @@ class SliderTests: XCTestCase, ArmoryTestable {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, 0)
+        XCTAssertEqual(0, viewController.slider.value)
     }
     
     func testPositiveMinPositiveMax() {
@@ -63,7 +63,7 @@ class SliderTests: XCTestCase, ArmoryTestable {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, 15)
+        XCTAssertEqual(15, viewController.slider.value)
     }
     
     func testZeroMinZeroMax() {
@@ -72,14 +72,14 @@ class SliderTests: XCTestCase, ArmoryTestable {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, 0)
+        XCTAssertEqual(0, viewController.slider.value)
     }
     
     func testNormalizedValueGreaterThanOne() {
         do {
             try slide(viewController.slider, toNormalizedValue: 1.5)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.invalidValue)
+            XCTAssertEqual(ArmoryError.invalidValue, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -89,7 +89,7 @@ class SliderTests: XCTestCase, ArmoryTestable {
         do {
             try slide(viewController.slider, toNormalizedValue: -1)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.invalidValue)
+            XCTAssertEqual(ArmoryError.invalidValue, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -98,13 +98,13 @@ class SliderTests: XCTestCase, ArmoryTestable {
     func testNormalizedValueIsZero() {
         try! slide(viewController.slider, toNormalizedValue: 0)
         
-        XCTAssertEqual(viewController.slider.value, viewController.slider.minimumValue)
+        XCTAssertEqual(viewController.slider.minimumValue, viewController.slider.value)
     }
     
     func testNormalizedValueIsOne() {
         try! slide(viewController.slider, toNormalizedValue: 1)
         
-        XCTAssertEqual(viewController.slider.value, viewController.slider.maximumValue)
+        XCTAssertEqual(viewController.slider.maximumValue, viewController.slider.value)
     }
     
     func testSliderAction() {

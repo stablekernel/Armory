@@ -55,7 +55,7 @@ class TabBarControllerTests: XCTestCase, ArmoryTestable {
     func testSelectTabByIndex() {
         let selectedViewController: UIViewController = try! selectTab(atIndex: 1, fromTabBarController: viewController)
         
-        XCTAssertEqual(tabTwoViewController, selectedViewController)
+        XCTAssertEqual(selectedViewController, tabTwoViewController)
     }
     
     func testSelectTabByIndexLessThanZero() {
@@ -85,7 +85,7 @@ class TabBarControllerTests: XCTestCase, ArmoryTestable {
         var selectedViewController: UIViewController
         
         selectedViewController = try! selectTab(withTitle: "Red", fromTabBarController: viewController)
-        XCTAssertEqual(tabOneViewController, selectedViewController)
+        XCTAssertEqual(selectedViewController, tabOneViewController)
     }
     
     func testSelectTabByTitleFailure() {
@@ -117,7 +117,7 @@ class TabBarControllerTests: XCTestCase, ArmoryTestable {
     func testSelectTabByImage() {
         let selectedViewController = try! selectTab(withImage: UIImage.lock(), fromTabBarController: viewController)
         
-        XCTAssertEqual(tabTwoViewController, selectedViewController)
+        XCTAssertEqual(selectedViewController, tabTwoViewController)
     }
     
     func testSelectTabByImageFailure() {

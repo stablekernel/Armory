@@ -88,7 +88,7 @@ class AlertControllerTests: XCTestCase, ArmoryTestable {
         do {
             try tapButton(withTitle: "Invalid", fromAlertController: viewController.alertController)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertEqual(ArmoryError.titleLookupFailed, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -102,7 +102,7 @@ class AlertControllerTests: XCTestCase, ArmoryTestable {
         do {
             try tapButton(withTitle: "Invalid", fromAlertController: viewController.alertController)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertEqual(ArmoryError.titleLookupFailed, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
