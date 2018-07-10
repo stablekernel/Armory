@@ -41,7 +41,10 @@ typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
 protocol Armory {
     
     associatedtype ViewControllerType: UIViewController
-    
+
+    /**
+     The specific type of view controller being tested
+     */
     var viewController: ViewControllerType! { get }
     
     // MARK: - Conveniences
