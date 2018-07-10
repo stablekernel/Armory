@@ -14,7 +14,7 @@ import UIKit
 class StepperTests: XCTestCase, VCTestSetup {
     
     // MARK: - Private
-
+    
     private var events: [UIControlEvents] = []
     
     // MARK: - VCTest

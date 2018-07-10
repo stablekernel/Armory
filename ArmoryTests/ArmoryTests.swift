@@ -32,10 +32,10 @@ class ArmoryTests: XCTestCase, VCTestSetup {
     
     func testAnim() {
         viewController.g()
-
+        
         after(self.viewController.v.layer.animation(forKey: "hello") == nil)
     }
-   
+    
     func testService() {
         viewController.f()
         after(self.viewController.finished == true)

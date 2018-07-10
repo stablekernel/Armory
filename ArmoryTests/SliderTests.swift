@@ -15,9 +15,9 @@ import UIKit
 class SliderTests: XCTestCase, VCTestSetup {
     
     // MARK: - Private
-
+    
     private var events: [UIControlEvents] = []
-
+    
     // MARK: - VCTest
     
     var viewController: SliderViewController!
