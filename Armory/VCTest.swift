@@ -17,6 +17,7 @@ enum ArmoryError: Error {
     case invalidCellType
     case invalidValue
     case multipleMatchesFound
+    case cellNotEditable
 }
 
 // MARK: - VCTestSetup
@@ -31,6 +32,8 @@ protocol VCTestSetup: VCTest {
 // MARK: - VCTest
 
 typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
+typealias TableViewCellHandler = @convention(block) (UITableViewRowAction, IndexPath) -> Void
 
 protocol VCTest {
     
@@ -206,6 +209,17 @@ protocol VCTest {
      - throws: ArmoryError.imageLookupFailed
      */
     func selectTab(withImage image: UIImage, fromTabBar tabBar: UITabBar) throws
+    
+    /**
+     Calls handler for `UITableViewRowAction` with given title in provided `UITableView`
+     
+     - parameter title: Title of edit action to be retrieved
+     - parameter indexPath: `IndexPath` of `UITableViewCell` that contains action
+     - parameter tableView: `UITableView` instance where `UITableViewCell` is located
+     
+     - throws: ArmoryError
+    */
+    func selectCellAction(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws
 
     func after(_ test: @autoclosure @escaping () -> Bool)
 
@@ -444,6 +458,28 @@ extension VCTest {
 
         try selectTab(atIndex: index, fromTabBar: tabBar)
     }
+    
+    func selectCellAction(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws {
+        let action: UITableViewRowAction
+
+        do {
+            action = try retrieveActionForCell(withTitle: title, at: indexPath, in: tableView)
+        } catch {
+            throw error
+        }
+
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: TableViewCellHandler.self)
+        
+        handler(action, indexPath)
+        pump()
+    }
+
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) {
+        
+        tableView.delegate!.tableView!(tableView, didSelectRowAt: indexPath)
+    }
 
     func after(_ test: @autoclosure @escaping () -> Bool) {
         let exp = expectation(description: "Foobarxyz")
@@ -490,5 +526,24 @@ extension VCTest {
         // Disabled controls do not receive touch events
         // Since we are programmatically hit testing, we need to confirm the control is enabled
         return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
+    }
+
+    fileprivate func retrieveActionForCell(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws -> UITableViewRowAction {
+
+        guard let actions = tableView.delegate!.tableView!(tableView, editActionsForRowAt: indexPath) else {
+            throw ArmoryError.cellNotEditable
+        }
+
+        let filteredActions = actions.filter { $0.title == title }
+
+        guard !filteredActions.isEmpty else {
+            throw ArmoryError.titleLookupFailed
+        }
+
+        guard filteredActions.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        return filteredActions[0]
     }
 }
