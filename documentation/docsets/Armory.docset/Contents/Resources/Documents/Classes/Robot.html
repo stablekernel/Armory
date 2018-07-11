@@ -14,7 +14,7 @@
     <a title="Robot Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Armory Docs</a> (65% documented)</p>
+        <p><a href="../index.html">Armory Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/stablekernel/Armory"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -48,10 +48,10 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
-                <a href="../Protocols/VCTest.html">VCTest</a>
+                <a href="../Protocols/Armory.html">Armory</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Protocols/VCTestSetup.html">VCTestSetup</a>
+                <a href="../Protocols/ArmoryTestable.html">ArmoryTestable</a>
               </li>
             </ul>
           </li>
@@ -71,7 +71,7 @@
             <h1>Robot</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Robot</span><span class="o">&lt;</span><span class="kt">ViewControllerType</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/VCTest.html">VCTest</a></span> <span class="k">where</span> <span class="kt">ViewControllerType</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">Robot</span><span class="o">&lt;</span><span class="kt">ViewControllerType</span><span class="o">&gt;</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Armory.html">Armory</a></span> <span class="k">where</span> <span class="kt">ViewControllerType</span> <span class="p">:</span> <span class="kt">UIViewController</span></code></pre>
 
                 </div>
               </div>
@@ -118,9 +118,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Armory5RobotC14viewControllerSQyxGvp"></a>
+                    <a name="/s:6ArmoryAAP14viewControllerSQy04ViewC4TypeQzGvp"></a>
                     <a name="//apple_ref/swift/Property/viewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Armory5RobotC14viewControllerSQyxGvp">viewController</a>
+                    <a class="token" href="#/s:6ArmoryAAP14viewControllerSQy04ViewC4TypeQzGvp">viewController</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -128,8 +128,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -183,9 +182,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Armory5RobotCACyxGqd__c18ViewControllerTypeQyd__RszSo10XCTestCaseCRbd__AA6VCTestRd__lufc"></a>
+                    <a name="/s:6Armory5RobotCACyxGqd__c18ViewControllerTypeQyd__RszSo10XCTestCaseCRbd__A2ARd__lufc"></a>
                     <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Armory5RobotCACyxGqd__c18ViewControllerTypeQyd__RszSo10XCTestCaseCRbd__AA6VCTestRd__lufc">init(_:)</a>
+                    <a class="token" href="#/s:6Armory5RobotCACyxGqd__c18ViewControllerTypeQyd__RszSo10XCTestCaseCRbd__A2ARd__lufc">init(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -200,7 +199,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">TestClass</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">testClass</span><span class="p">:</span> <span class="kt">TestClass</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ViewControllerType</span> <span class="o">==</span> <span class="kt">TestClass</span><span class="o">.</span><span class="kt">ViewControllerType</span><span class="p">,</span> <span class="kt">TestClass</span> <span class="p">:</span> <span class="kt">XCTestCase</span><span class="p">,</span> <span class="kt">TestClass</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/VCTest.html">VCTest</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">TestClass</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">testClass</span><span class="p">:</span> <span class="kt">TestClass</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ViewControllerType</span> <span class="o">==</span> <span class="kt">TestClass</span><span class="o">.</span><span class="kt">ViewControllerType</span><span class="p">,</span> <span class="kt">TestClass</span> <span class="p">:</span> <span class="kt">XCTestCase</span><span class="p">,</span> <span class="kt">TestClass</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/Armory.html">Armory</a></span></code></pre>
 
                         </div>
                       </div>
@@ -211,19 +210,19 @@
             </div>
             <div class="task-group">
               <div class="task-name-container">
-                <a name="/VCTest"></a>
-                <a name="//apple_ref/swift/Section/VCTest" class="dashAnchor"></a>
-                <a href="#/VCTest">
-                  <h3 class="section-name">VCTest</h3>
+                <a name="/Armory"></a>
+                <a name="//apple_ref/swift/Section/Armory" class="dashAnchor"></a>
+                <a href="#/Armory">
+                  <h3 class="section-name">Armory</h3>
                 </a>
               </div>
               <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Armory5RobotC11expectationSo17XCTestExpectationCSS11description_tF"></a>
+                    <a name="/s:6ArmoryAAP11expectationSo17XCTestExpectationCSS11description_tF"></a>
                     <a name="//apple_ref/swift/Method/expectation(description:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Armory5RobotC11expectationSo17XCTestExpectationCSS11description_tF">expectation(description:)</a>
+                    <a class="token" href="#/s:6ArmoryAAP11expectationSo17XCTestExpectationCSS11description_tF">expectation(description:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -231,8 +230,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -248,9 +246,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Armory5RobotC19waitForExpectationsySd7timeout_ys5Error_pSgcSg7handlertF"></a>
+                    <a name="/s:6ArmoryAAP19waitForExpectationsySd7timeout_ys5Error_pSgcSg7handlertF"></a>
                     <a name="//apple_ref/swift/Method/waitForExpectations(timeout:handler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Armory5RobotC19waitForExpectationsySd7timeout_ys5Error_pSgcSg7handlertF">waitForExpectations(timeout:handler:)</a>
+                    <a class="token" href="#/s:6ArmoryAAP19waitForExpectationsySd7timeout_ys5Error_pSgcSg7handlertF">waitForExpectations(timeout:handler:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,8 +256,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
-
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -277,7 +274,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stablekernel.com" target="_blank" rel="external">stable|kernel</a>. All rights reserved. (Last updated: 2018-07-09)</p>
+          <p>&copy; 2018 <a class="link" href="https://stablekernel.com" target="_blank" rel="external">stable|kernel</a>. All rights reserved. (Last updated: 2018-07-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
