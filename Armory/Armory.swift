@@ -465,10 +465,9 @@ extension Armory {
         guard value >= 0 && value <= 1 else {
             throw ArmoryError.invalidValue
         }
-        
-        let cleanValue = value > 0 ? min(value, 1) : max(value, 0)
+
         let distance = slider.maximumValue - slider.minimumValue
-        let displayValue = (cleanValue * distance) + slider.minimumValue
+        let displayValue = (value * distance) + slider.minimumValue
         
         guard slider.value != displayValue else {
             return
