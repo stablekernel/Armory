@@ -87,22 +87,25 @@ protocol Armory {
     /**
      Sends a `touchUpInside` event to the given `UIControl`
      
-     - parameter control: The `UIControl` to send event to
+     - Parameters:
+        - control: The `UIControl` to send event to
      */
     func tap(_ control: UIControl)
     
     /**
      Performs the action associated with a `UIBarButtonItem`
-     
-     - parameter barButtonItem: The `UIBarButtonItem` with action to perform
+
+     - Parameters:
+        - barButtonItem: The `UIBarButtonItem` with action to perform
      */
     func tap(_ barButtonItem: UIBarButtonItem)
     
     /**
      Inserts given `text` into the `UITextField` one character at a time to simulate a user typing
-     
-     - parameter control: The `UITextField` to enter text into
-     - parameter text: The text to type into the `textField`
+
+     - Parameters:
+         - control: The `UITextField` to enter text into
+         - text: The text to type into the `textField`
      */
     func type(_ control: UITextField, text: String)
     
@@ -110,9 +113,10 @@ protocol Armory {
     
     /**
      Calls handler for `UIAlertAction` matching provided title in the given `UIAlertController` instance and dismisses alert
-     
-     - parameter title: Title for `UIAlertAction`
-     - parameter alertController: The `UIAlertController` instance that contains the `UIAlertAction`
+
+     - Parameters:
+         - title: Title for `UIAlertAction`
+         - alertController: The `UIAlertController` instance that contains the `UIAlertAction`
      
      - throws: ArmoryError.titleLookupFailed
      */
@@ -122,9 +126,10 @@ protocol Armory {
     
     /**
      Returns cell of provided type from the given `UICollectionView` instance
-     
-     - parameter indexPath: The `IndexPath` for cell retrieval
-     - parameter collectionView: The `UICollectionView` that contains the cell
+
+     - Parameters:
+         - indexPath: The `IndexPath` for cell retrieval
+         - collectionView: The `UICollectionView` that contains the cell
      
      - throws: ArmoryError.invalidCellType
      
@@ -136,10 +141,11 @@ protocol Armory {
     
     /**
      Calls the `setDate` method for the given `UIDatePicker` instance
-     
-     - parameter date: `Date` to be set in `UIDatePicker`
-     - parameter datePicker: `UIDatePicker` instance to set date on
-     - parameter animated: Default `true`. Set to `false` to disable animation of date selection.
+
+     - Parameters:
+         - date: `Date` to be set in `UIDatePicker`
+         - datePicker: `UIDatePicker` instance to set date on
+         - animated: Default `true`. Set to `false` to disable animation of date selection.
      */
     func selectDate(_ date: Date, fromDatePicker datePicker: UIDatePicker, animated: Bool)
     
@@ -147,10 +153,11 @@ protocol Armory {
     
     /**
      Calls the `selectRow` method for given `UIPickerView` instance
-     
-     - parameter row: Item's row within `picker`
-     - parameter picker: The `UIPickerView` where item is located
-     - parameter animated: Default `true`. Set to `false` to disable animation of item selection.
+
+     - Parameters:
+         - row: Item's row within `picker`
+         - picker: The `UIPickerView` where item is located
+         - animated: Default `true`. Set to `false` to disable animation of item selection.
      */
     func selectItem(atRow row: Int, fromPicker picker: UIPickerView, animated: Bool)
     
@@ -158,9 +165,10 @@ protocol Armory {
     
     /**
      Selects the segment at the specified index from the given `UISegmentedControl` instance
-     
-     - parameter index: Index of segment to be selected
-     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - Parameters:
+         - index: Index of segment to be selected
+         - segmentedControl: `UISegmentedControl` instance used for selection
      
      - throws: `ArmoryError`
      */
@@ -168,9 +176,10 @@ protocol Armory {
     
     /**
      Selects the segment with specified title from the given `UISegmentedControl` instance
-     
-     - parameter title: Title of segment to be selected
-     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - Parameters:
+         - title: Title of segment to be selected
+         - segmentedControl: `UISegmentedControl` instance used for selection
      
      - throws: `ArmoryError`
      */
@@ -178,9 +187,10 @@ protocol Armory {
     
     /**
      Selects the segment with the specified image from the given `UISegmentedControl` instance
-     
-     - parameter image: Image of segment to selected
-     - parameter segmentedControl: `UISegmentedControl` instance used for selection
+
+     - Parameters:
+         - image: Image of segment to selected
+         - segmentedControl: `UISegmentedControl` instance used for selection
      
      - throws: `ArmoryError`
      */
@@ -190,10 +200,11 @@ protocol Armory {
     
     /**
      Updates the provided `UISlider` instance with the given normalized value
-     
-     - parameter slider: The provided `UISlider` instance to update
-     - parameter value: The normalized value to slide to. Valid values are between 0.0 and 1.0 inclusive.
-     - parameter animated: Default `true`. Set to `false` to disable animation of sliding action.
+
+     - Parameters:
+         - slider: The provided `UISlider` instance to update
+         - value: The normalized value to slide to. Valid values are between 0.0 and 1.0 inclusive.
+         - animated: Default `true`. Set to `false` to disable animation of sliding action.
      
      - throws: ArmoryError.invalidValue
      */
@@ -203,15 +214,17 @@ protocol Armory {
     
     /**
      Increments `stepper` by default `stepValue`
-     
-     - parameter stepper: The `UIStepper` instance to be incremented
+
+     - Parameters:
+        - stepper: The `UIStepper` instance to be incremented
      */
     func increment(_ stepper: UIStepper)
     
     /**
      Decrements `stepper` by default `stepValue`
-     
-     - parameter stepper: The `UIStepper` instance to be decremented
+
+     - Parameters:
+        - stepper: The `UIStepper` instance to be decremented
      */
     func decrement(_ stepper: UIStepper)
     
@@ -219,9 +232,10 @@ protocol Armory {
     
     /**
      Calls the `setOn` method of the given `UISwitch` instance
-     
-     - parameter aSwitch: `UISwitch` instance to toggle
-     - parameter animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
+
+     - Parameters:
+         - aSwitch: `UISwitch` instance to toggle
+         - animated: Default `true`. Set to `false` to disable animation of `UISwitch` toggle.
      */
     func toggle(_ aSwitch: UISwitch, animated: Bool)
     
@@ -229,9 +243,10 @@ protocol Armory {
     
     /**
      Selects the tab at the specified index from the given `UITabBar` instance
-     
-     - parameter index: Index of the tab to be selected
-     - parameter tabBar: `UITabBar` instance used for selection
+
+     - Parameters:
+         - index: Index of the tab to be selected
+         - tabBar: `UITabBar` instance used for selection
      
      - throws: ArmoryError.indexOutOfBounds
      */
@@ -239,9 +254,10 @@ protocol Armory {
     
     /**
      Selects the tab with the specified title from the given `UITabBar` instance
-     
-     - parameter title: Title of tab to be selected
-     - parameter tabBar: `UITabBar` instance used for selection
+
+     - Parameters:
+         - title: Title of tab to be selected
+         - tabBar: `UITabBar` instance used for selection
      
      - throws: ArmoryError.titleLookupFailed
      */
@@ -249,9 +265,10 @@ protocol Armory {
     
     /**
      Selects the tab with the specified image from the given `UITabBar` instance.
-     
-     - parameter image: Image of tab to be selected
-     - parameter tabBar: `UITabBar` instance used for selection
+
+     - Parameters:
+         - image: Image of tab to be selected
+         - tabBar: `UITabBar` instance used for selection
      
      - throws: ArmoryError.imageLookupFailed
      */
@@ -261,9 +278,10 @@ protocol Armory {
     
     /**
      Selects the tab at the specified index from the given `UITabBarController` instance
-     
-     - parameter index: Index of the tab to be selected
-     - parameter tabBarController: `UITabBarController` instance used for selection
+
+     - Parameters:
+         - index: Index of the tab to be selected
+         - tabBarController: `UITabBarController` instance used for selection
      
      - throws: ArmoryError.indexOutOfBounds
      
@@ -273,9 +291,10 @@ protocol Armory {
     
     /**
      Selects the tab with the specified title from the given `UITabBarController` instance
-     
-     - parameter title: Title of tab to be selected
-     - parameter tabBarController: `UITabBarController` instance used for selection
+
+     - Parameters:
+         - title: Title of tab to be selected
+         - tabBarController: `UITabBarController` instance used for selection
      
      - throws: ArmoryError.titleLookupFailed
      
@@ -285,9 +304,10 @@ protocol Armory {
     
     /**
      Selects the tab with the specified image from the given `UITabBarController` instance
-     
-     - parameter image: Image of tab to be selected
-     - parameter tabBarController: `UITabBarController` instance used for selection
+
+     - Parameters:
+         - image: Image of tab to be selected
+         - tabBarController: `UITabBarController` instance used for selection
      
      - throws: ArmoryError.imageLookupFailed
      
@@ -299,9 +319,10 @@ protocol Armory {
     
     /**
      Returns cell of provided type from the given `UITableView` instance
-     
-     - parameter indexPath: The `IndexPath` for cell retrieval
-     - parameter tableView: The `UITableView` that contains the cell
+
+     - Parameters:
+         - indexPath: The `IndexPath` for cell retrieval
+         - tableView: The `UITableView` that contains the cell
      
      - throws: ArmoryError.invalidCellType
      
@@ -611,8 +632,9 @@ extension Armory {
     
     /**
      Returns whether UIControl is able to be tapped.
-     
-     - parameter control: checked for ability to be tapped
+
+     - Parameters:
+        - control: checked for ability to be tapped
      */
     fileprivate func isTappable(_ control: UIControl) -> Bool {
         // Disabled controls do not receive touch events
