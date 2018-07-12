@@ -341,8 +341,16 @@ protocol Armory {
      
      - throws: ArmoryError
      */
-
     func selectCellAction(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws
+
+    /**
+     Selects the row at `indexPath` in given `UITableView`
+
+     - Parameters:
+        - indexPath: The `IndexPath` of row to select
+        - tableView: The `UITableView` instance where row is located
+    */
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView)
 }
 
 // MARK: - Armory Default Implementation
@@ -657,7 +665,6 @@ extension Armory {
     }
 
     func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) {
-        
         tableView.delegate!.tableView!(tableView, didSelectRowAt: indexPath)
     }
 
