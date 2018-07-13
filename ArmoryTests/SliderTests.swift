@@ -80,6 +80,7 @@ class SliderTests: XCTestCase, ArmoryTestable {
             try slide(viewController.slider, toNormalizedValue: 1.5)
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.invalidValue, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -90,6 +91,7 @@ class SliderTests: XCTestCase, ArmoryTestable {
             try slide(viewController.slider, toNormalizedValue: -1)
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.invalidValue, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }

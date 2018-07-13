@@ -54,6 +54,7 @@ class SegmentedControlTests: XCTestCase, ArmoryTestable {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.indexOutOfBounds, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -80,6 +81,7 @@ class SegmentedControlTests: XCTestCase, ArmoryTestable {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.titleLookupFailed, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -100,6 +102,7 @@ class SegmentedControlTests: XCTestCase, ArmoryTestable {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -117,6 +120,7 @@ class SegmentedControlTests: XCTestCase, ArmoryTestable {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.imageLookupFailed, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -137,6 +141,7 @@ class SegmentedControlTests: XCTestCase, ArmoryTestable {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
