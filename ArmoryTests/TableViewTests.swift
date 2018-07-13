@@ -64,6 +64,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
             let _: FailureCell = try cell(at: indexPath, fromTableView: viewController.tableView)
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.invalidCellType, error)
+            XCTAssertTrue(actions.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -97,6 +98,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertTrue(actions.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
