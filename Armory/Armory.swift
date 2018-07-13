@@ -336,8 +336,10 @@ protocol Armory {
     /**
      Calls handler for `UITableViewRowAction` provided at the given `IndexPath`
      
-     - parameter action: The `UITableViewRowAction` to call handler for
-     - parameter indexPath: `IndexPath` of `UITableViewCell` that contains action
+     - Parameters:
+        - action: The `UITableViewRowAction` to call handler for
+        - indexPath: `IndexPath` of `UITableViewCell` that contains action
+        - tableView: The `UITableView` instance where row is located
      
      - throws: ArmoryError
      */
