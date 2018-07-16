@@ -9,11 +9,11 @@
 import UIKit
 
 class TestViewController: UIViewController {
-    
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: Bundle(for: TestViewController.self))
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
