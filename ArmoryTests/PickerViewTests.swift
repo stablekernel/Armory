@@ -8,11 +8,10 @@
 
 import XCTest
 import UIKit
-import Foundation
 
 @testable import Armory
 
-class PickerViewTests: XCTestCase, VCTest {
+class PickerViewTests: XCTestCase, ArmoryTestable {
     
     var viewController: PickerViewController!
     
@@ -36,10 +35,10 @@ class PickerViewTests: XCTestCase, VCTest {
     func testPickerViewItemIsSelectable() {
         viewController.setupDataSource(names: testNames)
         
-        XCTAssertEqual(viewController.pickerView.selectedRow(inComponent: 0), 0)
+        XCTAssertEqual(0, viewController.pickerView.selectedRow(inComponent: 0))
         
         selectItem(atRow: 1, fromPicker: viewController.pickerView, animated: true)
         
-        XCTAssertEqual(viewController.pickerView.selectedRow(inComponent: 0), 1)
+        XCTAssertEqual(1, viewController.pickerView.selectedRow(inComponent: 0))
     }
 }

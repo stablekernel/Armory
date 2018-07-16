@@ -11,20 +11,20 @@ import UIKit
 
 @testable import Armory
 
-class WaitTests: XCTestCase, VCTestSetup {
-
+class WaitTests: XCTestCase, ArmoryTestable {
+    
     var viewController: WaitViewController!
-
+    
     override func setUp() {
         super.setUp()
         viewController = WaitViewController()
-
+        
         build()
     }
     
     override func tearDown() {
         viewController = nil
-
+        
         super.tearDown()
     }
     
@@ -32,15 +32,15 @@ class WaitTests: XCTestCase, VCTestSetup {
         tap(viewController.presentModalButton)
         let _ = waitForPresentedViewController()
     }
-
+    
     func testWaitForDismissedViewController() {
         tap(viewController.presentModalButton)
-
+        
         let navigationController: UINavigationController = waitForPresentedViewController()
         let modalViewController = navigationController.topViewController as! ModalViewController
-
+        
         tap(modalViewController.doneButton)
-
+        
         waitForDismissedViewController()
     }
 }

@@ -8,11 +8,10 @@
 
 import XCTest
 import UIKit
-import Foundation
 
 @testable import Armory
 
-class DatePickerTests: XCTestCase, VCTest {
+class DatePickerTests: XCTestCase, ArmoryTestable {
     
     var viewController: DatePickerViewController!
     
@@ -39,6 +38,6 @@ class DatePickerTests: XCTestCase, VCTest {
         let doneButton = toolbar.items!.first!
         tap(doneButton)
         
-        XCTAssertEqual(viewController.datePicker.date, date)
+        XCTAssertEqual(date, viewController.datePicker.date)
     }
 }

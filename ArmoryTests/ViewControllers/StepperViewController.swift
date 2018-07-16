@@ -11,7 +11,7 @@ import UIKit
 class StepperViewController: TestViewController {
     
     // MARK: - IBOutlets
-
+    
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var label: UILabel!
     
@@ -24,7 +24,7 @@ class StepperViewController: TestViewController {
     }
     
     // MARK: - IBActions
-
+    
     @IBAction func updateStepper(_ sender: Any) {
         mapStateToView()
     }

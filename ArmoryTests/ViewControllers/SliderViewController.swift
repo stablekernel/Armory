@@ -9,7 +9,7 @@
 import UIKit
 
 class SliderViewController: TestViewController {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var slider: UISlider!

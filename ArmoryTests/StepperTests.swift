@@ -11,13 +11,13 @@ import UIKit
 
 @testable import Armory
 
-class StepperTests: XCTestCase, VCTest {
+class StepperTests: XCTestCase, ArmoryTestable {
     
     // MARK: - Private
-
+    
     private var events: [UIControlEvents] = []
     
-    // MARK: - VCTest
+    // MARK: - Armory
     
     var viewController: StepperViewController!
     
@@ -44,7 +44,7 @@ class StepperTests: XCTestCase, VCTest {
         
         increment(viewController.stepper)
         
-        XCTAssertEqual(viewController.stepper.value, originalValue + viewController.stepper.stepValue )
+        XCTAssertEqual(originalValue + viewController.stepper.stepValue, viewController.stepper.value)
     }
     
     func testStepperDecrement() {
@@ -52,7 +52,7 @@ class StepperTests: XCTestCase, VCTest {
         
         decrement(viewController.stepper)
         
-        XCTAssertEqual(viewController.stepper.value, originalValue - viewController.stepper.stepValue)
+        XCTAssertEqual(originalValue - viewController.stepper.stepValue, viewController.stepper.value)
     }
     
     func testStepperStopsAtMaximumValue() {
@@ -63,8 +63,8 @@ class StepperTests: XCTestCase, VCTest {
         
         increment(viewController.stepper)
         
-        XCTAssertNotEqual(viewController.stepper.value, expectedValue)
-        XCTAssertEqual(viewController.stepper.value, viewController.stepper.maximumValue)
+        XCTAssertNotEqual(expectedValue, viewController.stepper.value)
+        XCTAssertEqual(viewController.stepper.maximumValue, viewController.stepper.value)
     }
     
     func testStepperStopsAtMinimumValue() {
@@ -75,8 +75,8 @@ class StepperTests: XCTestCase, VCTest {
         
         decrement(viewController.stepper)
         
-        XCTAssertNotEqual(viewController.stepper.value, expectedValue)
-        XCTAssertEqual(viewController.stepper.value, viewController.stepper.minimumValue)
+        XCTAssertNotEqual(expectedValue, viewController.stepper.value)
+        XCTAssertEqual(viewController.stepper.minimumValue, viewController.stepper.value)
     }
     
     func testActionNotCalledForDisabledStepper() {

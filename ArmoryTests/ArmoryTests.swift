@@ -7,12 +7,11 @@
 //
 
 import XCTest
-import Foundation
 import UIKit
 
 @testable import Armory
 
-class ArmoryTests: XCTestCase, VCTest {
+class ArmoryTests: XCTestCase, ArmoryTestable {
     var viewController: ViewController!
     
     override func setUp() {
@@ -32,10 +31,10 @@ class ArmoryTests: XCTestCase, VCTest {
     
     func testAnim() {
         viewController.g()
-
+        
         after(self.viewController.v.layer.animation(forKey: "hello") == nil)
     }
-   
+    
     func testService() {
         viewController.f()
         after(self.viewController.finished == true)

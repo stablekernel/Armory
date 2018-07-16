@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Foundation
 import UIKit
 
 @testable import Armory
@@ -17,7 +16,7 @@ enum AlertAction {
     case red
 }
 
-class AlertControllerTests: XCTestCase, VCTest {
+class AlertControllerTests: XCTestCase, ArmoryTestable {
     
     // MARK: - Private
     
@@ -35,7 +34,7 @@ class AlertControllerTests: XCTestCase, VCTest {
     
     private var calledAlertActions: [AlertAction] = []
     
-    // MARK: - VCTest
+    // MARK: - Armory
     
     var viewController: AlertViewController!
     
@@ -89,7 +88,8 @@ class AlertControllerTests: XCTestCase, VCTest {
         do {
             try tapButton(withTitle: "Invalid", fromAlertController: viewController.alertController)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertEqual(ArmoryError.titleLookupFailed, error)
+            XCTAssertTrue(calledAlertActions.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -103,7 +103,8 @@ class AlertControllerTests: XCTestCase, VCTest {
         do {
             try tapButton(withTitle: "Invalid", fromAlertController: viewController.alertController)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertEqual(ArmoryError.titleLookupFailed, error)
+            XCTAssertTrue(calledAlertActions.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }

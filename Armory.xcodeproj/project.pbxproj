@@ -29,7 +29,6 @@
 		7E4A070E20DC147700CA1EB6 /* SegmentedControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */; };
 		7E4A071020DC148400CA1EB6 /* SegmentedControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */; };
 		7EE0180B20D418DF006636E6 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180920D418DF006636E6 /* PickerViewController.swift */; };
-		7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
 		7EE0181020D41B9F006636E6 /* PickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */; };
 		7EE0181320D4207B006636E6 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE0181120D4207B006636E6 /* DatePickerViewController.swift */; };
 		7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0181220D4207B006636E6 /* DatePickerViewController.xib */; };
@@ -45,7 +44,7 @@
 		BE2662981F5869C5009CDB89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE2662961F5869C5009CDB89 /* LaunchScreen.storyboard */; };
 		BE4182941F560D9800DD6309 /* Armory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE41828A1F560D9800DD6309 /* Armory.framework */; };
 		BE41829B1F560D9800DD6309 /* Armory.h in Headers */ = {isa = PBXBuildFile; fileRef = BE41828D1F560D9800DD6309 /* Armory.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* VCTest.swift */; };
+		BE4182A71F560E3700DD6309 /* Armory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4182A61F560E3700DD6309 /* Armory.swift */; };
 		D30CD5D920E52BEC003D8C2C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D30CD5D820E52BEC003D8C2C /* Media.xcassets */; };
 		D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D338A7F220CEDF1900EE26B6 /* Robot.swift */; };
 		D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D33F9BCA20D18DCB00BC8892 /* ModalViewController.xib */; };
@@ -55,7 +54,8 @@
 		D349801020D16C2C00B19F8E /* WaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349800F20D16C2C00B19F8E /* WaitTests.swift */; };
 		D37C6CEB20DD7354005AB9A3 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */; };
 		D37C6CEE20DD8568005AB9A3 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */; };
-		D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */; };
+		D3C6905820F3F93100658C37 /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EE0180A20D418DF006636E6 /* PickerViewController.xib */; };
+		D3C6905920F3F93100658C37 /* TabBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,7 +116,7 @@
 		BE4182931F560D9800DD6309 /* ArmoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArmoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4182981F560D9800DD6309 /* ArmoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmoryTests.swift; sourceTree = "<group>"; };
 		BE41829A1F560D9800DD6309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE4182A61F560E3700DD6309 /* VCTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCTest.swift; sourceTree = "<group>"; };
+		BE4182A61F560E3700DD6309 /* Armory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Armory.swift; sourceTree = "<group>"; };
 		D30CD5D820E52BEC003D8C2C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		D338A7F220CEDF1900EE26B6 /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
 		D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
@@ -195,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				BE41828D1F560D9800DD6309 /* Armory.h */,
+				BE4182A61F560E3700DD6309 /* Armory.swift */,
 				BE41828E1F560D9800DD6309 /* Info.plist */,
-				BE4182A61F560E3700DD6309 /* VCTest.swift */,
 				D338A7F220CEDF1900EE26B6 /* Robot.swift */,
 			);
 			path = Armory;
@@ -205,23 +205,23 @@
 		BE4182971F560D9800DD6309 /* ArmoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				7E3790A120DA8D8E00BFCD60 /* AlertControllerTests.swift */,
+				D34BC63020DAA74500921DEA /* Extensions */,
 				D30CD5D820E52BEC003D8C2C /* Media.xcassets */,
+				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
+				7E3790A120DA8D8E00BFCD60 /* AlertControllerTests.swift */,
 				BE4182981F560D9800DD6309 /* ArmoryTests.swift */,
 				7E37909520D9900600BFCD60 /* CollectionViewTests.swift */,
 				7EE0181520D420E9006636E6 /* DatePickerTests.swift */,
-				D34BC63020DAA74500921DEA /* Extensions */,
+				BE41829A1F560D9800DD6309 /* Info.plist */,
 				7EE0180F20D41B9F006636E6 /* PickerViewTests.swift */,
 				7E4A070F20DC148400CA1EB6 /* SegmentedControlTests.swift */,
-				7E37908320D9463000BFCD60 /* SwitchTests.swift */,
-				7E37909B20DA88E100BFCD60 /* StepperTests.swift */,
 				7E37908920D96C6A00BFCD60 /* SliderTests.swift */,
+				7E37909B20DA88E100BFCD60 /* StepperTests.swift */,
+				7E37908320D9463000BFCD60 /* SwitchTests.swift */,
 				D37C6CEA20DD7354005AB9A3 /* TabBarControllerTests.swift */,
 				D34BC62520DAA21300921DEA /* TabBarTests.swift */,
 				7E37908F20D98C1500BFCD60 /* TableViewTests.swift */,
 				D349800F20D16C2C00B19F8E /* WaitTests.swift */,
-				D33F9BCD20D195ED00BC8892 /* ViewControllers */,
-				BE41829A1F560D9800DD6309 /* Info.plist */,
 			);
 			path = ArmoryTests;
 			sourceTree = "<group>";
@@ -229,10 +229,10 @@
 		D33F9BCD20D195ED00BC8892 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7E37909220D98FD800BFCD60 /* CollectionViewController.swift */,
-				7E37909120D98FD800BFCD60 /* CollectionViewController.xib */,
 				7E37909E20DA8D7500BFCD60 /* AlertViewController.swift */,
 				7E37909D20DA8D7500BFCD60 /* AlertViewController.xib */,
+				7E37909220D98FD800BFCD60 /* CollectionViewController.swift */,
+				7E37909120D98FD800BFCD60 /* CollectionViewController.xib */,
 				7EE0181120D4207B006636E6 /* DatePickerViewController.swift */,
 				7EE0181220D4207B006636E6 /* DatePickerViewController.xib */,
 				D33F9BC920D18DCB00BC8892 /* ModalViewController.swift */,
@@ -241,17 +241,17 @@
 				7EE0180A20D418DF006636E6 /* PickerViewController.xib */,
 				7E4A070B20DC147600CA1EB6 /* SegmentedControlViewController.swift */,
 				7E4A070C20DC147700CA1EB6 /* SegmentedControlViewController.xib */,
-				7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */,
-				7E37908020D9445E00BFCD60 /* SwitchViewController.xib */,
-				7E37909720DA861300BFCD60 /* StepperViewController.swift */,
-				7E37909820DA861300BFCD60 /* StepperViewController.xib */,
 				7E37908520D9697A00BFCD60 /* SliderViewController.swift */,
 				7E37908620D9697A00BFCD60 /* SliderViewController.xib */,
+				7E37909720DA861300BFCD60 /* StepperViewController.swift */,
+				7E37909820DA861300BFCD60 /* StepperViewController.xib */,
+				7E37907F20D9445E00BFCD60 /* SwitchViewController.swift */,
+				7E37908020D9445E00BFCD60 /* SwitchViewController.xib */,
+				D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */,
+				D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */,
 				7E37908C20D98BF400BFCD60 /* TableViewController.swift */,
 				7E37908B20D98BF400BFCD60 /* TableViewController.xib */,
 				D33F9BCE20D196BE00BC8892 /* TestViewController.swift */,
-				D37C6CEC20DD8568005AB9A3 /* TabBarViewController.swift */,
-				D37C6CED20DD8568005AB9A3 /* TabBarViewController.xib */,
 				D349800B20D16B9E00B19F8E /* WaitViewController.swift */,
 				D349800C20D16B9E00B19F8E /* WaitViewController.xib */,
 			);
@@ -412,11 +412,9 @@
 				7EE0181420D4207B006636E6 /* DatePickerViewController.xib in Resources */,
 				7E37909320D98FD900BFCD60 /* CollectionViewController.xib in Resources */,
 				D33F9BCC20D18DCB00BC8892 /* ModalViewController.xib in Resources */,
-				D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */,
-				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
+				D3C6905920F3F93100658C37 /* TabBarViewController.xib in Resources */,
+				D3C6905820F3F93100658C37 /* PickerViewController.xib in Resources */,
 				7E37908820D9697A00BFCD60 /* SliderViewController.xib in Resources */,
-				D37C6CEF20DD8568005AB9A3 /* TabBarViewController.xib in Resources */,
-				7EE0180C20D418DF006636E6 /* PickerViewController.xib in Resources */,
 				7E37908D20D98BF400BFCD60 /* TableViewController.xib in Resources */,
 				D30CD5D920E52BEC003D8C2C /* Media.xcassets in Resources */,
 				D349800E20D16B9E00B19F8E /* WaitViewController.xib in Resources */,
@@ -442,7 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D338A7F320CEDF1900EE26B6 /* Robot.swift in Sources */,
-				BE4182A71F560E3700DD6309 /* VCTest.swift in Sources */,
+				BE4182A71F560E3700DD6309 /* Armory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

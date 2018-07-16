@@ -24,7 +24,7 @@ class CollectionViewController: TestViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -44,7 +44,7 @@ extension CollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
         cell.color = colors[indexPath.row]
-            
+        
         return cell
     }
     

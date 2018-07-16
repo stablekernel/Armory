@@ -7,12 +7,11 @@
 //
 
 import XCTest
-import Foundation
 import UIKit
 
 @testable import Armory
 
-class TableViewTests: XCTestCase, VCTest {
+class TableViewTests: XCTestCase, ArmoryTestable {
     
     var viewController: TableViewController!
     
@@ -40,7 +39,7 @@ class TableViewTests: XCTestCase, VCTest {
         let indexPath = IndexPath(row: 2, section: 0)
         let aCell: UITableViewCell = try! cell(at: indexPath, fromTableView: viewController.tableView)
         
-        XCTAssertEqual(aCell.textLabel?.text, testNames[2])
+        XCTAssertEqual(testNames[2], aCell.textLabel?.text)
     }
     
     func testCellRetrievalFailure() {
@@ -52,7 +51,7 @@ class TableViewTests: XCTestCase, VCTest {
         do {
             let _: FailureCell = try cell(at: indexPath, fromTableView: viewController.tableView)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.invalidCellType)
+            XCTAssertEqual(ArmoryError.invalidCellType, error)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }

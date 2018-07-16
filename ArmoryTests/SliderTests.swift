@@ -11,14 +11,13 @@ import UIKit
 
 @testable import Armory
 
-
-class SliderTests: XCTestCase, VCTest {
+class SliderTests: XCTestCase, ArmoryTestable {
     
     // MARK: - Private
-
+    
     private var events: [UIControlEvents] = []
-
-    // MARK: - VCTest
+    
+    // MARK: - Armory
     
     var viewController: SliderViewController!
     
@@ -46,7 +45,7 @@ class SliderTests: XCTestCase, VCTest {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, -3.5)
+        XCTAssertEqual(-3.5, viewController.slider.value)
     }
     
     func testNegativeMinPositiveMax() {
@@ -55,7 +54,7 @@ class SliderTests: XCTestCase, VCTest {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, 0)
+        XCTAssertEqual(0, viewController.slider.value)
     }
     
     func testPositiveMinPositiveMax() {
@@ -64,7 +63,7 @@ class SliderTests: XCTestCase, VCTest {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, 15)
+        XCTAssertEqual(15, viewController.slider.value)
     }
     
     func testZeroMinZeroMax() {
@@ -73,14 +72,15 @@ class SliderTests: XCTestCase, VCTest {
         
         try! slide(viewController.slider, toNormalizedValue: 0.5)
         
-        XCTAssertEqual(viewController.slider.value, 0)
+        XCTAssertEqual(0, viewController.slider.value)
     }
     
     func testNormalizedValueGreaterThanOne() {
         do {
             try slide(viewController.slider, toNormalizedValue: 1.5)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.invalidValue)
+            XCTAssertEqual(ArmoryError.invalidValue, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -90,7 +90,8 @@ class SliderTests: XCTestCase, VCTest {
         do {
             try slide(viewController.slider, toNormalizedValue: -1)
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.invalidValue)
+            XCTAssertEqual(ArmoryError.invalidValue, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -99,13 +100,13 @@ class SliderTests: XCTestCase, VCTest {
     func testNormalizedValueIsZero() {
         try! slide(viewController.slider, toNormalizedValue: 0)
         
-        XCTAssertEqual(viewController.slider.value, viewController.slider.minimumValue)
+        XCTAssertEqual(viewController.slider.minimumValue, viewController.slider.value)
     }
     
     func testNormalizedValueIsOne() {
         try! slide(viewController.slider, toNormalizedValue: 1)
         
-        XCTAssertEqual(viewController.slider.value, viewController.slider.maximumValue)
+        XCTAssertEqual(viewController.slider.maximumValue, viewController.slider.value)
     }
     
     func testSliderAction() {
