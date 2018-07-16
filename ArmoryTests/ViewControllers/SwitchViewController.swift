@@ -9,18 +9,18 @@
 import UIKit
 
 class SwitchViewController: TestViewController {
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var backgroundSwitch: UISwitch!
-    
+
     // MARK: - IBActions
     @IBAction func toggleSwitch(_ sender: Any) {
         mapStateToView()
     }
-    
+
     // MARK: - Private
-    
+
     @objc private func mapStateToView() {
         switch backgroundSwitch.isOn {
         case true:

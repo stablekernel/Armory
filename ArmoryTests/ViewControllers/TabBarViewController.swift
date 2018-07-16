@@ -9,9 +9,9 @@
 import UIKit
 
 class TabBarViewController: TestViewController {
-    
+
     @IBOutlet weak var tabBar: UITabBar!
     @IBOutlet weak var tabOneItem: UITabBarItem!
     @IBOutlet weak var tabTwoItem: UITabBarItem!
-    
+
 }
