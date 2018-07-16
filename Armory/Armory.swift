@@ -101,6 +101,17 @@ protocol Armory {
     func tap(_ barButtonItem: UIBarButtonItem)
 
     /**
+     Simulates tapping a view that has an associated `UITapGestureRecognizer`
+
+     - Parameters:
+     - view: The `UIView` instance to be tapped
+     - numberOfTimes:  The number of taps to simulate
+
+     - throws: ArmoryError
+     */
+    func tap(_ view: UIView, numberOfTimes: Int) throws
+
+    /**
      Inserts given `text` into the `UITextField` one character at a time to simulate a user typing
 
      - Parameters:
@@ -375,12 +386,26 @@ extension Armory {
 
     func tap(_ barButtonItem: UIBarButtonItem) {
         guard let target = barButtonItem.target,
-            let action = barButtonItem.action else {
+            let action = barButtonItem.action,
+            barButtonItem.isEnabled else {
                 return
         }
 
         let _ = target.perform(action, with: barButtonItem)
         pump()
+    }
+
+    func tap(_ view: UIView, numberOfTimes: Int = 1) throws {
+        guard numberOfTimes >= 1 else {
+            throw ArmoryError.invalidValue
+        }
+
+        guard let gestureRecognizer = view.gestureRecognizers?.first(where: { ($0 as? UITapGestureRecognizer)?.numberOfTapsRequired == numberOfTimes }),
+            let targets = gestureRecognizer.value(forKey: "_targets") as? [NSObject] else {
+                return
+        }
+
+        targets.forEach { $0.perform(Selector(("_sendActionWithGestureRecognizer:")), with: gestureRecognizer) }
     }
 
     func type(_ control: UITextField, text: String) {
@@ -632,7 +657,7 @@ extension Armory {
 
     /**
      Returns whether UIControl is able to be tapped.
-
+     
      - Parameters:
      - control: checked for ability to be tapped
      */
