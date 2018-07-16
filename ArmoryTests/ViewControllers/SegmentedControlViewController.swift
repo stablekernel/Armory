@@ -14,10 +14,10 @@ enum SegmentedControlSelectionMode {
 }
 
 class SegmentedControlViewController: TestViewController {
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var imageSegmentedControl: UISegmentedControl!
     @IBOutlet weak var indexOrTitleSegmentedControl: UISegmentedControl!
-    
+
 }
