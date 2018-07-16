@@ -647,8 +647,19 @@ extension Armory {
 
 protocol ArmoryTestable: Armory {
 
+    /**
+     Called at the end of a test's `setUp` method after initializing the `viewController` in order to generate a new `UIWindow` for your test
+    */
     func build()
 
+    /**
+     Creates a new `UIWindow` the size of the device's `UIScreen` and sets the `viewController` as the window's `rootViewController`
+
+     - Parameters:
+        - vc: The `viewController` to set as the new window's `rootViewController`
+
+     - Note: You should not call this method directly. Instead, call `build` and it will call this method and `pump` to setup the initial test window.
+    */
     func harness(_ vc: UIViewController)
 }
 
