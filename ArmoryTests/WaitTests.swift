@@ -11,7 +11,7 @@ import UIKit
 
 @testable import Armory
 
-class WaitTests: XCTestCase, VCTestSetup {
+class WaitTests: XCTestCase, ArmoryTestable {
 
     var viewController: WaitViewController!
 
@@ -21,13 +21,13 @@ class WaitTests: XCTestCase, VCTestSetup {
 
         build()
     }
-    
+
     override func tearDown() {
         viewController = nil
 
         super.tearDown()
     }
-    
+
     func testWaitForPresentedViewController() {
         tap(viewController.presentModalButton)
         let _ = waitForPresentedViewController()

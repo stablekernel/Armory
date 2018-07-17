@@ -11,17 +11,17 @@ import UIKit
 class SliderViewController: TestViewController {
 
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var slider: UISlider!
-    
+
     // MARK: - IBActions
-    
+
     @IBAction func slideSlider(_ sender: Any) {
         mapStateToView()
     }
-    
+
     // MARK: - Private
-    
+
     private func mapStateToView() {
         switch slider.value {
         case 0..<0.5:

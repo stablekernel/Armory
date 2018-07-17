@@ -9,27 +9,27 @@
 import UIKit
 
 class PickerViewController: TestViewController {
-    
+
     // MARK: - Properties
-    
+
     private(set) var names: [String] = []
-    
+
     // MARK: - IBOutlets
-    
+
     @IBOutlet weak var pickerView: UIPickerView!
-    
+
     // MARK: - Public
-    
+
     func setupDataSource(names: [String]) {
         self.names = names
         pickerView.reloadAllComponents()
     }
-    
+
     func addName(name: String) {
         names.append(name)
         pickerView.reloadAllComponents()
     }
-    
+
     func removeName(atIndex index: Int) {
         names.remove(at: index)
         pickerView.reloadAllComponents()
@@ -39,11 +39,11 @@ class PickerViewController: TestViewController {
 // MARK: - UIPickerViewDataSource
 
 extension PickerViewController: UIPickerViewDataSource {
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return names.count
     }

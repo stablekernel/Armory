@@ -11,9 +11,9 @@ import UIKit
 
 @testable import Armory
 
-class TabBarControllerTests: XCTestCase, VCTestSetup {
+class TabBarControllerTests: XCTestCase, ArmoryTestable {
 
-    // MARK: - VCTestSetup
+    // MARK: - ArmoryTestable
 
     var viewController: UITabBarController!
 
@@ -85,7 +85,7 @@ class TabBarControllerTests: XCTestCase, VCTestSetup {
         var selectedViewController: UIViewController
 
         selectedViewController = try! selectTab(withTitle: "Red", fromTabBarController: viewController)
-        XCTAssertEqual(tabOneViewController, selectedViewController)
+        XCTAssertEqual(selectedViewController, tabOneViewController)
     }
 
     func testSelectTabByTitleFailure() {

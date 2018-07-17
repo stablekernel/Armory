@@ -11,9 +11,9 @@ import UIKit
 
 @testable import Armory
 
-class TabBarTests: XCTestCase, VCTestSetup {
+class TabBarTests: XCTestCase, ArmoryTestable {
 
-    // MARK: - VCTestSetup
+    // MARK: - ArmoryTestable
 
     var viewController: TabBarViewController!
 

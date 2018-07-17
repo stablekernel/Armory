@@ -11,40 +11,40 @@ import UIKit
 
 @testable import Armory
 
-class SegmentedControlTests: XCTestCase, VCTest {
+class SegmentedControlTests: XCTestCase, ArmoryTestable {
 
     // MARK: - Private
 
     private var events: [UIControlEvents] = []
 
-    // MARK: - VCTest
-    
+    // MARK: - Armory
+
     var viewController: SegmentedControlViewController!
 
     // MARK: - Set Up / Tear Down
 
     override func setUp() {
         super.setUp()
-        
+
         viewController = SegmentedControlViewController()
         build()
     }
-    
+
     override func tearDown() {
         viewController = nil
         events = []
 
         super.tearDown()
     }
-    
+
     // MARK: - UISegmentedControl tests
 
     func testSelectSegmentByIndex() {
         let index = 1
 
         try! selectSegment(atIndex: index, fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
-        
-        XCTAssertEqual(viewController.indexOrTitleSegmentedControl.selectedSegmentIndex, index)
+
+        XCTAssertEqual(index, viewController.indexOrTitleSegmentedControl.selectedSegmentIndex)
     }
 
     func testSelectSegmentByIndexGreaterThanSegmentCount() {
@@ -53,7 +53,8 @@ class SegmentedControlTests: XCTestCase, VCTest {
             try selectSegment(atIndex: index, fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
+            XCTAssertEqual(ArmoryError.indexOutOfBounds, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -71,7 +72,7 @@ class SegmentedControlTests: XCTestCase, VCTest {
 
         try! selectSegment(withTitle: titles[expectedIndex], fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
 
-        XCTAssertEqual(viewController.indexOrTitleSegmentedControl.selectedSegmentIndex, expectedIndex)
+        XCTAssertEqual(expectedIndex, viewController.indexOrTitleSegmentedControl.selectedSegmentIndex)
     }
 
     func testSelectSegmentByTitleFailure() {
@@ -79,27 +80,29 @@ class SegmentedControlTests: XCTestCase, VCTest {
             try selectSegment(withTitle: "Missing title", fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.titleLookupFailed)
+            XCTAssertEqual(ArmoryError.titleLookupFailed, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
     }
-    
+
     func testSelectSegmentByTitleMultipleMatchesFailure() {
         viewController.indexOrTitleSegmentedControl.removeAllSegments()
-        
+
         let numberOfSegments = 2
         let title = "One"
-        
+
         for index in 0..<numberOfSegments {
             viewController.indexOrTitleSegmentedControl.insertSegment(withTitle: title, at: index, animated: false)
         }
-        
+
         do {
             try selectSegment(withTitle: title, fromSegmentedControl: viewController.indexOrTitleSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
@@ -108,7 +111,7 @@ class SegmentedControlTests: XCTestCase, VCTest {
     func testSelectSegmentByImage() {
         try! selectSegment(withImage: UIImage.lock(), fromSegmentedControl: viewController.imageSegmentedControl)
 
-        XCTAssertEqual(viewController.imageSegmentedControl.selectedSegmentIndex, 0)
+        XCTAssertEqual(0, viewController.imageSegmentedControl.selectedSegmentIndex)
     }
 
     func testSelectSegmentByImageFailure() {
@@ -116,27 +119,29 @@ class SegmentedControlTests: XCTestCase, VCTest {
             try selectSegment(withImage: UIImage(), fromSegmentedControl: viewController.imageSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.imageLookupFailed)
+            XCTAssertEqual(ArmoryError.imageLookupFailed, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
     }
-    
+
     func testSelectSegmentByImageMultipleMatchesFailure() {
         viewController.imageSegmentedControl.removeAllSegments()
-        
+
         let numberOfSegments = 2
         let image = UIImage.lock()
-        
+
         for index in 0..<numberOfSegments {
             viewController.imageSegmentedControl.insertSegment(with: image, at: index, animated: false)
         }
-        
+
         do {
             try selectSegment(withImage: image, fromSegmentedControl: viewController.imageSegmentedControl)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
             XCTAssertEqual(ArmoryError.multipleMatchesFound, error)
+            XCTAssertTrue(events.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
         }
