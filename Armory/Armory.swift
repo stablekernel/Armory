@@ -337,9 +337,9 @@ protocol Armory {
      Calls handler for `UITableViewRowAction` provided at the given `IndexPath`
      
      - Parameters:
-        - action: The `UITableViewRowAction` to call handler for
-        - indexPath: `IndexPath` of `UITableViewCell` that contains action
-        - tableView: The `UITableView` instance where row is located
+     - action: The `UITableViewRowAction` to call handler for
+     - indexPath: `IndexPath` of `UITableViewCell` that contains action
+     - tableView: The `UITableView` instance where row is located
      
      - throws: ArmoryError
      */
@@ -349,9 +349,9 @@ protocol Armory {
      Selects the row at `indexPath` in given `UITableView`
 
      - Parameters:
-        - indexPath: The `IndexPath` of row to select
-        - tableView: The `UITableView` instance where row is located
-    */
+     - indexPath: The `IndexPath` of row to select
+     - tableView: The `UITableView` instance where row is located
+     */
     func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView)
 }
 
