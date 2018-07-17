@@ -657,7 +657,7 @@ extension Armory {
 
     /**
      Returns whether UIControl is able to be tapped.
-     
+
      - Parameters:
      - control: checked for ability to be tapped
      */
