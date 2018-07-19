@@ -391,6 +391,10 @@ extension Armory {
                 return
         }
 
+        guard barButtonItem.isEnabled else {
+            return
+        }
+
         let _ = target.perform(action, with: barButtonItem)
         pump()
     }

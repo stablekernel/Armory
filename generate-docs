@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "Generating Jazzy docs for Armory"
+
+jazzy \
+--clean \
+--author "stable|kernel" \
+--author_url https://stablekernel.com \
+--github_url https://github.com/stablekernel/Armory \
+--module Armory \
+--output docs \
+--min-acl internal
+      
