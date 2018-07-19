@@ -11,8 +11,14 @@ import UIKit
 
 @testable import Armory
 
+enum Tap {
+    case received
+}
+
 class ArmoryTests: XCTestCase, ArmoryTestable {
     var viewController: ViewController!
+
+    private var taps: [Tap] = []
 
     override func setUp() {
         super.setUp()
@@ -21,7 +27,8 @@ class ArmoryTests: XCTestCase, ArmoryTestable {
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        taps = []
+
         super.tearDown()
     }
 
@@ -38,6 +45,61 @@ class ArmoryTests: XCTestCase, ArmoryTestable {
     func testService() {
         viewController.f()
         after(self.viewController.finished == true)
+    }
+
+    func testTappingViewWithNumberOfTapsEqualToZero() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+
+        viewController.view.addGestureRecognizer(tapGestureRecognizer)
+
+        do {
+            try tap(viewController.view, numberOfTimes: 0)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(ArmoryError.invalidValue, error)
+            XCTAssertEqual([], taps)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
+
+    func testTappingViewWithNumberOfTapsLessThanZero() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+
+        viewController.view.addGestureRecognizer(tapGestureRecognizer)
+
+        do {
+            try tap(viewController.view, numberOfTimes: -1)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(ArmoryError.invalidValue, error)
+            XCTAssertEqual([], taps)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
+
+    func testTappingViewWithNumberOfTapsGreaterThanZero() {
+        let numberOfTaps = 2
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGesture(_:)))
+        tapGestureRecognizer.numberOfTapsRequired = numberOfTaps
+
+        viewController.view.addGestureRecognizer(tapGestureRecognizer)
+
+        try! tap(viewController.view, numberOfTimes: numberOfTaps)
+
+        XCTAssertEqual([Tap.received], taps)
+    }
+
+}
+
+extension ArmoryTests {
+
+    @objc func tapGesture(_ sender: UITapGestureRecognizer) {
+        taps.append(.received)
     }
 }
 
