@@ -654,13 +654,7 @@ extension Armory {
     }
 
     func selectCellAction(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws {
-        let action: UITableViewRowAction
-
-        do {
-            action = try retrieveActionForCell(withTitle: title, at: indexPath, in: tableView)
-        } catch {
-            throw error
-        }
+        let action = try retrieveActionForCell(withTitle: title, at: indexPath, in: tableView)
 
         let actionHandler = action.value(forKey: "handler")
         let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
