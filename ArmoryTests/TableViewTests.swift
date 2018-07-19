@@ -81,7 +81,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
 
         try! selectCellAction(withTitle: title, at: indexPath, in: viewController.tableView)
 
-        XCTAssertTrue(actions.contains(title))
+        XCTAssertEqual([title], actions)
     }
 
     func testCallTableViewActionWithTitleFailure() {
@@ -114,7 +114,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
 
         selectRow(at: indexPath, fromTableView: viewController.tableView)
 
-        XCTAssertTrue(selectedIndexPaths.contains(indexPath))
+        XCTAssertEqual([indexPath], selectedIndexPaths)
     }
 }
 
