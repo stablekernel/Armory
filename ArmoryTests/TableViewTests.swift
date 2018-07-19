@@ -104,7 +104,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
         }
     }
 
-    func testSelectCell() {
+    func testSelectValidCell() {
         viewController.setupDataSource(names: testNames)
         pump()
 
@@ -112,9 +112,47 @@ class TableViewTests: XCTestCase, ArmoryTestable {
 
         let indexPath = IndexPath(row: 1, section: 0)
 
-        selectRow(at: indexPath, fromTableView: viewController.tableView)
+        try! selectRow(at: indexPath, fromTableView: viewController.tableView)
 
         XCTAssertEqual([indexPath], selectedIndexPaths)
+    }
+
+    func testSelectInvalidCellIndex() {
+        viewController.setupDataSource(names: testNames)
+        pump()
+
+        viewController.delegate = self
+
+        let indexPath = IndexPath(row: 8, section: 0)
+
+        do {
+            try selectRow(at: indexPath, fromTableView: viewController.tableView)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.indexOutOfBounds)
+            XCTAssertTrue(selectedIndexPaths.isEmpty)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
+    }
+
+    func testSelectCellNoDelegate() {
+        viewController.setupDataSource(names: testNames)
+        pump()
+
+        viewController.tableView.delegate = nil
+
+        let indexPath = IndexPath(row: 1, section: 0)
+
+        do {
+            try selectRow(at: indexPath, fromTableView: viewController.tableView)
+            XCTFail("Expected test to throw error")
+        } catch let error as ArmoryError {
+            XCTAssertEqual(error, ArmoryError.cellNotSelectable)
+            XCTAssertTrue(selectedIndexPaths.isEmpty)
+        } catch {
+            XCTFail("Unexpected error: \(error.localizedDescription)")
+        }
     }
 }
 

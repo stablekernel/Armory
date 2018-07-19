@@ -21,6 +21,8 @@ enum ArmoryError: Error {
     case invalidValue
     case multipleMatchesFound
     case cellNotEditable
+    case cellNotSelectable
+
 }
 
 // MARK: - Armory
@@ -351,8 +353,10 @@ protocol Armory {
      - Parameters:
      - indexPath: The `IndexPath` of row to select
      - tableView: The `UITableView` instance where row is located
+
+     - throws: ArmoryError
      */
-    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView)
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) throws
 }
 
 // MARK: - Armory Default Implementation
@@ -664,8 +668,16 @@ extension Armory {
         pump()
     }
 
-    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) {
-        tableView.delegate!.tableView!(tableView, didSelectRowAt: indexPath)
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) throws {
+        guard tableView.cellForRow(at: indexPath) != nil else {
+            throw ArmoryError.indexOutOfBounds
+        }
+
+        guard let delegate = tableView.delegate else {
+            throw ArmoryError.cellNotSelectable
+        }
+
+        delegate.tableView!(tableView, didSelectRowAt: indexPath)
     }
 }
 
