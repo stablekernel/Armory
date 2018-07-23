@@ -1,6 +1,97 @@
 {
   "warnings": [
     {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": null,
+      "symbol": "Armory",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": null,
+      "symbol": "ArmoryTestable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 17,
+      "symbol": "ArmoryError.indexOutOfBounds",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 18,
+      "symbol": "ArmoryError.imageLookupFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 19,
+      "symbol": "ArmoryError.titleLookupFailed",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 20,
+      "symbol": "ArmoryError.invalidCellType",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 21,
+      "symbol": "ArmoryError.invalidValue",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 22,
+      "symbol": "ArmoryError.multipleMatchesFound",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 32,
+      "symbol": "Armory",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 34,
+      "symbol": "Armory.ViewControllerType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 367,
+      "symbol": "Armory.tap(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 376,
+      "symbol": "Armory.tap(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 652,
+      "symbol": "ArmoryTestable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/cameron/Code/Armory/code/Armory/Robot.swift",
       "line": 12,
       "symbol": "Robot",
@@ -16,13 +107,6 @@
     },
     {
       "file": "/Users/cameron/Code/Armory/code/Armory/Robot.swift",
-      "line": 17,
-      "symbol": "Robot.viewController",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/Robot.swift",
       "line": 21,
       "symbol": "Robot.init(testClass:viewController:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -32,223 +116,6 @@
       "file": "/Users/cameron/Code/Armory/code/Armory/Robot.swift",
       "line": 26,
       "symbol": "Robot.init(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/Robot.swift",
-      "line": 32,
-      "symbol": "Robot.expectation(description:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/Robot.swift",
-      "line": 36,
-      "symbol": "Robot.waitForExpectations(timeout:handler:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": null,
-      "symbol": "VCTest",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 12,
-      "symbol": "ArmoryError",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 14,
-      "symbol": "ArmoryError.indexOutOfBounds",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 15,
-      "symbol": "ArmoryError.imageLookupFailed",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 16,
-      "symbol": "ArmoryError.titleLookupFailed",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 17,
-      "symbol": "ArmoryError.invalidCellType",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 18,
-      "symbol": "ArmoryError.invalidValue",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 19,
-      "symbol": "ArmoryError.multipleMatchesFound",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 24,
-      "symbol": "VCTestSetup",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 26,
-      "symbol": "VCTestSetup.build()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 28,
-      "symbol": "VCTestSetup.harness(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 33,
-      "symbol": "AlertHandler",
-      "symbol_kind": "source.lang.swift.decl.typealias",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 35,
-      "symbol": "VCTest",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 37,
-      "symbol": "VCTest.ViewControllerType",
-      "symbol_kind": "source.lang.swift.decl.associatedtype",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 39,
-      "symbol": "VCTest.viewController",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 41,
-      "symbol": "VCTest.tap(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 43,
-      "symbol": "VCTest.tap(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 55,
-      "symbol": "VCTest.type(_:text:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 240,
-      "symbol": "VCTest.after(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 242,
-      "symbol": "VCTest.pump()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 244,
-      "symbol": "VCTest.expectation(description:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 246,
-      "symbol": "VCTest.waitForExpectations(timeout:handler:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 253,
-      "symbol": "VCTest.tap(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 262,
-      "symbol": "VCTest.tap(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 290,
-      "symbol": "VCTest.type(_:text:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 524,
-      "symbol": "VCTest.after(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 540,
-      "symbol": "VCTest.pump()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 544,
-      "symbol": "VCTest.harness(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/cameron/Code/Armory/code/Armory/VCTest.swift",
-      "line": 550,
-      "symbol": "VCTest.build()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
