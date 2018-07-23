@@ -21,7 +21,7 @@ enum ArmoryError: Error {
     case invalidValue
     case multipleMatchesFound
     case cellNotEditable
-    case cellNotSelectable
+    case delegateNotFound
 
 }
 
@@ -674,7 +674,7 @@ extension Armory {
         }
 
         guard let delegate = tableView.delegate else {
-            throw ArmoryError.cellNotSelectable
+            throw ArmoryError.delegateNotFound
         }
 
         delegate.tableView!(tableView, didSelectRowAt: indexPath)

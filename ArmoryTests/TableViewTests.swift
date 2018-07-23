@@ -148,7 +148,7 @@ class TableViewTests: XCTestCase, ArmoryTestable {
             try selectRow(at: indexPath, fromTableView: viewController.tableView)
             XCTFail("Expected test to throw error")
         } catch let error as ArmoryError {
-            XCTAssertEqual(error, ArmoryError.cellNotSelectable)
+            XCTAssertEqual(error, ArmoryError.delegateNotFound)
             XCTAssertTrue(selectedIndexPaths.isEmpty)
         } catch {
             XCTFail("Unexpected error: \(error.localizedDescription)")
