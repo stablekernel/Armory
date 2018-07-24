@@ -20,6 +20,9 @@ enum ArmoryError: Error {
     case invalidCellType
     case invalidValue
     case multipleMatchesFound
+    case cellNotEditable
+    case delegateNotFound
+
 }
 
 // MARK: - Armory
@@ -28,6 +31,8 @@ enum ArmoryError: Error {
  Convenience typealias used internally to cast `UIAlertAction` handlers
  */
 typealias AlertHandler = @convention(block) (UIAlertAction) -> Void
+
+typealias TableViewCellHandler = @convention(block) (UITableViewRowAction, IndexPath) -> Void
 
 protocol Armory {
 
@@ -329,6 +334,29 @@ protocol Armory {
      - returns: The cell at the given `indexPath`
      */
     func cell<A: UITableViewCell>(at indexPath: IndexPath, fromTableView tableView: UITableView) throws -> A
+
+    /**
+     Calls handler for `UITableViewRowAction` provided at the given `IndexPath`
+     
+     - Parameters:
+     - action: The `UITableViewRowAction` to call handler for
+     - indexPath: `IndexPath` of `UITableViewCell` that contains action
+     - tableView: The `UITableView` instance where row is located
+     
+     - throws: ArmoryError
+     */
+    func selectCellAction(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws
+
+    /**
+     Selects the row at `indexPath` in given `UITableView`
+
+     - Parameters:
+     - indexPath: The `IndexPath` of row to select
+     - tableView: The `UITableView` instance where row is located
+
+     - throws: ArmoryError
+     */
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) throws
 }
 
 // MARK: - Armory Default Implementation
@@ -628,6 +656,29 @@ extension Armory {
 
         return validCell
     }
+
+    func selectCellAction(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws {
+        let action = try retrieveActionForCell(withTitle: title, at: indexPath, in: tableView)
+
+        let actionHandler = action.value(forKey: "handler")
+        let blockPtr = UnsafeRawPointer(Unmanaged<AnyObject>.passUnretained(actionHandler as AnyObject).toOpaque())
+        let handler = unsafeBitCast(blockPtr, to: TableViewCellHandler.self)
+        
+        handler(action, indexPath)
+        pump()
+    }
+
+    func selectRow(at indexPath: IndexPath, fromTableView tableView: UITableView) throws {
+        guard tableView.cellForRow(at: indexPath) != nil else {
+            throw ArmoryError.indexOutOfBounds
+        }
+
+        guard let delegate = tableView.delegate else {
+            throw ArmoryError.delegateNotFound
+        }
+
+        delegate.tableView!(tableView, didSelectRowAt: indexPath)
+    }
 }
 
 // MARK: - Private
@@ -644,6 +695,34 @@ extension Armory {
         // Disabled controls do not receive touch events
         // Since we are programmatically hit testing, we need to confirm the control is enabled
         return control.isEnabled && control.superview?.hitTest(control.center, with: nil) != nil
+    }
+
+    /**
+     Returns `UITableViewRowAction` with specified title for the `UITableViewCell` at given `IndexPath` in `UITableView`
+
+     - parameter title: Title of edit action to be retrieved
+     - parameter indexPath: `IndexPath` of `UITableViewCell` that contains action
+     - parameter tableView: `UITableView` instance where `UITableViewCell` is located
+
+     - throws: ArmoryError
+     */
+    fileprivate func retrieveActionForCell(withTitle title: String, at indexPath: IndexPath, in tableView: UITableView) throws -> UITableViewRowAction {
+
+        guard let actions = tableView.delegate!.tableView!(tableView, editActionsForRowAt: indexPath) else {
+            throw ArmoryError.cellNotEditable
+        }
+
+        let filteredActions = actions.filter { $0.title == title }
+
+        guard !filteredActions.isEmpty else {
+            throw ArmoryError.titleLookupFailed
+        }
+
+        guard filteredActions.count == 1 else {
+            throw ArmoryError.multipleMatchesFound
+        }
+
+        return filteredActions[0]
     }
 }
 
