@@ -4,20 +4,22 @@ Armory is a testing framework for iOS written in Swift
 
 ## Installation
 
-### Git submodule
-
-Armory can be added as a dependency of a project as a git submodule:
+1) Add Armory as a git submodule for your project:
 
 `git submodule add git@github.com:stablekernel/Armory.git`
 
-This leaves the option of using the source files directly or embedding as a framework.
+2) Create a group for Armory
 
-###### Source files directly
-* Create a group for Armory
-* Drag the source files from Armory/Armory into the group
+![Armory_Group](img/1_Armory_Folder.png)
 
-###### Embedded framework  
-* Drag Armory.xcodeproj into your project
-* Add Armory.framework to your project as an embedded binary
+3) Drag the source files from Armory/Armory into the group
 
-Using an embedded framework gets a little tricky when the parent project uses any configurations other than `Debug` and `Release`. If your project needs more configuration, install the source files directly. 
+![Armory_Files](img/2_Armory_Files.png)
+
+4) Add the files to your test target
+
+![Armory_Target](img/3_Xcode_Import.png)
+
+5) Make sure your test class conforms to `ArmoryTestable`
+
+![Armory_Testable](img/4_Final_Test.png)
