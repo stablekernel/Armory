@@ -31,6 +31,31 @@
             "title": "Embedded framework"
         }, 
         {
+            "location": "/overview/", 
+            "text": "Overview\n\n\nWhat is Armory?\n\n\nArmory is a UI testing framework for iOS built in Swift. \n\n\nArmory allows you to quickly get started with UI testing in your new or existing app by allowing you to test your view controllers in isolation. \n\n\nBenefits of Armory\n\n\nArmory offers many benefits over Apple's built-in UI testing framework, while providing you with the same intuitive functionality you would expect.\n\n\nNeed to simulate a user tapping a button? Just call \ntap(myButton)\n \n\n\nNeed to simulate a user typing into a text field? Just call \ntype(myTextField, \"some text\")\n\n\nWe've created Armory from the ground up with a developer-first mentality to make it as easy as possible to include UI testing in your app.\n\n\nIn addition to being easy to use, Armory is also fast. By spinning up a new window for each test, Armory makes it possible to test each of your view controllers in isolation without having to restart your app. No more starting with \nXCUIApplication\n and having to navigate to the screen you want before each test.\n\n\nGet started with Armory\n\n\nCheckout our \nquickstart\n page to see some more examples, or see our \nhomepage\n to see how to install Armory in your project.", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/overview/#overview", 
+            "text": "", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/overview/#what-is-armory", 
+            "text": "Armory is a UI testing framework for iOS built in Swift.   Armory allows you to quickly get started with UI testing in your new or existing app by allowing you to test your view controllers in isolation.", 
+            "title": "What is Armory?"
+        }, 
+        {
+            "location": "/overview/#benefits-of-armory", 
+            "text": "Armory offers many benefits over Apple's built-in UI testing framework, while providing you with the same intuitive functionality you would expect.  Need to simulate a user tapping a button? Just call  tap(myButton)    Need to simulate a user typing into a text field? Just call  type(myTextField, \"some text\")  We've created Armory from the ground up with a developer-first mentality to make it as easy as possible to include UI testing in your app.  In addition to being easy to use, Armory is also fast. By spinning up a new window for each test, Armory makes it possible to test each of your view controllers in isolation without having to restart your app. No more starting with  XCUIApplication  and having to navigate to the screen you want before each test.", 
+            "title": "Benefits of Armory"
+        }, 
+        {
+            "location": "/overview/#get-started-with-armory", 
+            "text": "Checkout our  quickstart  page to see some more examples, or see our  homepage  to see how to install Armory in your project.", 
+            "title": "Get started with Armory"
+        }, 
+        {
             "location": "/quickstart/", 
             "text": "Quickstart\n\n\nArmory is built to run along side existing XCTests in your project. \n\n\nTo get started, first make sure your test class conforms to the \nVCTest\n protocol:\n\n\nclass MyViewControllerTests: XCTestCase, VCTest\n\n\n\n\nThen use provided Armory methods in any place where you would like to simulate user interaction. For example, a \nUITextField\n that you want to enter text into would look like: \n\n\ntype(viewController.myTextField, text: \nSome text here\n)\n\n\n\n\nThe process is similar for other elements, so if you wanted to tap a button you would write:\n\n\ntap(myButton)\n\n\n\n\nIn addition to interacting with \nUIKit\n elements, Armory also provides conveniences for testing \nUIViewController\n presentations and dismissals. Below shows an example of how to test presenting and dismissing a \nUIAlertController\n instance:\n\n\ntap(viewController.showAlertButton)\n\nlet alertController: UIAlertController = waitForPresentedViewController()\ntapButton(withTitle: \nClose\n, fromAlertController: alertController)\n\nwaitForDismissedViewController()\nXCTAssertNil(viewController.presentedViewController)", 
             "title": "Quickstart"

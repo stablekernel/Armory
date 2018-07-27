@@ -58,35 +58,56 @@
     },
     {
       "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
-      "line": 32,
+      "line": 23,
+      "symbol": "ArmoryError.cellNotEditable",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 24,
+      "symbol": "ArmoryError.delegateNotFound",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 35,
+      "symbol": "TableViewCellHandler",
+      "symbol_kind": "source.lang.swift.decl.typealias",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
+      "line": 37,
       "symbol": "Armory",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
-      "line": 34,
+      "line": 39,
       "symbol": "Armory.ViewControllerType",
       "symbol_kind": "source.lang.swift.decl.associatedtype",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
-      "line": 367,
+      "line": 395,
       "symbol": "Armory.tap(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
-      "line": 376,
+      "line": 404,
       "symbol": "Armory.tap(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/cameron/Code/Armory/code/Armory/Armory.swift",
-      "line": 652,
+      "line": 731,
       "symbol": "ArmoryTestable",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"

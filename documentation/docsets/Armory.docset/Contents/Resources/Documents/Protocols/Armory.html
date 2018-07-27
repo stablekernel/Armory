@@ -14,7 +14,7 @@
     <a title="Armory Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Armory Docs</a> (77% documented)</p>
+        <p><a href="../index.html">Armory Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/stablekernel/Armory"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -60,6 +60,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Typealiases.html#/s:6Armory12AlertHandlera">AlertHandler</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:6Armory20TableViewCellHandlera">TableViewCellHandler</a>
               </li>
             </ul>
           </li>
@@ -1348,12 +1351,95 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ArmoryAAP16selectCellActionySS9withTitle_10Foundation9IndexPathV2atSo11UITableViewC2intKF"></a>
+                    <a name="//apple_ref/swift/Method/selectCellAction(withTitle:at:in:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ArmoryAAP16selectCellActionySS9withTitle_10Foundation9IndexPathV2atSo11UITableViewC2intKF">selectCellAction(withTitle:at:in:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calls handler for <code>UITableViewRowAction</code> provided at the given <code>IndexPath</code></p>
+<li>action: The <code>UITableViewRowAction</code> to call handler for</li>
+<li>indexPath: <code>IndexPath</code> of <code>UITableViewCell</code> that contains action</li>
+<li><p>tableView: The <code>UITableView</code> instance where row is located</p></li>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>ArmoryError</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">selectCellAction</span><span class="p">(</span><span class="n">withTitle</span> <span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">at</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="k">in</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6ArmoryAAP9selectRowy10Foundation9IndexPathV2at_So11UITableViewC09fromTableI0tKF"></a>
+                    <a name="//apple_ref/swift/Method/selectRow(at:fromTableView:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6ArmoryAAP9selectRowy10Foundation9IndexPathV2at_So11UITableViewC09fromTableI0tKF">selectRow(at:fromTableView:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Selects the row at <code>indexPath</code> in given <code>UITableView</code></p>
+<li>indexPath: The <code>IndexPath</code> of row to select</li>
+<li><p>tableView: The <code>UITableView</code> instance where row is located</p></li>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    <p>ArmoryError</p>
+
+</div>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">selectRow</span><span class="p">(</span><span class="n">at</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="n">fromTableView</span> <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://stablekernel.com" target="_blank" rel="external">stable|kernel</a>. All rights reserved. (Last updated: 2018-07-23)</p>
+          <p>&copy; 2018 <a class="link" href="https://stablekernel.com" target="_blank" rel="external">stable|kernel</a>. All rights reserved. (Last updated: 2018-07-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
