@@ -380,7 +380,7 @@ extension Armory {
     }
 
     func pump() {
-        RunLoop.current.limitDate(forMode: RunLoopMode.defaultRunLoopMode)
+        RunLoop.current.limitDate(forMode: .default)
     }
 
     func waitForPresentedViewController<A: UIViewController>() -> A {
