@@ -37,9 +37,9 @@ class ViewControllerRobot: Robot<MyViewController> {
 
 ##### ViewControllerTests.swift
 ```swift
-class ViewControllerTests: XCTest, VCTest {
+class ViewControllerTests: XCTest, ArmoryTestable {
 	var robot: ViewControllerRobot!
-	
+
 	override func setUp() {
 		super.setUp()
 		robot = ViewControllerRobot(self)
