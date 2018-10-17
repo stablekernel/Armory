@@ -124,12 +124,23 @@
             <div class="section">
               
                 <h1 id="quickstart">Quickstart</h1>
-<p>Armory is built to run along side existing XCTests in your project. </p>
-<p>To get started, first make sure your test class conforms to the <code>VCTest</code> protocol:</p>
-<pre><code class="swift">class MyViewControllerTests: XCTestCase, VCTest
+<p>Armory is built to run along side existing XCTests in your project.</p>
+<p>To get started, first make sure your test class conforms to the <code>ArmoryTestable</code> protocol:</p>
+<pre><code class="swift">class MyViewControllerTests: XCTestCase, ArmoryTestable
 </code></pre>
 
-<p>Then use provided Armory methods in any place where you would like to simulate user interaction. For example, a <code>UITextField</code> that you want to enter text into would look like: </p>
+<pre><code>override func setUp() {
+    viewController = // Instantiate VC programmatically, from xib or from storyboard
+    build()
+}
+
+override func tearDown() {
+    viewController = nil
+}
+
+</code></pre>
+
+<p>Then use provided Armory methods in any place where you would like to simulate user interaction. For example, a <code>UITextField</code> that you want to enter text into would look like:</p>
 <pre><code class="swift">type(viewController.myTextField, text: &quot;Some text here&quot;)
 </code></pre>
 
