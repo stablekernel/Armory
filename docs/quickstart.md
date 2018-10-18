@@ -1,14 +1,27 @@
 # Quickstart
 
-Armory is built to run along side existing XCTests in your project. 
+Armory is built to run along side existing XCTests in your project.
 
-To get started, first make sure your test class conforms to the `VCTest` protocol:
+To get started, first make sure your test class conforms to the `ArmoryTestable` protocol:
 
 ```swift
-class MyViewControllerTests: XCTestCase, VCTest
+@testable import Armory
+class MyViewControllerTests: XCTestCase, ArmoryTestable
 ```
 
-Then use provided Armory methods in any place where you would like to simulate user interaction. For example, a `UITextField` that you want to enter text into would look like: 
+```
+override func setUp() {
+    viewController = // Instantiate VC programmatically, from xib or from storyboard
+    build()
+}
+
+override func tearDown() {
+    viewController = nil
+}
+
+```
+
+Then use provided Armory methods in any place where you would like to simulate user interaction. For example, a `UITextField` that you want to enter text into would look like:
 
 ```swift
 type(viewController.myTextField, text: "Some text here")
