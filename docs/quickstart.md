@@ -5,6 +5,7 @@ Armory is built to run along side existing XCTests in your project.
 To get started, first make sure your test class conforms to the `ArmoryTestable` protocol:
 
 ```swift
+@testable import Armory
 class MyViewControllerTests: XCTestCase, ArmoryTestable
 ```
 
